@@ -1,0 +1,161 @@
+\documentclass[15pt]{article}
+%\usepackage[a5paper,margin=0.5in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{extarrows}
+\renewcommand{\proofname}{Доказательство}
+\usepackage{amssymb}
+
+
+\title{Неунимодулярные линейные группы с абелевым унипотентным радикалом}
+\author{}
+\date{}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[russian, english]{babel}
+
+\theoremstyle{remark}
+\newtheorem{prop}{Утверждение}
+\newtheorem{thm}{Теорема}
+\newtheorem{lm}{Лемма}
+
+\linespread{1.3}
+
+\begin{document}
+
+\maketitle
+
+\sloppy
+
+\section{Введение}
+
+Пусть $R$ --- коммутативное кольцо, $G = G(\Phi, R)$ --- редуктивная группа над $R$ с системой корней $\Phi = \Phi_1 + \dots + \Phi_n$. Пусть $U$ --- неприводимое представление $G$ над $R$. Будем предполагать обратимость всех возникающих коэффициентов в коммутационных соотношениях Шевалле: $2,3 \in R^* $. %(\#Все не нужны, но не забыть про те, которые возникнут из $U$).
+
+$R[G]$-модуль $U$ можно рассматривать как аддитивную группу с действием $G$ на ней, поэтому имеет смысл полупрямое произведение $G \rightthreetimes U$. При этом условие неприводимости будет означать отсутствие в $U$ подгрупп, нормализуемых $G$. Действие $G$ на $U$ будем обозначать как $^{g}u$.
+
+\section{Элементарная группа}
+
+\begin{prop}
+  $$[[g,u],v] = 0$$
+\end{prop}
+\begin{proof}
+  Очевидно следует из абелевости $U$.
+\end{proof}
+
+Обозначим за $E = E(\Phi,R)$ подгруппу в $G$, порождённую корневыми унипотентами $x_\alpha(\xi)$, где $\alpha \in \Phi$, $\xi \in R$.
+
+Заметим, что
+\begin{prop}
+  $$[x_\alpha(-\xi),u] = [x_\alpha(\xi),u]^{-1}$$
+\end{prop}
+\begin{prop}
+  $$[x_\alpha(\theta\xi),u] = [x_\alpha(\xi),u]^\theta, \, \theta \in R$$
+\end{prop}
+\begin{prop}
+  $$[x_\alpha(\xi),u^\theta] = [x_\alpha(\xi),u]^\theta, \, \theta \in R$$
+\end{prop}
+\begin{prop}
+  $$[x_\alpha(\xi),[x_\alpha(\xi),u]] = 1$$
+\end{prop}
+
+Будем предполагать также, что $E$ действует на $U$ неприводимо, то есть в $U$ нет подгрупп, нормализуемых $E$.
+
+Рассмотрим семейства операторов $T_{\alpha,\xi} = [x_\alpha(1),\,\boldsymbol{\cdot}\,]$, где $\alpha \in \Phi$. Коядра и образы этих операторов имеют размерность не более $1$.
+
+Заметим, что если $\bigcup_{\xi\in R}\mathrm{Im}T_{\alpha_1,\xi} \notin \bigcap_{\xi\in R}\mathrm{Ker}T_{\beta,\xi}$ и $\bigcup_{\xi\in R}\mathrm{Im}T_{\alpha_2,\xi} \notin \bigcap_{\xi\in R}\mathrm{Ker}T_{\beta,\xi}$, то $\bigcup_{\xi\in R}\mathrm{Im}T_{\alpha_1,\xi} = \bigcup_{\xi\in R}\mathrm{Im}T_{\alpha_2,\xi}$.
+
+Поэтому можно рассмотреть граф, вершинами которого будут образы $s(\alpha) = \bigcup_{\xi\in R}\mathrm{Im}T_{\alpha,\xi}$ этих операторов, а рёбрами --- корни $\alpha \in \Phi$. В силу неприводимости действия $E$ на $U$ этот граф будет связным.
+
+Выбор положительных корней $\Phi^+ \subset \Phi$ задаёт ориентацию на графе, что, вследствие отсутствия циклов, влечёт частичный порядок на его вершинах.
+
+Обозначим множество вершин этого графа через $\Sigma$ и будем называть его элементы дополнительными корнями. Также в каждом одномерном подмодуле $\alpha \in \Sigma$ зафиксируем некоторый порождающий элемент $u_\alpha(1)$. Порождаемые им элементы $u_\alpha(1)^\xi$, $\xi \in R$, будем обозначать через $u_\alpha(\xi)$.
+
+Выпишем некоторые свойства $u_\alpha(\xi)$, делающие их похожими на корневые унипоненты:
+
+\begin{prop}
+  $$ u_\sigma(\xi) u_\sigma(\eta) = u_\sigma(\xi + \eta), \; \sigma \in \Sigma $$
+  $$ [u_\sigma(\xi), u_\tau(\eta)] = 1, \; \sigma,\tau \in \Sigma $$
+  $$ [x_\alpha(\xi), u_\sigma(\eta)] = u_{s(\alpha)}(c_{\alpha\sigma}\xi\eta), \; \alpha \in \Phi, \sigma \in \Sigma,$$ если ребро $\alpha$ имеет своим началом корень $\sigma$, иначе $ [x_\alpha(\xi), u_\sigma(\eta)]=1 $.
+\end{prop}
+
+В дальнейшем будет обозначать $s(\alpha)$ как $\alpha+\sigma \in \Sigma$, если ребро $\alpha$ имеет своим началом корень $\sigma$, иначе будем говорить, что  $\alpha+\sigma \notin \Sigma$.
+
+\begin{prop}
+  В $\Sigma$ существует единственный максимальный корень $\widetilde{\sigma}$.
+\end{prop}
+
+\begin{prop}
+  В $\Sigma$ существует единственный минимальный корень $r$.
+\end{prop}
+
+Таким образом, мы построили дополненную элементарную группу $E \rightthreetimes U \le G \rightthreetimes U$, порождаемую корнями $x_\alpha(\xi) \in E$ и дополнительными корнями $x_\sigma(\xi) \in U$.
+
+\section{Подгруппы, нормализуемые $E$}
+
+\begin{lm}(\citep{Stavrova2009}, Theorem 2.3, Corollary 2.4)
+  \label{directproduct}
+  Пусть $G = G(\Phi, R)$ --- редуктивная групповая схема Шевалле-Демазюра
+  с системой корней $\Phi = \Phi_1 + \ldots + \Phi_n$, где каждая неприводимая система корней $\Phi_i$ имеет ранг не меньше $2$. В коммутативном кольце $R$ предполагается обратимость всех необходимых структурных констант.
+  
+  Тогда если подгруппа $H \le G$ нормализуется элементарной группой $E = E(\Phi,R)$, то её коммутант с $E$ можно записать в виде прямого произведения
+  $$ [H, E] = \prod_{i=1}^n E(\Phi_i,R,I_i), $$
+  где $E(\Phi_i,R,I_i) = E(\Phi_i,I_i)^{E(\Psi,R)}$, $I_i \trianglelefteq R$
+\end{lm}
+
+\begin{lm}(\citep{Stavrova2009}, Lemma 4.2)
+  \label{transitivity}
+  Для любых двух корней $\alpha, \beta \in \Phi$ что их сумма также лежит в $\Phi$, и для любых  $\xi \in R$, $I \trianglelefteq R$ выполнено
+  $$ \left< x_\alpha(\xi) \right>^{X_\beta(I)} \ge X_{\alpha + \beta}(\xi I) $$  
+\end{lm}
+
+
+\begin{thm}
+  Снова $G = G(\Phi, R)$ --- редуктивная групповая схема Шевалле-Демазюра
+  с системой корней $\Phi = \Phi_1 + \ldots + \Phi_n$, где каждая $\Phi_i$ --- неприводимая система корней ранга не меньше $2$. В коммутативном кольце $R$ предполагается обратимость всех необходимых структурных констант. $U$ --- неприводимое представление $G$, такое что $E$ действует на нём также неприводимо.
+    
+  Пусть имеется подгруппа $H \le G \rightthreetimes U$, нормализуемая группой $E$, то есть $[H,E] \le H$. Тогда образ $H$ при проекции $G \rightthreetimes U \rightarrow G$, обозначаемый как $H_G$, будет обладать следующим свойством: $[H_G,E]\le H$.
+\end{thm}
+\begin{proof}
+  $H$ нормализуется $E$, следовательно $H_G$ также нормализуется $E$. По лемме \ref{directproduct} $[H,E] = \prod_{i=1}^n E(\Phi_i,R,I_i)$. Требуется доказать, что $[H,E] = \prod_{i=1}^n E(\Phi_i,R,I_i) \le H$, то есть $ E(\Phi_i,R,I_i) \le H \; \forall i \in 1 \ldots n $.
+  
+\begin{lm}
+  $$X_{\widetilde{\beta_i}}(I_i)^{E(\Psi_i,R,I_i)} = E(\Psi_i,R,I_i),$$
+  где $\widetilde{\beta}_i$ --- максимальный корень в $\Phi_i$.
+\end{lm}
+\begin{proof}
+  Непосредственно вытекает из леммы \ref{transitivity}.
+\end{proof}
+
+Таким образом, необходимо доказать, что $x_{\widetilde{\beta_i}}(\xi) \le H \; \forall \xi \in R$.
+
+По построению известно, что $x_{\widetilde{\beta_i}}(\xi) \in H_G$.
+Разложим $x_{\widetilde{\beta_i}}(\xi)$ в произведение $$x_{\widetilde{\beta_i}}(\xi) = h u^{-1} = h \prod x_\sigma(u_\sigma),$$
+
+где произведение берётся по дополнительным корням согласованно с частичным порядком на них.
+
+Будем по очереди доказывать, что все множители так же лежат в $H$.
+
+Пусть корень $\sigma$ в первом (минимальном) множителе не совпадает с $\widetilde{\sigma}$. Тогда найдётся $\beta \in \Phi^+$, такой что $\beta+\sigma \in \Sigma$. Тогда
+
+$$
+w \coloneqq [x_\beta(1), x_{\widetilde{\beta}}(\xi)u] =
+x_\beta(1) x_{\widetilde{\beta}}(\xi) u x_\beta(-1) u^{-1} x_{\widetilde{\beta}}(-\xi)
+\xlongequal{\beta+\widetilde{\beta}\notin\Sigma}$$
+$$=x_\beta(1) x_{\widetilde{\beta}}(\xi) u x_\beta(-1) u^{-1} x_{\widetilde{\beta}}(-\xi) = \,
+^{x_{\widetilde{\beta}}(\xi)}[x_\beta(1),u] \xlongequal{\text{similar}} [x_\beta(1),u] \in U
+$$ 
+
+Но также $ w \coloneqq [x_\beta(1), x_{\widetilde{\beta}}(\xi)u] \in H$, так как $x_{\widetilde{\beta}}(\xi)u \in H$. Следовательно, так как в U не может быть подгрупп, нормализуемых $E$, то и все множители в разложении $w = \prod x_\sigma(w_\sigma)$ лежат в $U$. А минимальный множитель в этом разложении имеет вид $x_{\sigma+\beta}(c u_\sigma)$, где $c \in R^*$. Поэтому и минимальный множитель в разложении $u = \prod x_\sigma(u_\sigma)$ также лежит в $U$.
+
+Осталось доказать случай, когда остался последний множитель $x_{\widetilde{\sigma}}(u_{\widetilde{\sigma}})$. Его доказательство является предметом дальнейших исследований.
+
+
+\end{proof}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
