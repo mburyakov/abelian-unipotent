@@ -2,13 +2,15 @@
 \usepackage[a5paper,margin=0.9in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[english, russian]{babel}
 \usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathtools}
 \usepackage{extarrows}
-\renewcommand{\proofname}{Доказательство}
 \usepackage{amssymb}
 \usepackage{tikz}
 \usepackage{tikz-cd}
@@ -17,15 +19,13 @@
 \author{}
 \date{}
 
-\usepackage{natbib}
-\usepackage{graphicx}
-\usepackage[russian, english]{babel}
 
 \theoremstyle{remark}
 \newtheorem{prop}{Утверждение}
 \newtheorem{thm}{Теорема}
 \newtheorem{lm}{Лемма}
 \newtheorem{example}{Пример}
+
 
 \linespread{1.3}
 
@@ -34,10 +34,9 @@
 \renewcommand{\le}{\leqslant}
 \renewcommand{\ge}{\geqslant}
 \begin{document}
+\maketitle
 
-%\maketitle
-
-\sloppy
+%\sloppy
 
 \section{Введение}
 
@@ -63,17 +62,6 @@ $X(T)$ --- группа рациональных характеров тора.
 [x_\alpha(\xi), u_\sigma(\eta)] = \prod_{i=1}^{d_\alpha} u_{\sigma+i\alpha}(N_{\sigma\alpha i}\,\xi^i \eta),
 \end{equation}
 где $N_{\sigma\alpha i}$ ---  некоторые целочисленные структурные константы. Выбор положительных корней $\Phi^+$ задаёт частичный порядок $\prec$ в $\Sigma$, причём неприводимость представления влечёт существование единственного старшего (относительно $\prec$) веса $\widetilde{\sigma}$, то есть $\forall \sigma \in \Sigma \  \exists \alpha \in \Phi : \sigma+\alpha = \widetilde{\sigma}$.
-
-% в схемном смысле, рациональное представление - то есть сразу существует весовое разложение).
-
-%Пусть $R$ --- коммутативное кольцо, $G = G(\Phi, R)$ --- редуктивная группа над $R$ с системой корней $\Phi = \Phi_1 + \dots + \Phi_n$.
-%Пусть $U$ --- неприводимое представление $G$ над $R$ (\# в схемном смысле, рациональное представление - то есть сразу существует весовое разложение).
-
-%Модуль Вейля V(pi)
-%Неприводимые L(pi)
-%Нужны модули вейля
-%w(po) - экстремальные веса
-%Микровесовое представление
 
 
 \begin{example}
@@ -164,15 +152,16 @@ t_1^3 & 0 & 0 & 0 \\
 \begin{tikzpicture}[thick, scale=0.5]
 
 \foreach \k in {1,...,4} {
-  \draw[blue,dashed] (0,0) -- +(\k * 90:4);
+  \draw[blue,dashed] (0,0) -- +(\k * 90:2.5);
 }
 \begin{scope}
-\node[circle,inner sep=2,fill=red] at (0, 3) {};
-\node[circle,inner sep=2,draw=red] at (1, 2) {};
-\node[circle,inner sep=2,fill=red] at (2, 1) {};
-\node[circle,inner sep=2,draw=red] at (3, 0) {};
-\node at (3,-0.7) {3};
-\node at (-0.7,3) {3};
+\node[circle,inner sep=2,fill=blue] at (0, 0) {};
+\node[circle,inner sep=2,draw=blue] at (-1, 1) {};
+\draw[blue,dotted] (-1,1) -- (0,1);
+\node at (0.5,1) {1};
+\draw[blue,dotted] (-1,1) -- (-1,0);
+\node at (-1,-0.5) {-1};
+\node[circle,inner sep=2,draw=blue] at (1, -1) {};
 \end{scope}
 
 \end{tikzpicture}
@@ -225,11 +214,14 @@ t_1^3 & 0 & 0 & 0 \\
 Сформулируем несколько простых свойств коммутаторов.
 
 \begin{prop}
-  $$[[g,u],v] = 0, \quad g \in G, \ u,v \in U $$
+  $$[[g,u],v] = 1, \quad g \in G, \ u,v \in U $$
 \end{prop}
 \begin{proof}
   Очевидно следует из абелевости $U$.
-  $$ [[g,u],v] = (g u g^{-1} u^{-1}) v (u g u^{-1} g^{-1}) v^{-1} = (gug^{-1}) (u^{-1}) (v) (u) (g^{-1}u^{-1}g) (v^{-1}) = 0$$
+\begin{align*}
+[[g,u],v] = (g u g^{-1} u^{-1}) v (u g u^{-1} g^{-1}) v^{-1} = \\
+= (gug^{-1}) (u^{-1}) (v) (u) (g^{-1}u^{-1}g) (v^{-1}) = 1
+\end{align*}
 \end{proof}
 
 \begin{prop}
@@ -247,20 +239,6 @@ t_1^3 & 0 & 0 & 0 \\
 \begin{prop}
   $$[x_\alpha(\xi),u]^n = [x_\alpha(\xi),u^n] = [x_\alpha(n\xi),u], \quad n \in \Z$$
 \end{prop}
-
-%Будем предполагать также, что $E$ действует на $U$ неприводимо, то есть в $U$ нет подгрупп, нормализуемых $E$.
-
-%Рассмотрим семейства операторов $T_{\alpha,\xi} = [x_\alpha(\xi),\,\boldsymbol{\cdot}\,]$, где $\alpha \in \Phi$. Коядра и образы этих операторов имеют размерность не более $1$.
-
-%Заметим, что если $\bigcup_{\xi\in R}\mathrm{Im}T_{\alpha_1,\xi} \notin \bigcap_{\xi\in R}\mathrm{Ker}T_{\beta,\xi}$ и $\bigcup_{\xi\in R}\mathrm{Im}T_{\alpha_2,\xi} \notin \bigcap_{\xi\in R}\mathrm{Ker}T_{\beta,\xi}$, то $\bigcup_{\xi\in R}\mathrm{Im}T_{\alpha_1,\xi} = \bigcup_{\xi\in R}\mathrm{Im}T_{\alpha_2,\xi}$.
-
-%Поэтому можно рассмотреть граф, вершинами которого будут образы $s(\alpha) = \bigcup_{\xi\in R}\mathrm{Im}T_{\alpha,\xi}$ этих операторов, а рёбрами --- корни $\alpha \in \Phi$. В силу неприводимости действия $E$ на $U$ этот граф будет связным.
-
-%Выбор положительных корней $\Phi^+ \subset \Phi$ задаёт ориентацию на графе, что, вследствие отсутствия циклов, влечёт частичный порядок на его вершинах.
-
-%Обозначим множество вершин этого графа через $\Sigma$ и будем называть его элементы дополнительными корнями. Также в каждом одномерном подмодуле $\alpha \in \Sigma$ зафиксируем некоторый порождающий элемент $u_\alpha(1)$. Порождаемые им элементы $u_\alpha(1)^\xi$, $\xi \in R$, будем обозначать через $u_\alpha(\xi)$.
-
-%Выпишем некоторые свойства $u_\alpha(\xi)$, делающие их похожими на корневые унипоненты:
 
 \begin{prop}
   $$[x_\alpha(\theta\xi),u_\sigma(\eta)] = [x_\alpha(\xi),u_\sigma(\theta\eta)], \quad \theta \in R, \sigma \in \Sigma$$
@@ -354,8 +332,8 @@ $x_{\widetilde{\beta_i}}(\xi) \in H \ \forall \xi \in I_i$.
 \begin{tikzcd}
 G \rightthreetimes U \arrow{r}{} & G \\
 H \arrow[Subgroup]{u} \arrow{r}{} & H_G \arrow[Subgroup]{u} \\
-h \arrow[Included]{u} \arrow[maps to]{r}{} & x_{\widetilde{\beta_i}} \arrow[Included]{u} \\
-x_{\widetilde{\beta_i}}\,u \arrow[Equals]{u} \arrow[maps to]{r}{} & x_{\widetilde{\beta_i}} \arrow[Equals]{u} \\
+h \arrow[Included]{u} \arrow[maps to]{r}{} & x_{\widetilde{\beta_i}}(\xi) \arrow[Included]{u} \\
+x_{\widetilde{\beta_i}}(\xi)\,u \arrow[Equals]{u} \arrow[maps to]{r}{} & x_{\widetilde{\beta_i}}(\xi) \arrow[Equals]{u} \\
 \end{tikzcd}
 \end{equation*}
 
