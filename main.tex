@@ -483,7 +483,6 @@ x_{-\gamma}(N_{-\gamma,\beta,1,1} N_{-\gamma,\beta-\gamma,1,1} N_{-\delta,\beta-
 \draw[blue,-{>[length=10,width=5]}] (sigma) -- (sigmaminusgamma);
 \draw[blue,-{>[length=10,width=5]}] (sigmaminusgamma) -- (sigmaminus2gamma);
 \draw[blue,-{>[length=10,width=5]}] (sigmaminus2gamma) -- (sigmaminusgammabeta);
-%\draw[olive] ({sqrt(2)},{-2.3*sqrt(2)}) ++(0:0.3) -- ++(90:{0.3*sqrt(2)}) to[bend right=45] ({sqrt(2)},{-2*sqrt(2)+0.3}) -- +(-180:{sqrt(2)}) to[bend right=22.5] ({-0.3/sqrt(2)},{-2*sqrt(2)+0.3/sqrt(2)}) -- +(-90-45:0.9);
 \path[fill,apply={draw} except on segments {1},red,pattern=north west lines, pattern color=red] ({sqrt(2)+0.3},{-2.3*sqrt(2)}) -- ({sqrt(2)+0.3},{-2*sqrt(2)+0.3}) -- +(-180:{sqrt(2)+0.3}) to[bend right=22.5] ({-0.3/sqrt(2)},{-2*sqrt(2)+0.3/sqrt(2)}) -- +(-90-45:0.9) ({sqrt(2)+0.3},{-2.3*sqrt(2)});
 \node[red] at ({0.5,-3.5}) {$u_4$};
 \end{tikzpicture}
@@ -573,82 +572,14 @@ h_{-3\beta} \coloneqq [x_{-\beta}(1),h_{-2\beta}] = \\ =
 \end{multline*}
 где $u_6$ раскладывается по подпространствам $U_\sigma$ с $\sigma \in \widetilde\sigma-3\beta - \N\delta + \N_0 \, (\delta-\gamma)$. \#Здесь снова нужно сделать вывод, что $u\in H$.
 
-Остался случай, когда $\langle\widetilde\sigma,\beta\rangle=0$ и $\langle\sigma,\gamma-\beta\rangle>0$. Докажем, что в этом случае 
+Остался случай, когда $\langle\widetilde\sigma,\beta\rangle=0$ и $\langle\sigma,\delta-\gamma\rangle>0$. Докажем, что в этом случае 
 $$
 \begin{cases}
   \sigma-2\gamma\notin\Sigma,& \text{если угол между } \gamma \text{ и } \delta \text{ составляет } \frac{\pi}{2}\\
   \sigma-\gamma\notin\Sigma,              & \text{если угол между } \gamma \text{ и } \delta \text{ составляет } \frac{2\pi}{3}\\
 \end{cases}$$
 
-\pagebreak
-
-Здесь возможны несколько вариантов.
-\begin{enumerate}
-\item $\widetilde\sigma - \widetilde\beta_i \notin \Sigma$ (\# предположительно, это только случай одномерного $U$, его можно включить в $\langle\widetilde\sigma-\widetilde\beta_i,\widetilde\beta_i\rangle < 0$)
-\begin{proof}
-Случай, когда $\widetilde\sigma - \widetilde\beta_i \notin \Sigma$, достаточно прост. Рассмотрим
-$$ w = [x_{-\widetilde\beta_i}(1),x_{\widetilde\beta_i}(\xi)u] = [x_{-\widetilde\beta_i}(1),x_{\widetilde\beta_i}(\xi)] \; \in \; E \cap H \;.$$
-
-Из леммы \ref{oppositecommutator} следует, что $x_{\widetilde\beta_i}(\xi)$ также лежит в $H$.
-\end{proof}
-\item $\langle\widetilde\sigma - \widetilde\beta_i, \widetilde\beta_i\rangle > 0$
-\begin{proof}
-Пусть теперь $\langle\widetilde\sigma - \widetilde\beta_i, \widetilde\beta_i\rangle > 0$. \# Тут могла бы быть ваша реклама.
-\end{proof}
-
-
-
-\item $\langle\widetilde\sigma - \widetilde\beta_i, \widetilde\beta_i\rangle < 0$
-\begin{proof}
-Пусть теперь $\langle\widetilde\sigma - \widetilde\beta_i, \widetilde\beta_i\rangle < 0$.
-
-Разложим $\beta \coloneqq \widetilde\beta_i$ в сумму корней одинаковой длины $\beta = \gamma + \delta$, чтобы при этом выполнялось $i\beta \nleq j\gamma \; \forall i,j>0$. Это всегда возможно сделать (условие $\langle\widetilde\sigma - \widetilde\beta_i, \widetilde\beta_i\rangle < 0$ для этого неважно, а нужен только ранг $\ge2$), при этом угол между $\gamma$ и $\delta$ всегда будет либо $\frac{\pi}{2}$, либо $\frac{2\pi}{3}$. Тогда
-\begin{multline*}
-[x_{-\gamma}(1),x_\beta(\xi) u] = [x_{-\gamma}(1),x_\beta(\xi)] \; {}^{x_\beta(\xi)}[x_{-\gamma}(1),u] = \\ =
-x_\delta(N_{-\gamma,\beta,1,1} \,\xi) \, x_{\delta-\gamma}(\ldots) \, \varepsilon_{-\gamma}(u) \, u_1 \; ,
-\end{multline*}
-где $u_1$ раскладывается по подпростанствам $U_\sigma$ с $\sigma \in \widetilde\sigma-\gamma - \N \, \gamma$ (абстрактные веса $\{\widetilde\sigma-\N\,\gamma+\N\,\beta\}$ не могут являться весами представления, так как среди $\{\N\,\beta-\N\,\gamma\}$ нет отрицательных абстрактных весов).
-
-Далее если $\gamma$ и $\beta$ ортогональны, то 
-\begin{multline*}
-[x_{-\gamma}(1), [x_{-\gamma}(1),x_\beta(\xi) u]] = \\ =
-[x_{-\gamma}(1), x_\delta(N_{-\gamma,\beta,1,1} \,\xi) \, x_{\delta-\gamma}(\ldots) \, \varepsilon_{-\gamma}(u) \, u_1] = \\ =
-[x_{-\gamma}(1), x_\delta(N_{-\gamma,\beta,1,1} \,\xi) \, x_{\delta-\gamma}(\ldots)] \cdot {}^{x_\delta(N_{-\gamma,\beta,1,1} \,\xi) \, x_{\delta-\gamma}(\ldots)} [x_{-\gamma}(1), \varepsilon_{-\gamma}(u) \, u_1] = \\ =
-x_{\delta-\gamma}(N_{-\gamma,\beta,1,1} N_{-\gamma,\delta,1,1} \, \xi) \; \varepsilon^2_{-\gamma}(u) \, u_2 \; ,
-\end{multline*}
-где $u_2$ раскладывается по подпростанствам $U_\sigma$ с $\sigma \in \widetilde\sigma-2\gamma - \N \, \gamma$ (абстрактные веса $\{\widetilde\sigma-\gamma-\N\,\gamma+\N\,(\delta-\gamma) + \N\,\delta\}$ не могут являться весами представления, так как среди $\{\N\,\delta-\N\,\gamma\}$ нет отрицательных абстрактных весов).
-
-Далее ($\gamma$ и $\beta$ так же предполагаются ортогональными):
-\begin{multline*}
-[x_{-\delta}(1), [x_{-\gamma}(1), [x_{-\gamma}(1),x_\beta(\xi) u]]] = \\ =
-[x_{-\delta}(1), x_{\delta-\gamma}(N_{-\gamma,\beta,1,1} N_{-\gamma,\delta,1,1} \, \xi)
- \; \varepsilon^2_{-\gamma}(u) \, u_2] = \\ =
-[x_{-\delta}(1), x_{\delta-\gamma}(N_{-\gamma,\beta,1,1} N_{-\gamma,\delta,1,1} \, \xi)] \;
-{}^{x_{\delta-\gamma}(N_{-\gamma,\beta,1,1} N_{-\gamma,\delta,1,1} \, \xi)} [x_{-\delta}(1), \varepsilon^2_{-\gamma}(u) \, u_2]
-\end{multline*}
-
-
-
-\end{proof}
-\item $\langle\widetilde\sigma - \widetilde\beta_i, \widetilde\beta_i\rangle = 0$, $\langle\widetilde\sigma - \widetilde\beta_i, \gamma\rangle > 0$ для некоторого простого $\gamma \in \Phi_i^+$
-\begin{proof}
-Остался последний случай, когда $\langle\widetilde\sigma - \widetilde\beta_i, \widetilde\beta_i\rangle < 0$. Тогда найдётся такой простой корень $\gamma$, для которого $\langle\widetilde\sigma - \widetilde\beta_i, \gamma\rangle > 0$. Докажем, что в этом случае
-$$
-\widetilde\sigma-\widetilde\beta_i+\gamma \notin \Sigma \; .
-$$
-\end{proof}
-\item \label{item:adjoint} $\widetilde\sigma - \widetilde\beta_i = 0$
-\begin{proof}
-Так как $U$ не совпадает с присоединённым представлением, то вариант \ref{item:adjoint} невозможен.
-\end{proof}
-\end{enumerate}
-
-
-\begin{lm}
-Пусть $\Phi$ --- неприводимая система корней, $\mathrm{rk}\,\Phi \ge 2$, $\beta$ --- максимальный корень, $\gamma$ --- простой корень. Тогда если $\sigma$ --- старший вес, такой что $\langle\sigma-\beta,\beta\rangle=0$ и $\langle\sigma-\beta,\gamma\rangle>0$, то вес $\sigma-\beta+\gamma \notin \Sigma$.
-\end{lm}
-\begin{proof}
-\#Немного примеров:
+\#Почему это должно быть верно:
 
 \begin{center}
 \newcommand{\point}[1]{node (#1) [circle,inner sep=1,fill] {}}
@@ -656,7 +587,7 @@ $$
 \newcommand{\pointweight}[1]{node (#1) [circle,inner sep=2,fill=olive] {}}
 \newcommand{\pointnotweight}[1]{node (#1) [circle,inner sep=2,fill=red] {}}
 
-\begin{tikzpicture}[thick, scale=2]
+\begin{tikzpicture}[thick, scale=1]
 
 \path (0,0) \pointroot{zero};
 
@@ -675,7 +606,7 @@ $$
 
 \end{tikzpicture}
 
-\begin{tikzpicture}[thick, scale=2]
+\begin{tikzpicture}[thick, scale=1]
 
 \path (0,0) \pointroot{zero};
 
@@ -696,7 +627,6 @@ $$
 \end{tikzpicture}
 
 \end{center}
-\end{proof}
 
 \end{proof}
 \bibliographystyle{plain}
