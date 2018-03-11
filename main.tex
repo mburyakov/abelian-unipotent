@@ -274,6 +274,105 @@ $$
   Данное утверждение является мультипликативной записью утверждения \ref{unipotentsubgroups}.
 \end{proof}
 
+
+\begin{lm}\label{maxrootsum}
+Максимальный корень $\beta\coloneqq\widetilde\beta_i$ можно представить в виде суммы двух корней $\gamma$ и $\delta$ одинаковой длины, так что при этом абстрактный вес $i\beta-j\gamma$ будет неотрицательным для любых положительных коэффициентов $i$ и $j$. Если же $\langle\sigma-\beta,\beta\rangle=0$ (при том, что старший вес $\sigma\coloneqq\widetilde\sigma$ не совпадает с максимальным корнем $\beta$), то выбор можно совершить таким образом, чтобы дополнительно выполнялось $\langle\sigma,\delta-\gamma\rangle>0$.
+
+Заметим, что угол между $\gamma$ и $\delta$ в результате может оказаться либо $\frac{\pi}{2}$, либо $\frac{2\pi}{3}$. Угол $\frac{\pi}{3}$ (когда $\Phi = \mathrm{G}_2$) невозможен, так как тогда нарушится условие $i\beta-j\gamma \nprec 0$.
+\end{lm}
+\begin{proof}
+В $\mathrm{G}_2$ требованиям леммы удовлетворяет выбор $\gamma=\alpha_2$ и $\delta=3\alpha_1+\alpha_2$.
+
+\begin{center}
+\begin{tikzpicture}[thick, scale=1]
+\foreach\ang in {0,60,120}{
+  \draw[blue,-{>[length=10,width=5]}] (0,0) -- ++(\ang:1);
+  \draw[blue,-{>[length=10,width=5]}] (0,0) -- ++(\ang+30:{sqrt(3)});
+  \draw[olive,-{>[length=10,width=5]}] (0,0) -- ++(\ang+180:1);
+  \draw[olive,-{>[length=10,width=5]}] (0,0) -- ++(\ang+180+30:{sqrt(3)});
+}
+\path (0,0) ++(0:1) node [label=right:$\alpha_1$] {};
+\path (0,0) ++(150:{sqrt(3)}) node [label=above left:{$\gamma=\alpha_2$}] {};
+\path (0,0) ++(90:{sqrt(3)}) node [label=above:$\beta$] {};
+\path (0,0) ++(30:{sqrt(3)}) node [label=above right:$\delta$] {};
+\node[blue] at (60:1.8) {$\Phi^+$};
+\node[olive] at (180+60:1.5) {$\Phi^-$};
+\end{tikzpicture}
+\end{center}
+
+Пусть теперь $\Phi\ne\mathrm{G}_2$. Условие $i\beta-j\gamma\nless0\;\forall i,j\in\N$ выполняется автоматически, если угол между $\gamma$ и $\delta$ составляет $\frac{2\pi}{3}$. Если же угол $\frac{\pi}{2}$, то обеспечить выполнения этого условия можно заменой местами $\gamma$ и $\delta$, чтобы $\delta-\gamma>0$.
+
+\begin{center}
+\begin{tikzpicture}[thick, scale=1]
+\foreach\ang in {0,90}{
+  \draw[blue,-{>[length=10,width=5]}] (0,0) -- ++(\ang:{sqrt(2)});
+  \draw[blue,-{>[length=10,width=5]}] (0,0) -- ++(\ang+45:1);
+  \draw[olive,-{>[length=10,width=5]}] (0,0) -- ++(\ang+180:{sqrt(2)});
+  \draw[olive,-{>[length=10,width=5]}] (0,0) -- ++(\ang+180+45:1);
+}
+\path (0,0) ++(0:{sqrt(2)}) node [label=right:$\delta-\gamma$] {};
+\path (0,0) ++(90+45:1) node [label=above left:{$\gamma$}] {};
+\path (0,0) ++(90:{sqrt(2)}) node [label=above:$\beta$] {};
+\path (0,0) ++(45:1) node [label=above right:$\delta$] {};
+\node[blue] at (20:1.8) {$\Phi^+$};
+\node[olive] at (180+30:1.5) {$\Phi^-$};
+\end{tikzpicture}
+\begin{tikzpicture}[thick, scale=1]
+\foreach\ang in {0,60,120}{
+  \draw[blue,-{>[length=10,width=5]}] (0,0) -- ++(\ang+30:1);
+  \draw[olive,-{>[length=10,width=5]}] (0,0) -- ++(\ang+180+30:1);
+}
+\path (0,0) ++(150:1) node [label=above left:{$\gamma$}] {};
+\path (0,0) ++(90:1) node [label=above:$\beta$] {};
+\path (0,0) ++(30:1) node [label=above right:$\delta$] {};
+\node[blue] at (60:1) {$\Phi^+$};
+\node[olive] at (180+60:1) {$\Phi^-$};
+\end{tikzpicture}
+\end{center}
+
+В случае, когда $\langle\sigma-\beta,\beta\rangle=0$, обеспечить выполнения условия $\langle\sigma,\delta-\gamma\rangle>0$ можно следующим образом. Выберем корень $\delta$, не ортогональный ни $\beta$, ни $\sigma-\beta$ (это можно сделать, так как $\Phi$ неприводима). Не умаляя общности можно считать, что $\langle\delta,\beta\rangle>0$ и $\langle\delta,\sigma-\beta\rangle>0$. Тогда $\langle\delta,\beta\rangle=\frac{1}{2}\langle\beta,\beta\rangle$ и $\gamma\coloneqq\beta-\delta$. При этом
+$\langle\sigma,\delta-\gamma\rangle =
+\langle\sigma,2\delta-\beta\rangle =
+2\langle\sigma,\delta\rangle-\langle\sigma,\beta\rangle = 
+2\langle\sigma,\delta\rangle-\langle\beta,\beta\rangle =
+2\langle\delta,\sigma\rangle-2\langle\delta,\beta\rangle =
+2\langle\delta,\sigma-\beta\rangle > 0$.
+Условие $i\beta-j\gamma\nprec\;\forall i,j\in\N$ при этом будет выполнено, так как  $\delta-\gamma$ не может быть отрицательным корнем (если это корень, то положительный).
+\end{proof}
+
+\begin{lm}\label{highestweightvariants}
+При выборе $\gamma$ и $\delta$ согласно предыдущей лемме выполняется хотя бы одно из следующих условий:
+\begin{itemize}
+\item Если угол между $\gamma$ и $\delta$ составляет $\frac{2\pi}{3}$:
+\begin{enumerate}
+\item $ \sigma - \gamma \notin \Sigma$
+\item $ \sigma - \delta \notin \Sigma$
+\item $ \sigma - 2\gamma \in \Sigma$
+\item $ \sigma - 2\delta \in \Sigma$
+\end{enumerate}
+\item Если угол между $\gamma$ и $\delta$ составляет $\frac{\pi}{2}$:
+\begin{enumerate}
+\item[0.] $ \sigma - \delta + \gamma \in \Sigma$
+\item $ \sigma - 2\gamma \notin \Sigma$
+\item $ \sigma - 2\delta \notin \Sigma$
+\item $ \sigma - 3\gamma \in \Sigma$
+\item $ \sigma - 3\delta \in \Sigma$
+\end{enumerate}
+\end{itemize}
+\end{lm}
+
+\begin{proof}
+Очевидно что,
+$$ \sigma - \frac{2 \langle \sigma,\gamma\rangle}{\langle \gamma , \gamma \rangle}\gamma \;\in\; \Sigma $$
+$$ \sigma - \frac{2 \langle \sigma,\delta\rangle}{\langle \delta , \delta \rangle}\delta \;\in\; \Sigma \; , $$
+но при этом
+$$ \sigma - \frac{2 \langle \sigma,\gamma\rangle}{\langle \gamma , \gamma \rangle}\gamma-\gamma \;\notin\; \Sigma $$
+$$ \sigma - \frac{2 \langle \sigma,\delta\rangle}{\langle \delta , \delta \rangle}\delta-\delta \;\notin\; \Sigma \; . $$
+Следовательно, условия (1-4) могут выполняться, только если $\langle\sigma,\gamma\rangle=\langle\beta,\gamma\rangle$
+и одновременно $\langle\sigma,\delta\rangle=\langle\beta,\delta\rangle$. Но это значит, что $\langle\sigma-\beta,\beta\rangle=0$,
+а значит по предыдущей лемме $\langle\sigma,\delta-\gamma\rangle > 0$, то есть выполнено условие (0).
+\end{proof}
+
 \begin{thm}
   Снова $G = G(\Phi, R)$ --- редуктивная групповая схема Шевалле-Демазюра
   с системой корней $\Phi = \Phi_1 + \ldots + \Phi_n$, где каждая $\Phi_i$ --- неприводимая система корней ранга не меньше $2$. $U$ --- неприводимое рациональное представление $G$ (модуль Вейля), отличное от присоединённого представления группы $G$. В коммутативном кольце $R$ предполагается обратимость всех структурных констант группы $G$, а также структурных констант представления (условие \ref{representationconstantinvertibility}).
@@ -352,72 +451,14 @@ $$ w \coloneqq {}^{x_{\widetilde\beta_i}(\xi)^{-1}} [x_\beta(1), h] = [x_\beta(1
 Следовательно, так как $(U \cap H)^E = U \cap H$, то по свойству \ref{unipotentsubgroups}, $u \; \in \; U \cap H$, а следовательно, $x_{\widetilde\beta_i(\xi)} \in H$ (\textbf{\color{red}ЧУШЬ!!!}).
 
 Пусть теперь $u \in  U_{\widetilde\sigma}$. 
-\begin{lm}
-Максимальный корень $\beta\coloneqq\widetilde\beta_i$ можно представить в виде суммы двух корней $\gamma$ и $\delta$ одинаковой длины, так что при этом абстрактный вес $i\beta-j\gamma$ будет неотрицательным для любых положительных коэффициентов $i$ и $j$. Если же $\langle\sigma-\beta,\beta\rangle=0$ (при том, что старший вес $\sigma\coloneqq\widetilde\sigma$ не совпадает с максимальным корнем $\beta$), то выбор можно совершить таким образом, чтобы дополнительно выполнялось $\langle\sigma,\delta-\gamma\rangle>0$.
 
-Заметим, что угол между $\gamma$ и $\delta$ в результате может оказаться либо $\frac{\pi}{2}$, либо $\frac{2\pi}{3}$. Угол $\frac{\pi}{3}$ (когда $\Phi = \mathrm{G}_2$) невозможен, так как тогда нарушится условие $i\beta-j\gamma \nprec 0$.
-\end{lm}
-\begin{proof}
-В $\mathrm{G}_2$ условиям леммы удовлетворяет выбор $\gamma=\alpha_2$ и $\delta=3\alpha_1+\alpha_2$.
+Представим $\widetilde\beta$ в виде суммы $\gamma+\delta$ в соответствии с леммой \ref{maxrootsum}.
 
-\begin{center}
-\begin{tikzpicture}[thick, scale=1]
-\foreach\ang in {0,60,120}{
-  \draw[blue,-{>[length=10,width=5]}] (0,0) -- ++(\ang:1);
-  \draw[blue,-{>[length=10,width=5]}] (0,0) -- ++(\ang+30:{sqrt(3)});
-  \draw[olive,-{>[length=10,width=5]}] (0,0) -- ++(\ang+180:1);
-  \draw[olive,-{>[length=10,width=5]}] (0,0) -- ++(\ang+180+30:{sqrt(3)});
-}
-\path (0,0) ++(0:1) node [label=right:$\alpha_1$] {};
-\path (0,0) ++(150:{sqrt(3)}) node [label=above left:{$\gamma=\alpha_2$}] {};
-\path (0,0) ++(90:{sqrt(3)}) node [label=above:$\beta$] {};
-\path (0,0) ++(30:{sqrt(3)}) node [label=above right:$\delta$] {};
-\node[blue] at (60:1.8) {$\Phi^+$};
-\node[olive] at (180+60:1.5) {$\Phi^-$};
-\end{tikzpicture}
-\end{center}
+Рассмотрим случаи в соответствии с леммой \ref{highestweightvariants}.
+Если $\sigma-\delta+\gamma \in \Sigma$ (случай (0)), то
+$$ [x_{\gamma-\delta}(1),h] = [x_{\gamma-\delta}(1),x_\beta(\xi)u] = [x_{\gamma-\delta}(1),x_\beta(\xi)] \cdot {}^{x_\beta(\xi)}[x_{\gamma-\delta}(1),u] = {}^{x_\beta(\xi)}[x_{\gamma-\delta}(1),u] \;\in\; U\cap H $$
 
-Пусть теперь $\Phi\ne\mathrm{G}_2$. Условие $i\beta-j\gamma\nless0\;\forall i,j\in\N$ выполняется автоматически, если угол между $\gamma$ и $\delta$ составляет $\frac{2\pi}{3}$. Если же угол $\frac{\pi}{2}$, то обеспечить выполнения этого условия можно заменой местами $\gamma$ и $\delta$, чтобы $\delta-\gamma>0$.
-
-\begin{center}
-\begin{tikzpicture}[thick, scale=1]
-\foreach\ang in {0,90}{
-  \draw[blue,-{>[length=10,width=5]}] (0,0) -- ++(\ang:{sqrt(2)});
-  \draw[blue,-{>[length=10,width=5]}] (0,0) -- ++(\ang+45:1);
-  \draw[olive,-{>[length=10,width=5]}] (0,0) -- ++(\ang+180:{sqrt(2)});
-  \draw[olive,-{>[length=10,width=5]}] (0,0) -- ++(\ang+180+45:1);
-}
-\path (0,0) ++(0:{sqrt(2)}) node [label=right:$\delta-\gamma$] {};
-\path (0,0) ++(90+45:1) node [label=above left:{$\gamma$}] {};
-\path (0,0) ++(90:{sqrt(2)}) node [label=above:$\beta$] {};
-\path (0,0) ++(45:1) node [label=above right:$\delta$] {};
-\node[blue] at (20:1.8) {$\Phi^+$};
-\node[olive] at (180+30:1.5) {$\Phi^-$};
-\end{tikzpicture}
-\begin{tikzpicture}[thick, scale=1]
-\foreach\ang in {0,60,120}{
-  \draw[blue,-{>[length=10,width=5]}] (0,0) -- ++(\ang+30:1);
-  \draw[olive,-{>[length=10,width=5]}] (0,0) -- ++(\ang+180+30:1);
-}
-\path (0,0) ++(150:1) node [label=above left:{$\gamma$}] {};
-\path (0,0) ++(90:1) node [label=above:$\beta$] {};
-\path (0,0) ++(30:1) node [label=above right:$\delta$] {};
-\node[blue] at (60:1) {$\Phi^+$};
-\node[olive] at (180+60:1) {$\Phi^-$};
-\end{tikzpicture}
-\end{center}
-
-В случае, когда $\langle\sigma-\beta,\beta\rangle=0$, обеспечить выполнения условия $\langle\sigma,\delta-\gamma\rangle>0$ можно следующим образом. Выберем корень $\delta$, не ортогональный ни $\beta$, ни $\sigma-\beta$ (это можно сделать, так как $\Phi$ неприводима). Не умаляя общности можно считать, что $\langle\delta,\beta\rangle>0$ и $\langle\delta,\sigma-\beta\rangle>0$. Тогда $\langle\delta,\beta\rangle=\frac{1}{2}\langle\beta,\beta\rangle$ и $\gamma\coloneqq\beta-\delta$. При этом
-$\langle\sigma,\delta-\gamma\rangle =
-\langle\sigma,2\delta-\beta\rangle =
-2\langle\sigma,\delta\rangle-\langle\sigma,\beta\rangle = 
-2\langle\sigma,\delta\rangle-\langle\beta,\beta\rangle =
-2\langle\delta,\sigma\rangle-2\langle\delta,\beta\rangle =
-2\langle\delta,\sigma-\beta\rangle > 0$.
-Условие $i\beta-j\gamma\nless0\;\forall i,j\in\N$ при этом будет выполнено, так как  $\delta-\gamma$ не может быть отрицательным корнем (если это корень, то положительный).
-\end{proof}
-
-Теперь
+Обозначим
 \begin{multline*}
 h_{-\gamma} \coloneqq [x_{-\gamma}(1),h] = [x_{-\gamma}(1),x_\beta(\xi) u] = [x_{-\gamma}(1),x_\beta(\xi)] \cdot {}^{x_\beta(\xi)}[x_{-\gamma}(1),u] = \\ =
 x_{\beta-\gamma}(N_{-\gamma,\beta,1,1} \,\xi) \, x_{\beta-2\gamma}(\ldots) \, \varepsilon_{-\gamma}(u) \, u_1 \; ,
