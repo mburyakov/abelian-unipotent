@@ -1,5 +1,5 @@
 \documentclass[10pt]{article}
-\usepackage[a5paper,margin=0.1in]{geometry}
+\usepackage[a5paper,margin=0.6in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
 \usepackage{natbib}
@@ -97,7 +97,7 @@
 Простой $R$-группой называется линейная алгебраическая $R$-группа, не содержащая нетривиальных связных нормальных линейных алгебраических $R$-подгрупп.
 \end{definition}
 
-Пусть $G_\Z$ --- связная редуктивная расщепимая (\#где используется) групповая схема с системой корней $\Phi = \Phi_1 + \dots + \Phi_n$, где $\Phi_i$ --- (приведённые) неприводимые системы корней, $n \ge 1$.
+Пусть $G_\Z$ --- связная редуктивная групповая схема с системой корней $\Phi = \Phi_1 + \dots + \Phi_n$, где $\Phi_i$ --- (приведённые) неприводимые системы корней, $n \ge 1$.
 
 Далее пусть $U_\Z$ --- неприводимое (над замкнутым полем характеристики $0$) рациональное представление (модуль Вейля) $G_\Z$, $\pi:G_\Z \to GL(U_\Z)$ с рангом
 \begin{equation}\label{representationrank}\mathrm{rk} \; U_\Z \ge 2 \;. \end{equation}
@@ -374,7 +374,7 @@ $$ \sigma - \frac{2 \langle \sigma,\delta\rangle}{\langle \delta , \delta \rangl
 а значит по предыдущей лемме $\langle\sigma,\delta-\gamma\rangle > 0$, то есть выполнено условие (0).
 \end{proof}
 
-\begin{thm}
+\begin{thm}\label{subgroupprojectionmain}
   Снова $G = G(\Phi, R)$ --- редуктивная групповая схема Шевалле-Демазюра
   с системой корней $\Phi = \Phi_1 + \ldots + \Phi_n$, где каждая $\Phi_i$ --- неприводимая система корней ранга не меньше $2$. $U$ --- неприводимое рациональное представление $G$ (модуль Вейля), такое что его старший вес $\widetilde\sigma$ не ортогонален ни одной из компонент $\Phi_i$. В коммутативном кольце $R$ предполагается обратимость всех структурных констант группы $G$, а также предполагается выполнение свойства \ref{returnfromhighest}.
     
@@ -522,6 +522,23 @@ h_{-3\gamma} \coloneqq [x_{-\gamma}(1),h_{-2\gamma}] = \\ =
 \end{enumerate}
 \end{itemize}
 \end{proof}
+
+\begin{thm}
+В условиях предыдущей теоремы подгруппа $H\le G \rightthreetimes U$ может быть представлена в виде $H = H_G \rightthreetimes (H_U)$, где $[H_G,E] = \prod_{i=1}^n E(\Phi_i, R, I_i)$, а $H_U=U_I$ --- подмодуль $U$, заданный некоторым идеалом кольца.
+\end{thm}
+\begin{proof}
+Достаточно доказать, что $H_G \le H$, оставшаяся часть формулировки взята из \ref{unipotenttransitivity}.
+
+Разложим элемент $h \in H$ в произведение $h = z u$, где $z \in H_G$, $u \in U$. Докажем, что $z$ и $u$ также лежат в $H$.
+
+Прокоммутируем $h$ с некоторым $g$ из $E$:
+$$ [g, h] = [g,zu] = [g,z] \cdot {}^z[g,u] $$
+
+По теореме \ref{subgroupprojectionmain} $[g,z]\in H$, следовательно, ${}^z[g,u]$ так же лежит в $H$. Но
+$ {}^z[g,u] = {}^{zu}[u^{-1},g] $, следовательно, $[u^{-1},g] \in H$. Выбирая в качестве $g$ корневые элементы $x_\alpha(1)$ с корнями из начала цепочек в лемме \ref{returnfromhighest}, получим, что $u$ также лежит в $H$.
+\end{proof}
+
+
 
 \bibliographystyle{plain}
 \bibliography{document}
