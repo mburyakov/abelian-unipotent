@@ -63,6 +63,7 @@
 
 \theoremstyle{remark}
 \newtheorem{prop}{Утверждение}
+\newtheorem{hyp}{Свойство}
 \newtheorem{thm}{Теорема}
 \newtheorem{lm}{Лемма}
 \newtheorem{example}{Пример}
@@ -115,7 +116,7 @@ $x_\alpha(\xi)$ --- корневые элементы группы $G$.
 Их свойства:
 
 \begin{prop}
-Для экстремальных весов (в частности, для максимального веса $\widetilde\sigma$), весовые пространства $U_\sigma$ одномерны.
+Для экстремальных весов (в частности, для старшего веса $\widetilde\sigma$), весовые пространства $U_\sigma$ одномерны.
 \end{prop}
 
 \begin{prop}
@@ -162,55 +163,45 @@ $$
 \end{multline*}
 \end{proof}
 
-\begin{prop} Результатом применения оператора $\varepsilon_\alpha(1)^n$ к ненулевому $u \in U_\sigma$ является ноль, только если $u \in \mathrm{Ker}\,\varepsilon_\alpha(1)$ или $\sigma + \alpha \notin \Sigma$.
+Следующее требование, которые мы в дальнейшем будем предполагать выполненным, относится одновременно к модулю $U$ и кольцу $R$. Для базисных представлений без нулевого веса оно выполнено всегда независимо от кольца $R$, но для более сложных случаев оно можно означать обратимость в $R$ некоторых целых чисел.
+
+\begin{hyp}\label{returnfromhighest}
+Если $u$ --- некоторый вектор из $U_\sigma$, то его образы в пространстве $U_{\widetilde\sigma}$ старшего веса под действием операторов 
+$\left(\prod_{\alpha_i}\varepsilon_{\alpha_i}(1)\right)$, где $\alpha_i$ пробегает по всем цепочам положительных корней, так что $\sum_i \alpha_i = \widetilde\sigma - \sigma$, не содержатся ни в каком $E$-инвариантном модуле, в котором бы не содержался $u$.
+\end{hyp}
+
+\begin{prop} \label{extremalweightisomorphism}
+Если $\sigma$ и $\sigma+n\alpha$ --- экстремальные корни и $u\in U_\sigma$, то
+если $\varepsilon_\alpha(1)^n \, u $ содержится в некотором $E$-инвариантном модуле $v$, то и $u \in V$.
 \end{prop}
 \begin{proof}
-\# Это правда? Для микровесовых представлений утверждение тривиально.
+Если $\sigma+n\alpha = \widetilde\sigma$ --- максимальный корень, то утверждение является частным случаем \ref{returnfromhighest}. В остальных случаях $\sigma+n\alpha$ переводится в $\widetilde\sigma$ некоторым элементом группы Вейля.
 \end{proof}
-
-\begin{prop}
-$U$ порождается (как модуль над полем хактеристики 0) элементами $\left(\prod_{\alpha}\varepsilon_\alpha(1)\right) \, u$, где $u$ --- некоторый произвольно выбранный вектор, а $\alpha$ пробегает по всевозможным последовательностям простых корней.
-\end{prop}
-\begin{proof}
-\# Для полупростых групп следует из неприводимости представления, для редуктивных, видимо, тоже, так как радикал есть связная компонента центра, а фактор по радикалу --- полупростая группа.
-\end{proof}
-
-\begin{prop}
-Для любого $u \in U_\sigma$ найдётся положительный корень $\alpha$, для которого $u \notin \mathrm{Ker} \, \varepsilon_\alpha(1)$
-\end{prop}
-\begin{proof}
-\# Должно следовать из \ref{representationrank}.
-\end{proof}
-
-Рассмотрим ненулевой элемент $v = \varepsilon_\beta(1) \, u$, лежащий в $U_{\sigma+\beta}$. Исходный элемент $u$ может быть разложен по базису, состоящему из элементов вида $\left(\prod_{\alpha}\varepsilon_\alpha(1)\right) \, v$. Коэффициенты разложения рациональны (\textbf{\color{red}ЧУШЬ!!!}), поэтому можно рассмотреть из общий знаменатель $d$. В зависимости от конкретного выбора базиса (из бесконечного набора векторов вида $\left(\prod_{\alpha}\varepsilon_\alpha(1)\right) \, v$), а также от выбора исходного вектора $u$ и корня $\beta$ будут получаться различные целые $d$. Можно видеть, что множество всех возможных значений $d$, которые можно получить таким образом, замкнуто относительно умножения, то есть вместе с единицей (если она не была включена в него ранее) образует мультипликативное множество $S \subset \Z$. В дальнейшем будем рассматривать представление $U$ только над такими кольцами $R$, в которых
-\begin{equation}\label{representationconstantinvertibility} S\subset R^* \; .\end{equation}
 
 \begin{prop}\label{weightprojections}
 Если $V$ --- инвариантный подмодуль $U$, то $V = \bigoplus V_\sigma$, то есть проекции вектора $v \in V$ на корневые подпространства также лежат в $V$.
 \end{prop}
 \begin{proof}
-Пусть $v = \sum v_\sigma$. Доказательство проведём индукцией по минимальному весу $\sigma'$ из присутствующих в сумме. Базой индукции будет сумма из одного слагаемого старшего веса: $v = v_{\widetilde\sigma}$.
+Пусть $v = \sum v_\sigma$. Доказательство проведём индукцией по минимальному (то есть не имеющему меньших) весу $\sigma'$ из присутствующих в сумме. Базой индукции будет сумма из одного слагаемого старшего веса: $v = v_{\widetilde\sigma}$.
 
-Пусть теперь $v = v_{\sigma'} + v'$, где $v'$, если лежит в $V$, то раскладывается в $V$ по весовым простраствам по индукционному предположению. Тогда найдётся такая последовательность положительных корней, что $w := \left(\prod_{\alpha}\varepsilon_\alpha(1)\right) \, v \in U_{\widetilde\sigma}$. Но одновременно $w = \left(\prod_{\alpha}\varepsilon_\alpha(1)\right) \, v_{\sigma'}$, поэтому, в силу \ref{representationconstantinvertibility}, $v_{\sigma'}$ также лежит в $V$.
+Пусть теперь $v = v_{\sigma'} + v'$, где $v'$, если лежит в $V$, то раскладывается в $V$ по весовым простраствам по индукционному предположению. Тогда цепочки положительных корней из свойства \ref{returnfromhighest} будут переводить $v$ в различные $w := \left(\prod_{\alpha}\varepsilon_\alpha(1)\right) \, v \in V \cap U_{\widetilde\sigma}$. Но одновременно каждый такой $w = \left(\prod_{\alpha}\varepsilon_\alpha(1)\right) \, v_{\sigma'}$, поэтому, в силу \ref{returnfromhighest}, $v_{\sigma'}$ также лежит в $V$.
 \end{proof}
 
 \begin{prop}\label{unipotentsubgroups}
-Над кольцами, для которых выполняется (\ref{representationconstantinvertibility}), инвариантные подмодули $U$ имеют вид $U_I = U \cdot I$, где $I \trianglelefteq R$.
+Над кольцами, для которых выполняется (\ref{returnfromhighest}), инвариантные подмодули $U$ имеют вид $U_I = U \cdot I$, где $I \trianglelefteq R$.
 \end{prop}
 \begin{proof}
 Пусть $V$ --- инвариантный подмодуль $U$. Достаточно доказать, что найдётся идеал $I$, такой что любой $V \cap U_\sigma = U_\sigma \, I$.
 
-Пусть $v$ --- произвольно выбранный элемент в $V \cap U_\sigma$. Тогда найдётся такая последовательность положительных корней, что $w := \left(\prod_{\alpha}\varepsilon_\alpha(1)\right) \, v \in V \cap U_{\widetilde\sigma}$. В силу одномерности $U_{\widetilde\sigma}$ подмодуль $W := V \cap U_{\widetilde\sigma} \subseteq U_{\widetilde\sigma}$, состоящий из таких $w$, будет иметь вид $U_{\widetilde\sigma} \, I$ для некоторого идеала $I$. В силу \ref{representationconstantinvertibility}, если $w = \widetilde u \, \xi$, то $v = u \, \xi$.
+Cвойство \ref{returnfromhighest} устанавливает набор отображений, однозначно определяющих $V \cap U_{\widetilde\sigma}$ по $V \cap U_\sigma$ и наоборот. В силу одномерности $U_{\widetilde\sigma}$ подмодуль $V \cap U_{\widetilde\sigma}$ имеет вид $U_{\widetilde\sigma} \, I$ для некоторого идеала $I$. Следовательно, подмодули $U_{\sigma} \, I$ совпадают с $V \cap U_\sigma$.
 \end{proof}
 
 
-\section{Что-то дальше}
+\section{Элементарная группа}
 
 Аддитивную группу $R[G]$-модуля $U$ можно рассматривать как абелеву группу с действием $G$ на ней, поэтому
 имеет смысл полупрямое произведение $P = G \rightthreetimes U$.
-Тогда $U$ как представление $G$ можно рассматривать как часть присоединённого представления $P$. Это делает логичным использование мультипликативной нотации для обозначения сложения в $U$, а также обозначение действия $G$ на $U$ через $^{g}u = g u g^{-1}$. 
-
-\section{Элементарная группа}
+Это делает логичным использование мультипликативной нотации для обозначения сложения в $U$, а также обозначение действия $G$ на $U$ через $^{g}u = g u g^{-1}$. 
 
 Обозначим за $E = E(\Phi,R)$ подгруппу в $G$, порождённую корневыми унипотентами $x_\alpha(\xi)$, где $\alpha \in \Phi$, $\xi \in R$.
 
@@ -219,23 +210,19 @@ $U$ порождается (как модуль над полем хактери
 \begin{prop}
   $$[[g,u],v] = 1, \quad g \in G, \ u,v \in U $$
 \end{prop}
-\begin{proof}
-  Очевидно следует из абелевости $U$.
-\begin{align*}
-[[g,u],v] = (g u g^{-1} u^{-1}) v (u g u^{-1} g^{-1}) v^{-1} = \\
-= (gug^{-1}) (u^{-1}) (v) (u) (g^{-1}u^{-1}g) (v^{-1}) = 1
-\end{align*}
-\end{proof}
 
 \begin{prop}
   $$[g,uv] = [g,u][g,v], \quad g \in G, \ u,v \in U $$
 \end{prop}
 
 \begin{prop}
-  В $\Sigma$ существует единственный максимальный вес $\widetilde\sigma$ и единственный минимальный вес.
+  $$[g,hu] = [g,h]\cdot{}^h[g,u], \quad g,h \in G, \ u \in U $$
 \end{prop}
 
-Очевидно, в $P = G \rightthreetimes U $ существует подгруппа группа $E \rightthreetimes U$, которая порождается корневыми элементами $x_\alpha(\xi) \in E$ и элементами $u \in U$.
+\begin{prop}
+  $$[g,{}^{h}u] = {}^h[\;{}^{h^{-1}}g\,,u], \quad g,h \in G, \ u \in U $$
+\end{prop}
+
 
 \section{Подгруппы, нормализуемые $E$}
 
@@ -256,16 +243,28 @@ $U$ порождается (как модуль над полем хактери
   где $X_\alpha(I) = \{x_\alpha(\xi) | \xi \in I\}$ --- относительная корневая подгруппа в $G$. Запись $\left<F\right>^H$ обозначает наименьшую подгруппу, нормализуемую $H$ и содержащую $F$, то есть подгруппу, порождённую всевозможными сопряжениями $^hf$, $f \in F$, $h \in H$.
 \end{lm}
 
-\begin{lm}\label{oppositecommutator}
-Если в группе Шевалле ранга не менее, чем $2$, $\beta$ --- длинный корень, то $x_\beta(\xi) \in \left<[x_{-\beta}(1),x_\beta(\xi)]\right>^E$
+\begin{lm} \label{maximalgenerates}
+  В группе Шевалле $G=G(\Phi,R)$ с неприводимой системой корней $\Phi$ с рангом $\mathrm{rk}\Phi \le 2$ выполнено
+  $$X_{\widetilde\beta}(I)^{E(\Phi,R)} = E(\Phi,R,I),$$
+  где $\widetilde\beta$ --- максимальный корень в $\Phi$.
 \end{lm}
 \begin{proof}
-\# Если это верно, то найти ссылку. В $\mathrm{SL}_2$ доказательство такое ($\beta=\alpha_1+\alpha_2$): 
-$$
-[x_{\alpha_1},[x_\beta,[x_{\alpha_2},[x_{-\beta},x_\beta]]]]=x_\beta
-$$
-
+  Очевидно, что
+\begin{align*}
+  X_{\widetilde\beta}(I) &\le E(\Phi,I) \\
+  X_{\widetilde\beta}(I)^{E(\Phi,R)} &\le E(\Phi,I)^{E(\Phi,R)} = E(\Phi,R,I)
+\end{align*}
+  Обратное включение вытекает из леммы \ref{transitivity}.
+  
+  Действительно, возьмём в лемме \ref{transitivity} в качестве $\alpha$ максимальный корень $\widetilde{\beta}$, а в качестве идеала $I$ всё кольцо $R$. Тогда
+  $$ \left< x_{\widetilde\beta}(\xi) \right>^{X_\beta(R)} \ge X_{\widetilde\beta + \beta}(\xi R). $$
+  Но так как любой корень из $\Phi$ может быть получен прибавлением к максимальному корню $\widetilde\beta$ некоторого отрицательного корня $\beta \in \Phi^-$, то группа $E(\Phi,I)$ порождается подгруппами $X_{\widetilde\beta + \beta}(I)$, а следовательно 
+\begin{align*}
+E(\Phi,I) &\le \left< X_{\widetilde\beta}(I) \right>^{E(\Phi,R)}\\
+  E(\Phi,R,I) = E(\Phi,I)^{E(\Phi,R)} &\le \left< X_{\widetilde\beta}(I) \right>^{E(\Phi,R)}
+\end{align*}
 \end{proof}
+
 
 \begin{lm}\label{unipotenttransitivity}
   Любая подгруппа $H \le U$, нормализуемая $G$, имеет вид $U_I$, где $I$ --- идеал кольца.
@@ -276,9 +275,11 @@ $$
 
 
 \begin{lm}\label{maxrootsum}
-Максимальный корень $\beta\coloneqq\widetilde\beta_i$ можно представить в виде суммы двух корней $\gamma$ и $\delta$ одинаковой длины, так что при этом абстрактный вес $i\beta-j\gamma$ будет неотрицательным для любых положительных коэффициентов $i$ и $j$. Если же $\langle\sigma-\beta,\beta\rangle=0$ (при том, что старший вес $\sigma\coloneqq\widetilde\sigma$ не совпадает с максимальным корнем $\beta$), то выбор можно совершить таким образом, чтобы дополнительно выполнялось $\langle\sigma,\delta-\gamma\rangle>0$.
+Пусть $\Phi=\Phi_1+\ldots+\Phi_n$ --- система корней с неприводимыми компонентами ранга не менее $2$, $\sigma$ --- некоторый доминантный вес, такой что $\sigma-\beta$ не ортогонально $\Phi_i$.
 
-Заметим, что угол между $\gamma$ и $\delta$ в результате может оказаться либо $\frac{\pi}{2}$, либо $\frac{2\pi}{3}$. Угол $\frac{\pi}{3}$ (когда $\Phi = \mathrm{G}_2$) невозможен, так как тогда нарушится условие $i\beta-j\gamma \nprec 0$.
+Тогда максимальный корень $\beta\coloneqq\widetilde\beta_i$ можно представить в виде суммы двух корней $\gamma$ и $\delta$ одинаковой длины, так любая положительная комбинация корней $\beta$ и $-\gamma$ будет неотрицательна. Если же $\langle\sigma-\beta,\beta\rangle=0$, то выбор можно совершить таким образом, чтобы дополнительно выполнялось $\langle\sigma,\delta-\gamma\rangle>0$.
+
+Заметим, что угол между $\gamma$ и $\delta$ в результате может оказаться либо $\frac{\pi}{2}$, либо $\frac{2\pi}{3}$. Угол $\frac{\pi}{3}$ (когда $\Phi = \mathrm{G}_2$) невозможен, так как тогда нарушится условие $\N\beta-\N\gamma \nprec 0$.
 \end{lm}
 \begin{proof}
 В $\mathrm{G}_2$ требованиям леммы удовлетворяет выбор $\gamma=\alpha_2$ и $\delta=3\alpha_1+\alpha_2$.
@@ -330,7 +331,7 @@ $$
 \end{tikzpicture}
 \end{center}
 
-В случае, когда $\langle\sigma-\beta,\beta\rangle=0$, обеспечить выполнения условия $\langle\sigma,\delta-\gamma\rangle>0$ можно следующим образом. Выберем корень $\delta$, не ортогональный ни $\beta$, ни $\sigma-\beta$ (это можно сделать, так как $\Phi$ неприводима). Не умаляя общности можно считать, что $\langle\delta,\beta\rangle>0$ и $\langle\delta,\sigma-\beta\rangle>0$. Тогда $\langle\delta,\beta\rangle=\frac{1}{2}\langle\beta,\beta\rangle$ и $\gamma\coloneqq\beta-\delta$. При этом
+В случае, когда $\langle\sigma-\beta,\beta\rangle=0$, обеспечить выполнения условия $\langle\sigma,\delta-\gamma\rangle>0$ можно следующим образом. Выберем корень $\delta$, не ортогональный ни $\beta$, ни $\sigma-\beta$ (это можно сделать, так как $\Phi$ неприводима и в $\Phi$ есть корень, не ортогональный $\sigma-\beta$). Не умаляя общности можно считать, что $\langle\delta,\beta\rangle>0$ и $\langle\delta,\sigma-\beta\rangle>0$. Тогда $\langle\delta,\beta\rangle=\frac{1}{2}\langle\beta,\beta\rangle$ и $\gamma\coloneqq\beta-\delta$. При этом
 $\langle\sigma,\delta-\gamma\rangle =
 \langle\sigma,2\delta-\beta\rangle =
 2\langle\sigma,\delta\rangle-\langle\sigma,\beta\rangle = 
@@ -375,35 +376,16 @@ $$ \sigma - \frac{2 \langle \sigma,\delta\rangle}{\langle \delta , \delta \rangl
 
 \begin{thm}
   Снова $G = G(\Phi, R)$ --- редуктивная групповая схема Шевалле-Демазюра
-  с системой корней $\Phi = \Phi_1 + \ldots + \Phi_n$, где каждая $\Phi_i$ --- неприводимая система корней ранга не меньше $2$. $U$ --- неприводимое рациональное представление $G$ (модуль Вейля), отличное от присоединённого представления группы $G$. В коммутативном кольце $R$ предполагается обратимость всех структурных констант группы $G$, а также структурных констант представления (условие \ref{representationconstantinvertibility}).
+  с системой корней $\Phi = \Phi_1 + \ldots + \Phi_n$, где каждая $\Phi_i$ --- неприводимая система корней ранга не меньше $2$. $U$ --- неприводимое рациональное представление $G$ (модуль Вейля), такое что его старший вес $\widetilde\sigma$ не ортогонален ни одной из компонент $\Phi_i$. В коммутативном кольце $R$ предполагается обратимость всех структурных констант группы $G$, а также предполагается выполнение свойства \ref{returnfromhighest}.
     
   Пусть имеется подгруппа $H \le G \rightthreetimes U$, нормализуемая группой $E$, то есть $[H,E] \le H$. Тогда образ $H$ при проекции $G \rightthreetimes U \rightarrow G$, обозначаемый как $H_G$, будет обладать следующим свойством: $[H_G,E]\le H$.
 \end{thm}
 \begin{proof}
   $H$ нормализуется $E$, следовательно $H_G$ также нормализуется $E$. По лемме \ref{directproduct} $[H_G,E] = \prod_{i=1}^n E(\Phi_i,R,I_i)$ при некотором выборе идеалов $I_i$. Требуется доказать, что $[H_G,E] \le H$, то есть в прямом произведении $\prod_{i=1}^n E(\Phi_i,R,I_i)$ каждый множитель $E(\Phi_i,R,I_i)$  лежит в $H$.
-  
-\begin{lm}
-  $$X_{\widetilde\beta_i}(I_i)^{E(\Phi_i,R)} = E(\Phi_i,R,I_i),$$
-  где $\widetilde\beta_i$ --- максимальный корень в $\Phi_i$.
-\end{lm}
-\begin{proof}
-  Очевидно, что
-\begin{align*}
-  X_{\widetilde\beta_i}(I_i) &\le E(\Phi_i,I_i) \\
-  X_{\widetilde\beta_i}(I_i)^{E(\Phi_i,R)} &\le E(\Phi_i,I_i)^{E(\Phi_i,R)} = E(\Phi_i,R,I_i)
-\end{align*}
-  Обратное включение вытекает из леммы \ref{transitivity}.
-  
-  Действительно, возьмём в лемме \ref{transitivity} в качестве $\alpha$ максимальный корень $\widetilde{\beta_i}$, а в качестве идеала $I$ всё кольцо $R$. Тогда
-  $$ \left< x_{\widetilde\beta_i}(\xi) \right>^{X_\beta(R)} \ge X_{\widetilde\beta_i + \beta}(\xi R). $$
-  Но так как любой корень из $\Phi_i$ может быть получен прибавлением к максимальному корню $\widetilde\beta_i$ некоторого отрицательного корня $\beta \in \Phi^-$, то группа $E(\Phi_i,I_i)$ порождается подгруппами $X_{\widetilde\beta_i + \beta}(I_i)$, а следовательно 
-\begin{align*}
-E(\Phi_i,I_i) &\le \left< X_{\widetilde\beta_i}(I) \right>^{E(\Phi_i,R)}\\
-  E(\Phi_i,R,I_i) = E(\Phi_i,I_i)^{E(\Phi_i,R)} &\le \left< X_{\widetilde\beta_i}(I) \right>^{E(\Phi_i,R)}
-\end{align*}
-\end{proof}
 
-Таким образом, необходимо доказать, что $X_{\widetilde\beta_i}(I_i)^{E(\Phi_i,R)} \le H$, то есть что
+Но по лемме \ref{maximalgenerates} $E(\Phi_i,R,I_i) = X_{\widetilde\beta_i}(I_i)^{E(\Phi_i,R)}$.
+
+Поэтому достаточно доказать, что $X_{\widetilde\beta_i}(I_i)^{E(\Phi_i,R)} \le H$, то есть что
 $x_{\widetilde{\beta_i}}(\xi) \in H \ \forall \xi \in I_i$.
 
 По построению известно, что $x_{\widetilde\beta_i}(\xi) \in [H_G,E] \le H_G$.
@@ -432,31 +414,48 @@ x_{\widetilde\beta_i}(\xi)\,u \arrow[Equals]{u} \arrow[maps to]{r}{} & x_{\widet
 \end{tikzcd}
 \end{equation*}
 
-Рассмотрим два случая. Пусть сначала $u \notin U_{\widetilde\sigma}$, то есть $u$ не является вектором максимального веса. Разложим $u$ по весовым подпространствам: $$u = \prod_{\sigma \in \Sigma} u_\sigma = u_{\widetilde\sigma} \, \prod_{\sigma \in \Sigma \setminus \{\widetilde\sigma\} } u_\sigma = u_{\widetilde\sigma} \, u'  .$$
-Если $u_\sigma$ --- один из множителей, составляющих $u'$, то найдётся положительный корень $\beta \in \Phi_i^+$, такой что $\beta + \sigma \in \Sigma$, а значит, $[x_\beta(1), u] \ne 1$.
+Рассмотрим два случая. Пусть сначала $u \notin U_{\widetilde\sigma}$, то есть $u$ не является вектором максимального веса.
+Разложим $u$ по весовым подпространствам: $$u = \prod_{\sigma \in \Sigma} u_\sigma = u_{\widetilde\sigma} \, \prod_{\sigma \in \Sigma \setminus \{\widetilde\sigma\} } u_\sigma = u_{\widetilde\sigma} \, u'  .$$
+Докажем, что все множители, составляющие $u'$, принадлежат $H$. Будем доказывать это по индукции по аналогии с леммой \ref{weightprojections}.
 
-Вычислим
+Пусть $\sigma$ --- минимальный корень из присутствующих в разложении $u'$. Для некоторого положительного корня $\alpha_1$ вычислим
 \begin{multline*}
-[x_\beta(1), h] = [x_\beta(1), x_{\widetilde\beta_i}(\xi)u] =
-{}^{x_\beta(1)}(x_{\widetilde\beta_i}(\xi)u)\,u^{-1} {x_{\widetilde\beta_i}(\xi)}^{-1}
-= \\ =
-{}^{x_\beta(1)}x_{\widetilde\beta_i}(\xi) \, {}^{x_\beta(1)}u\,u^{-1} {x_{\widetilde\beta_i}(\xi)}^{-1} =
-{}^{x_{\widetilde\beta_i}(\xi)}[x_\beta(1),u] \; \in \; U \cap H \; .
+[x_{\alpha_1}(1), h] = [x_{\alpha_1}(1), x_{\widetilde\beta_i}(\xi)u] =
+[x_{\alpha_1}(1), x_{\widetilde\beta_i}(\xi)] \cdot {}^{x_{\widetilde\beta_i}(\xi)}[x_{\alpha_1}(1),u]
+={}^{x_{\widetilde\beta_i}(\xi)}[x_{\alpha_1}(1),u] \; \in \; U \cap H \; .
 \end{multline*}
 
-Тогда 
+Рассмотрим цепочку положительных корней $\alpha_1,\alpha_2 \ldots \alpha_k$, начинающуюся с $\alpha_1$, такую что $\alpha_1+\alpha_2+\ldots+\alpha_k=\widetilde\sigma-\sigma$. Последовательное коммутирование $u_\sigma$ с корневыми элементами этой цепочки приводит к такому же результату, как действие оператора $\varepsilon_{\alpha_k}(1)\ldots\varepsilon_{\alpha_2}(1)\varepsilon_{\alpha_1}(1)$:
+$$ [x_{\alpha_k}(1),[\ldots[x_{\alpha_2}(1),[x_{\alpha_1}(1),u_\sigma]]\ldots]] =
+\big(\varepsilon_{\alpha_k}(1)\ldots\varepsilon_{\alpha_2}(1)\varepsilon_{\alpha_1}(1)\big)(u_\sigma) \;.$$
+При этом к тому же результату приводит и аналогичное коммутирование $u$
+$$ [x_{\alpha_k}(1),[\ldots[x_{\alpha_2}(1),[x_{\alpha_1}(1),u]]\ldots]] =
+\big(\varepsilon_{\alpha_k}(1)\ldots\varepsilon_{\alpha_2}(1)\varepsilon_{\alpha_1}(1)\big)(u_\sigma) \;,$$
+а также коммутирование $h$:
+\begin{multline*}
+[x_{\alpha_k}(1),[\ldots[x_{\alpha_2}(1),[x_{\alpha_1}(1),h]]\ldots]] =
+[x_{\alpha_k}(1),[\ldots[x_{\alpha_2}(1),{}^{x_{\widetilde\beta_i}(\xi)}[x_{\alpha_1}(1),u]]\ldots]] =\\=
+[x_{\alpha_k}(1),[\ldots{}^{x_{\widetilde\beta_i}(\xi)}[x_{\alpha_2}(1),[x_{\alpha_1}(1),u]]\ldots]] =
+{}^{x_{\widetilde\beta_i}(\xi)}[x_{\alpha_k}(1),[\ldots[x_{\alpha_2}(1),[x_{\alpha_1}(1),u]]\ldots]] =\\=
+\big(\varepsilon_{\alpha_k}(1)\ldots\varepsilon_{\alpha_2}(1)\varepsilon_{\alpha_1}(1)\big)(u_\sigma) \;,
+\end{multline*}
 
-$$ w \coloneqq {}^{x_{\widetilde\beta_i}(\xi)^{-1}} [x_\beta(1), h] = [x_\beta(1),u] \; \in \; U \cap H \; .$$
-
-Следовательно, так как $(U \cap H)^E = U \cap H$, то по свойству \ref{unipotentsubgroups}, $u \; \in \; U \cap H$, а следовательно, $x_{\widetilde\beta_i(\xi)} \in H$ (\textbf{\color{red}ЧУШЬ!!!}).
+В результате по лемме \ref{returnfromhighest}, так как $\big(\varepsilon_{\alpha_k}(1)\ldots\varepsilon_{\alpha_2}(1)\varepsilon_{\alpha_1}(1)\big)(u_\sigma) \; \in \; H$ для всех цепочек положительных корней $\alpha_1\ldots\alpha_k$, то и $u_\sigma \in H$.
 
 Пусть теперь $u \in  U_{\widetilde\sigma}$. 
 
-Представим $\widetilde\beta$ в виде суммы $\gamma+\delta$ в соответствии с леммой \ref{maxrootsum}.
+Представим $\beta\coloneqq\widetilde\beta_i$ в виде суммы $\gamma+\delta$ в соответствии с леммой \ref{maxrootsum}.
 
 Рассмотрим случаи в соответствии с леммой \ref{highestweightvariants}.
-Если $\sigma-\delta+\gamma \in \Sigma$ (случай (0)), то
-$$ [x_{\gamma-\delta}(1),h] = [x_{\gamma-\delta}(1),x_\beta(\xi)u] = [x_{\gamma-\delta}(1),x_\beta(\xi)] \cdot {}^{x_\beta(\xi)}[x_{\gamma-\delta}(1),u] = {}^{x_\beta(\xi)}[x_{\gamma-\delta}(1),u] \;\in\; U\cap H $$
+Если $\widetilde\sigma-\delta+\gamma \in \Sigma$ (случай (0)), то
+\begin{multline*}
+[x_{\gamma-\delta}(1),h] = [x_{\gamma-\delta}(1),x_\beta(\xi)u] = [x_{\gamma-\delta}(1),x_\beta(\xi)] \cdot {}^{x_\beta(\xi)}[x_{\gamma-\delta}(1),u] =\\=
+{}^{x_\beta(\xi)}[x_{\gamma-\delta}(1),u] \;\in\; U\cap H \;.
+\end{multline*}
+Очевидно, $\widetilde\sigma + \N(\gamma-\delta)+\N\beta \notin \Sigma$, поэтому
+$h_{-\gamma} = [x_{-\gamma}(1),u]$. Дальнейшее коммутирование с $x_{\gamma-\delta}(1)$ приводит к элементу $w\coloneqq\varepsilon_{\gamma-\delta}(1)^k(u)$, $k=2\frac{\langle\sigma,\delta-\gamma\rangle}{\langle\delta-\gamma,\delta-\gamma\rangle}$, лежащему в подпространстве экстремального веса $\sigma-2\frac{\langle\sigma,\delta-\gamma\rangle}{\langle\delta-\gamma,\delta-\gamma\rangle}(\delta-\gamma)$. Так как $w\in H$, то по лемме \ref{extremalweightisomorphism} также $u \in H$.
+
+Пусть теперь $\widetilde\sigma-\delta+\gamma \notin \Sigma$. В этом случае $\N\beta-\N\delta$, так же как и $\N\beta-\N\gamma$, будут неотрицательны.
 
 Обозначим
 \begin{multline*}
@@ -494,7 +493,7 @@ x_{\beta-2\gamma}(N_{-\gamma,\beta,1,1} N_{-\gamma,\beta-\gamma,1,1} \, \xi) \; 
 \end{tikzpicture}
 \end{center}
 
-Если угол между $\gamma$ и $\delta$ составляет $\frac{\pi}{2}$, и при этом $\widetilde\sigma-3\gamma\in\Sigma$, то
+Аналогично вводятся $h_{-\delta}$ и $h_{-2\delta}$, а также $h_{-3\gamma}$ и $h_{-3\delta}$.
 \begin{multline*}
 h_{-3\gamma} \coloneqq [x_{-\gamma}(1),h_{-2\gamma}] = \\ =
 [x_{-\gamma}(1), x_{\beta-2\gamma}(N_{-\gamma,\beta,1,1} N_{-\gamma,\beta-\gamma,1,1} \, \xi) \; \varepsilon^2_{-\gamma}(u) \, u_2] = \\ =
@@ -503,173 +502,27 @@ h_{-3\gamma} \coloneqq [x_{-\gamma}(1),h_{-2\gamma}] = \\ =
  \; ,
 \end{multline*}
 где $u_3$ раскладывается по подпространствам $U_\sigma$ с $\sigma \in \widetilde\sigma-3\gamma - \N \, \gamma$.
-При этом $h_{-3\gamma}\;\in\;U\cap H$, а их свойства \ref{weightprojections} вытекает, что $\varepsilon^3_{-\gamma}(u)$ также лежит в $H$. \#И тут нужно сделать вывод, что и $u$ лежит в $H$.
 
-Если угол между $\gamma$ и $\delta$ составляет $\frac{2\pi}{3}$, и при этом $\widetilde\sigma-2\gamma\in\Sigma$, то $h_{-2\gamma}\;\in\;U\cap H$ с аналогичными выводами.
-
-Пусть теперь угол между $\gamma$ и $\delta$ составляет $\frac{\pi}{2}$, и $\widetilde\sigma-3\gamma\notin\Sigma$. В этом случае $u_2=1$ и
-\begin{multline*}
-h_{-\gamma-\beta} \coloneqq [x_{-\delta}(1),h_{-2\gamma}] = \\ =
-[x_{-\delta}(1), x_{\beta-2\gamma}(N_{-\gamma,\beta,1,1} N_{-\gamma,\beta-\gamma,1,1} \, \xi) \; \varepsilon^2_{-\gamma}(u)] = \\ =
-[x_{-\delta}(1), x_{\beta-2\gamma}(N_{-\gamma,\beta,1,1} N_{-\gamma,\beta-\gamma,1,1} \, \xi)] \cdot {}^{x_{\beta-2\gamma}(N_{-\gamma,\beta,1,1} N_{-\gamma,\beta-\gamma,1,1} \, \xi)}[x_{-\delta}(1),\varepsilon^2_{-\gamma}(u)] = \\ =
-x_{-\gamma}(N_{-\gamma,\beta,1,1} N_{-\gamma,\beta-\gamma,1,1} N_{-\delta,\beta-2\gamma,1,1} \, \xi) x_{-\beta}(\ldots) \; \varepsilon_{-\delta}(\varepsilon_{-\gamma}^2(u))\,u_4
- \; ,
-\end{multline*}
-где $u_4$ раскладывается по подпространствам $U_\sigma$ с $\sigma \in \widetilde\sigma-\gamma-\beta- \N\delta + \N_0 (\gamma-\delta)$.
-
-\begin{center}
-\begin{tikzpicture}[thick, scale=1]
-\newcommand{\point}[1]{node (#1) [circle,inner sep=1,fill] {}}
-\draw[dotted] (0,0) node (sigma) [circle,inner sep=2,fill=blue,label=above right:{$\widetilde\sigma$}] {} ++(-45:1) node (sigmaminusgamma) [circle,inner sep=2,fill=blue,label=above right:{$\widetilde\sigma-\gamma$}] {} ++(-45:1) node (sigmaminus2gamma) [circle,inner sep=2,fill=blue,label=above right:{$\widetilde\sigma-2\gamma$}] {} ++(-90-45:1) node (sigmaminusgammabeta) [circle,inner sep=2,fill=blue] {} node[above left,fill=white,inner sep=0.5pt,rounded corners=6pt]{$\widetilde\sigma-\gamma-\beta$} (sigmaminusgamma) -- ++(-90-45:1) \point{} -- ++(90+45:1) \point{} -- +(-90-45:0.3) ++(-45:1) -- +(-90-45:1) \point{} ++(0:0) -- (sigmaminusgammabeta) -- ++(-45:1) \point{} -- +(-90-45:0.6) +(0:0) -- (sigmaminus2gamma) ++(-90:{sqrt(2)}) -- +(-90:{0.6/sqrt(2)}) (sigmaminusgammabeta) -- ++(-90-45:1) \point{} -- +(-90-45:0.6) ++(0:0) -- +(-45:0.6) ++(0:0) -- ++(90+45:1) -- +(-90-45:0.6) ++(0:0) -- +(90+45:0.5) (sigma) -- +(-90-45:1);
-\draw[blue,-{>[length=10,width=5]}] (sigma) -- (sigmaminusgamma);
-\draw[blue,-{>[length=10,width=5]}] (sigmaminusgamma) -- (sigmaminus2gamma);
-\draw[blue,-{>[length=10,width=5]}] (sigmaminus2gamma) -- (sigmaminusgammabeta);
-\path[fill,apply={draw} except on segments {1},red,pattern=north west lines, pattern color=red] ({sqrt(2)+0.3},{-2.3*sqrt(2)}) -- ({sqrt(2)+0.3},{-2*sqrt(2)+0.3}) -- +(-180:{sqrt(2)+0.3}) to[bend right=22.5] ({-0.3/sqrt(2)},{-2*sqrt(2)+0.3/sqrt(2)}) -- +(-90-45:0.9) ({sqrt(2)+0.3},{-2.3*sqrt(2)});
-\node[red] at ({0.5,-3.5}) {$u_4$};
-\end{tikzpicture}
-\end{center}
-
-А если угол между $\gamma$ и $\delta$ составляет $\frac{2\pi}{3}$, и $\widetilde\sigma-2\gamma\notin\Sigma$, то $u_1=1$ и
-\begin{multline*}
-h_{-\gamma-\beta} \coloneqq [x_{-\beta}(1),h_{-\gamma}] = \\ =
-[x_{-\beta}(1), x_{\beta-\gamma}(N_{-\gamma,\beta,1,1} \,\xi) \, \varepsilon_{-\gamma}(u)] = \\ =
-[x_{-\beta}(1), x_{\beta-\gamma}(N_{-\gamma,\beta,1,1} \,\xi)] \cdot {}^{x_{\beta-\gamma}(N_{-\gamma,\beta,1,1} \,\xi)}[x_{-\beta}(1),\varepsilon_{-\gamma}(u)] = \\ =
-x_{-\gamma}(N_{-\gamma,\beta,1,1} N_{-\beta,\beta-\gamma,1,1} \, \xi) \; \varepsilon_{-\beta}(\varepsilon_{-\gamma}(u))\,u_4
- \; ,
-\end{multline*}
-где $u_4$ раскладывается по подпространствам $U_\sigma$ с $\sigma \in \widetilde\sigma-\gamma-\beta - i \beta - j \gamma$, $i,j\in \N_0$, $i+j>0$.
-
-\begin{center}
-\begin{tikzpicture}[thick, scale=1]
-\newcommand{\point}[1]{node (#1) [circle,inner sep=1,fill] {}}
-\draw[dotted] (0,0) node (sigma) [circle,inner sep=2,fill=blue,label=above right:{$\widetilde\sigma$}] {} ++(-30:1) node (sigmaminusgamma) [circle,inner sep=2,fill=blue,label=above right:{$\widetilde\sigma-\gamma$}] {} ++(-30:1) ++(-150:1) node (sigmaminusgammabeta) [circle,inner sep=2,fill=blue,label=above right:{$\widetilde\sigma-\gamma-\beta$}] {} (sigmaminusgamma) -- ++(-150:1) \point{} -- ++(150:1) \point{} -- +(-150:0.3) ++(0:0) -- (sigma) -- ++(-90:1) -- +(-90:1) ++(0:0) -- +(-150:0.6) ++(0:0) -- (sigmaminusgammabeta) -- ++(-30:1) \point{} -- +(-30:0.4) ++(0:0) -- +(-90:0.4) ++(0:0) -- +(-150:1) (sigmaminusgammabeta) -- +(-150:1) (sigmaminusgammabeta) -- ++(-90:1) \point{} -- +(-90:0.4) ++(0:0) -- +(-30:0.4) ++(0:0) -- +(-150:0.6) ++(0:0) -- ++(150:1) \point{} -- +(-90:0.6) ++(0:0) -- +(-150:0.6) ++(0:0) -- +(150:0.6);
-\draw[blue,-{>[length=10,width=5]}] (sigma) -- (sigmaminusgamma);
-\draw[blue,-{>[length=10,width=5]}] (sigmaminusgamma) -- (sigmaminusgammabeta);
-\draw[fill,red,pattern=north west lines, pattern color=red] (sigmaminusgammabeta) ++(-30:1.6) ++(60:0.3) -- ++(150:0.6) to[bend right=30] ++(-180:0.3) -- ++(-150:1) to[bend right=30] ++(-120:0.3) -- ++(-90:0.6);
-\node[red] at ({1.5,-3}) {$u_4$};
-\end{tikzpicture}
-\end{center}
-
-Таким образом, в обоих случаях имеет место
-$$
-h_{-\gamma-\beta} =
-x_{-\gamma}(N\xi) x_{-\beta}(\ldots) \; u_{-\gamma-\beta} \,u_4
- \; ,
-$$
-где $$
-N\coloneqq 
-\begin{cases}
-  N_{-\gamma,\beta,1,1} N_{-\gamma,\beta-\gamma,1,1} N_{-\delta,\beta-2\gamma,1,1},& \text{если угол между } \gamma \text{ и } \delta \text{ составляет } \frac{\pi}{2}\\
-  N_{-\gamma,\beta,1,1} N_{-\beta,\beta-\gamma,1,1},              & \text{если угол между } \gamma \text{ и } \delta \text{ составляет } \frac{2\pi}{3}\\
-\end{cases}
-$$
-$$
-u_{-\gamma-\beta}\coloneqq 
-\begin{cases}
-  \varepsilon_{-\delta}(\varepsilon_{-\gamma}^2(u)),& \text{если угол между } \gamma \text{ и } \delta \text{ составляет } \frac{\pi}{2}\\
-  \varepsilon_{-\beta}(\varepsilon_{-\gamma}(u)),              & \text{если угол между } \gamma \text{ и } \delta \text{ составляет } \frac{2\pi}{3}\\
-\end{cases}
-$$
-При этом $u_4$ в обоих случаях раскладывается по подпространствам $U_\sigma$ с $\sigma \in \widetilde\sigma-\gamma-\beta- \N\delta + \N_0 (\gamma-\delta)$.
-
-\begin{center}
-\begin{tikzpicture}[thick, scale=1]
-\newcommand{\point}[1]{node (#1) [circle,inner sep=1,fill] {}}
-\draw[dotted] ({1/sqrt(2)},{-3/sqrt(2)}) node (sigmaminusgammabeta) [circle,inner sep=2,fill=blue] {} node[above left,fill=white,inner sep=0.5pt,rounded corners=6pt]{$\widetilde\sigma-\gamma-\beta$} -- ++(-45:1) \point{} -- +(-45:0.6) ++(0:0) -- +(-90-45:0.6) ++(0:0) -- +(-90:{0.6/sqrt(2)}) (sigmaminusgammabeta) -- ++(-90-45:1) \point {} -- +(-90-45:0.6) ++(0:0) -- +(-45:0.6) ++(0:0) -- +(-90:{0.6/sqrt(2)}) (sigmaminusgammabeta) -- +(-90:{1.6/sqrt(2)});
-\path[fill,apply={draw} except on segments {1},red,pattern=north west lines, pattern color=red] ({sqrt(2)+0.7},{-2.3*sqrt(2)}) -- ({sqrt(2)+0.7},{-2*sqrt(2)+0.3}) -- +(-180:{sqrt(2)+0.7}) to[bend right=22.5] ({-0.3/sqrt(2)},{-2*sqrt(2)+0.3/sqrt(2)}) -- +(-90-45:0.9) ({sqrt(2)+0.3},{-2.3*sqrt(2)});
-\node[red] at ({0.5,-3.5}) {$u_4$};
-\end{tikzpicture}
-\end{center}
-
-После этого вычислим
-\begin{multline*}
-h_{-2\beta} \coloneqq [x_{-\delta}(1),h_{-\gamma-\beta}] = \\ =
-[x_{-\delta}(1), x_{-\gamma}(N\xi)x_{-\beta}(\ldots) \; u_{-\gamma-\beta} \,u_4] = \\ =
-[x_{-\delta}(1), x_{-\gamma}(N\xi)x_{-\beta}(\ldots)] \cdot {}^{x_{-\gamma}(N\xi)x_{-\beta}(\ldots)}[x_{-\delta}(1),u_{-\gamma-\beta} \,u_4] = \\ =
-x_{-\beta}(N \, N_{-\delta,-\gamma,1,1} \, \xi) \; \varepsilon_{-\delta}(u)\,u_5
- \; ,
-\end{multline*}
-где $u_5$ раскладывается по подпространствам $U_\sigma$ с $\sigma \in \widetilde\sigma-2\beta - \N\delta + \N_0 \, (\delta-\gamma)$.
-
-\begin{center}
-\begin{tikzpicture}[thick, scale=1]
-\newcommand{\point}[1]{node (#1) [circle,inner sep=1,fill] {}}
-\draw[dotted] (0,{-2*sqrt(2)}) node (sigmaminus2beta) [circle,inner sep=2,fill=blue] {} node[above left,fill=white,inner sep=0.5pt,rounded corners=6pt]{$\widetilde\sigma-2\beta$} -- ++(-45:1) \point{} -- +(-45:0.6) ++(0:0) -- +(-90-45:0.6) ++(0:0) -- +(-90:{0.6/sqrt(2)}) (sigmaminus2beta) -- ++(-90-45:1) \point {} -- +(-90-45:0.6) ++(0:0) -- +(-45:0.6) ++(0:0) -- +(-90:{0.6/sqrt(2)}) (sigmaminus2beta) -- +(-90:{1.6/sqrt(2)});
-\path[fill,apply={draw} except on segments {1},red,pattern=north west lines, pattern color=red] ({sqrt(2)/2+0.7},{-2.8*sqrt(2)}) -- ({sqrt(2)/2+0.7},{-2.5*sqrt(2)+0.3}) -- +(-180:{sqrt(2)+0.7}) to[bend right=22.5] ({-1.3/sqrt(2)},{-2*sqrt(2)-0.7/sqrt(2)}) -- +(-90-45:0.9) ({sqrt(2)/2+0.3},{-2.8*sqrt(2)});
-\node[red] at ({-0.2,-4.2}) {$u_4$};
-\end{tikzpicture}
-\end{center}
-
-Если $\langle\widetilde\sigma,\beta\rangle<0$, то $\widetilde\sigma-2\beta\notin\Sigma$, а следовательно
-$$h_{-2\beta} = x_{-\beta}(N \, N_{-\delta,-\gamma,1,1} \, \xi) \; \in \; E \cap H \;.$$
-
-Если $\langle\widetilde\sigma,\beta\rangle>0$, то $\widetilde\sigma-3\beta\in\Sigma$. Тогда вычислим
-\begin{multline*}
-h_{-3\beta} \coloneqq [x_{-\beta}(1),h_{-2\beta}] = \\ =
-[x_{-\beta}(1), x_{-\beta}(N \, N_{-\delta,-\gamma,1,1} \, \xi) \; \varepsilon_{-\delta}(u)\,u_5] = \\ =
-[x_{-\beta}(1), x_{-\beta}(N \, N_{-\delta,-\gamma,1,1} \, \xi)] \cdot {}^{x_{-\beta}(N \, N_{-\delta,-\gamma,1,1} \, \xi)}[x_{-\beta}(1),\varepsilon_{-\delta}(u)\,u_5] = \\ =
-\varepsilon_{-\beta}(\varepsilon_{-\delta}(u))\,u_6 \; \in \; U \cap H
- \; ,
-\end{multline*}
-где $u_6$ раскладывается по подпространствам $U_\sigma$ с $\sigma \in \widetilde\sigma-3\beta - \N\delta + \N_0 \, (\delta-\gamma)$. \#Здесь снова нужно сделать вывод, что $u\in H$.
-
-Остался случай, когда $\langle\widetilde\sigma,\beta\rangle=0$ и $\langle\sigma,\delta-\gamma\rangle>0$. Докажем, что в этом случае 
-$$
-\begin{cases}
-  \sigma-2\gamma\notin\Sigma,& \text{если угол между } \gamma \text{ и } \delta \text{ составляет } \frac{\pi}{2}\\
-  \sigma-\gamma\notin\Sigma,              & \text{если угол между } \gamma \text{ и } \delta \text{ составляет } \frac{2\pi}{3}\\
-\end{cases}$$
-
-\#Почему это должно быть верно:
-
-\begin{center}
-\newcommand{\point}[1]{node (#1) [circle,inner sep=1,fill] {}}
-\newcommand{\pointroot}[1]{node (#1) [circle,inner sep=2,fill=blue] {}}
-\newcommand{\pointweight}[1]{node (#1) [circle,inner sep=2,fill=olive] {}}
-\newcommand{\pointnotweight}[1]{node (#1) [circle,inner sep=2,fill=red] {}}
-
-\begin{tikzpicture}[thick, scale=1]
-
-\path (0,0) \pointroot{zero};
-
-\foreach\ang in {0,60,...,300}{
-  \draw[dotted] (zero) ++(\ang:1) \pointroot{root} -- ++(\ang:1) \point{} -- ++(\ang+120:1) \point{} -- ++(\ang+240:1) -- ++(\ang+120:1) -- ++(\ang:1) \point{} -- ++(\ang+120:1);
-  \draw[->,dotted,blue] (zero) -- (root);
-}
-
-\path (zero) ++(30:{1/sqrt(3)}) \pointweight{pi1};
-
-\draw (pi1) ++(240:1) \pointweight{} ++(180:1) \pointweight{} ++(0:2) \pointweight{} ++(120:2) \pointweight{sigma} ++(240:1) \pointweight{sigmaminusbeta} ++(120:1) \pointnotweight{notweight1} ++(0:2) \pointnotweight{notweight2};
-
-\draw[->,blue] (sigma) -- (sigmaminusbeta);
-\draw[->,blue] (sigmaminusbeta) -- (notweight1);
-\draw[->,olive] (notweight1) edge[bend left=40] (notweight2);
-
-\end{tikzpicture}
-
-\begin{tikzpicture}[thick, scale=1]
-
-\path (0,0) \pointroot{zero};
-
-\foreach\ang in {0,1,...,3}{
-  \draw[dotted] (zero) ++(90*\ang-45:1) \pointroot{short\ang} -- ++(90*\ang+45:1) \pointroot{long\ang} -- ++(90*\ang+135:1) -- ++(90*\ang+45:1) \point{} -- ++(90*\ang-45:1) \point{} -- ++(90*\ang-135:1) -- ++(90*\ang-45:1) \point{} +(90*\ang-135:1) -- ++(90*\ang+45:1) \point{} -- ++(90*\ang+135:1);
-  \draw[->,dotted,blue] (zero) -- (short\ang);
-  \draw[->,dotted,blue] (zero) -- (long\ang);
-  
-  \path (zero) -- ++(90*\ang:{1/sqrt(2)}) \pointweight{sigmaminusbeta\ang} -- ++(90*\ang+45:1) \pointweight{} -- ++(90*\ang+135:1) \pointweight{sigma\ang};
-}
-
-\draw (sigma0) +(-45:2) \pointnotweight{notweight1} +(135:1) \pointnotweight{notweight2};
-
-\draw[->,blue] (sigma0.south east) -- (sigmaminusbeta0.north east);
-\draw[->,blue] (sigmaminusbeta0.south east) -- (notweight1.south west);
-\draw[->,olive] (notweight1) edge[bend left=-20] (notweight2);
-
-\end{tikzpicture}
-
-\end{center}
-
+Вернёмся к разбору вариантов леммы \ref{highestweightvariants}.
+\begin{itemize}
+\item Если угол между $\gamma$ и $\delta$ составляет $\frac{2\pi}{3}$:
+\begin{enumerate}
+\item $ \sigma - \gamma \notin \Sigma$, тогда $h_{-\gamma}=x_{\beta-\gamma}(N_{-\gamma,\beta,1,1} \,\xi)\in E\cap H$ и $x_\beta(\xi)\in H$
+\item $ \sigma - \delta \notin \Sigma$, тогда $h_{-\delta}=x_{\beta-\delta}(N_{-\delta,\beta,1,1} \,\xi)\in E\cap H$ и $x_\beta(\xi)\in H$
+\item $ \sigma - 2\gamma \in \Sigma$, тогда $h_{-2\gamma}=\varepsilon_{-\gamma}^2(u)\in U\cap H$ и по \ref{extremalweightisomorphism} $u\in H$
+\item $ \sigma - 2\delta \in \Sigma$, тогда $h_{-2\delta}=\varepsilon_{-\delta}^2(u)\in U\cap H$ и по \ref{extremalweightisomorphism} $u\in H$
+\end{enumerate}
+\item Если угол между $\gamma$ и $\delta$ составляет $\frac{\pi}{2}$:
+\begin{enumerate}
+\item[0.] $ \sigma - \delta + \gamma \in \Sigma$ --- случай разобран ранее
+\item $ \sigma - 2\gamma \notin \Sigma$, тогда $h_{-2\gamma}=x_{\beta-2\gamma}(N_{-\gamma,\beta,1,1}N_{-\gamma,\beta-\gamma,1,1} \,\xi)\in E\cap H$ и $x_\beta(\xi)\in H$
+\item $ \sigma - 2\delta \notin \Sigma$, тогда $h_{-2\delta}=x_{\beta-2\delta}(N_{-\delta,\beta,1,1}N_{-\delta,\beta-\delta,1,1} \,\xi)\in E\cap H$ и $x_\beta(\xi)\in H$
+\item $ \sigma - 3\gamma \in \Sigma$, тогда $h_{-3\gamma}=\varepsilon_{-\gamma}^3(u)\in U\cap H$ и по \ref{extremalweightisomorphism} $u\in H$
+\item $ \sigma - 3\delta \in \Sigma$, тогда $h_{-3\delta}=\varepsilon_{-\delta}^3(u)\in U\cap H$ и по \ref{extremalweightisomorphism} $u\in H$
+\end{enumerate}
+\end{itemize}
 \end{proof}
+
 \bibliographystyle{plain}
 \bibliography{document}
 \end{document}
