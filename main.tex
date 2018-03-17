@@ -418,11 +418,11 @@ x_{\widetilde\beta_i}(\xi)\,u \arrow[Equals]{u} \arrow[maps to]{r}{} & x_{\widet
 Разложим $u$ по весовым подпространствам: $$u = \prod_{\sigma \in \Sigma} u_\sigma = u_{\widetilde\sigma} \, \prod_{\sigma \in \Sigma \setminus \{\widetilde\sigma\} } u_\sigma = u_{\widetilde\sigma} \, u'  .$$
 Докажем, что все множители, составляющие $u'$, принадлежат $H$. Будем доказывать это по индукции по аналогии с леммой \ref{weightprojections}.
 
-Пусть $\sigma$ --- минимальный корень из присутствующих в разложении $u'$. Для некоторого положительного корня $\alpha_1$ вычислим
+Пусть $\sigma$ --- минимальный корень из присутствующих в разложении $u'$. Для некоторого положительного корня $\alpha_1 \in \Phi$ (не обязательно из $\Phi_i$) вычислим
 \begin{multline*}
 [x_{\alpha_1}(1), h] = [x_{\alpha_1}(1), x_{\widetilde\beta_i}(\xi)u] =
-[x_{\alpha_1}(1), x_{\widetilde\beta_i}(\xi)] \cdot {}^{x_{\widetilde\beta_i}(\xi)}[x_{\alpha_1}(1),u]
-={}^{x_{\widetilde\beta_i}(\xi)}[x_{\alpha_1}(1),u] \; \in \; U \cap H \; .
+[x_{\alpha_1}(1), x_{\widetilde\beta_i}(\xi)] \cdot {}^{x_{\widetilde\beta_i}(\xi)}[x_{\alpha_1}(1),u] =\\=
+{}^{x_{\widetilde\beta_i}(\xi)}[x_{\alpha_1}(1),u] \; \in \; U \cap H \; .
 \end{multline*}
 
 Рассмотрим цепочку положительных корней $\alpha_1,\alpha_2 \ldots \alpha_k$, начинающуюся с $\alpha_1$, такую что $\alpha_1+\alpha_2+\ldots+\alpha_k=\widetilde\sigma-\sigma$. Последовательное коммутирование $u_\sigma$ с корневыми элементами этой цепочки приводит к такому же результату, как действие оператора $\varepsilon_{\alpha_k}(1)\ldots\varepsilon_{\alpha_2}(1)\varepsilon_{\alpha_1}(1)$:
@@ -433,9 +433,9 @@ $$ [x_{\alpha_k}(1),[\ldots[x_{\alpha_2}(1),[x_{\alpha_1}(1),u]]\ldots]] =
 \big(\varepsilon_{\alpha_k}(1)\ldots\varepsilon_{\alpha_2}(1)\varepsilon_{\alpha_1}(1)\big)(u_\sigma) \;,$$
 а также коммутирование $h$:
 \begin{multline*}
-[x_{\alpha_k}(1),[\ldots[x_{\alpha_2}(1),[x_{\alpha_1}(1),h]]\ldots]] =
+[x_{\alpha_k}(1),[\ldots[x_{\alpha_2}(1),[x_{\alpha_1}(1),h]]\ldots]] =\\=
 [x_{\alpha_k}(1),[\ldots[x_{\alpha_2}(1),{}^{x_{\widetilde\beta_i}(\xi)}[x_{\alpha_1}(1),u]]\ldots]] =\\=
-[x_{\alpha_k}(1),[\ldots{}^{x_{\widetilde\beta_i}(\xi)}[x_{\alpha_2}(1),[x_{\alpha_1}(1),u]]\ldots]] =
+[x_{\alpha_k}(1),[\ldots{}^{x_{\widetilde\beta_i}(\xi)}[x_{\alpha_2}(1),[x_{\alpha_1}(1),u]]\ldots]] =\\=
 {}^{x_{\widetilde\beta_i}(\xi)}[x_{\alpha_k}(1),[\ldots[x_{\alpha_2}(1),[x_{\alpha_1}(1),u]]\ldots]] =\\=
 \big(\varepsilon_{\alpha_k}(1)\ldots\varepsilon_{\alpha_2}(1)\varepsilon_{\alpha_1}(1)\big)(u_\sigma) \;,
 \end{multline*}
@@ -543,3 +543,4 @@ $ {}^z[g,u] = {}^{zu}[u^{-1},g] $, следовательно, $[u^{-1},g] \in H
 \bibliographystyle{plain}
 \bibliography{document}
 \end{document}
+
