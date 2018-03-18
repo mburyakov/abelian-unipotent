@@ -66,6 +66,7 @@
 \newtheorem{hyp}{Свойство}
 \newtheorem{thm}{Теорема}
 \newtheorem{lm}{Лемма}
+\newtheorem{rem}{Замечание}
 \newtheorem{example}{Пример}
 \newtheorem{definition}{Определение}
 
@@ -538,7 +539,18 @@ $$ [g, h] = [g,zu] = [g,z] \cdot {}^z[g,u] $$
 $ {}^z[g,u] = {}^{zu}[u^{-1},g] $, следовательно, $[u^{-1},g] \in H$. Выбирая в качестве $g$ корневые элементы $x_\alpha(1)$ с корнями из начала цепочек в лемме \ref{returnfromhighest}, получим, что $u$ также лежит в $H$.
 \end{proof}
 
+\begin{rem}
+В теореме \ref{subgroupprojectionmain} рассматривался случай, когда все $\widetilde\sigma-\widetilde\beta_i$ не ортогональны $\Phi_i$. Если же для некоторого $\Phi_i$ оказывается $\widetilde\sigma-\widetilde\beta_i$ ортогонально $\Phi_i$, то верно более слабое утверждение.
+\end{rem}
 
+\begin{prop}
+Пусть выполняются условия теоремы \ref{subgroupprojectionmain} за исключением требования $\widetilde\sigma-\widetilde\beta_i \not\perp \Phi_i \; \forall i$. А именно, пусть для некоторого $i$ выполнено $\widetilde\sigma-\widetilde\beta_i \perp \Phi_i$.
+
+Тогда если $x_{\widetilde\beta_i}(\xi) \in H_G$, то $x_{\widetilde\beta_i}(\xi^2) \in H$.
+\end{prop}
+\begin{proof}
+\# Верно ли, если в $\Phi_i$ не содержится $A_2$? Тогда там содержится $B_2$ --- провести вычисления.
+\end{proof}
 
 
 \bibliographystyle{plain}
