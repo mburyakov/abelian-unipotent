@@ -275,14 +275,14 @@ E(\Phi,I) &\le \left< X_{\widetilde\beta}(I) \right>^{E(\Phi,R)}\\
 
 
 \begin{lm}\label{maxrootsum}
-Пусть $\Phi=\Phi_1+\ldots+\Phi_n$ --- система корней с неприводимыми компонентами ранга не менее $2$, $\sigma$ --- некоторый доминантный вес, такой что $\sigma-\beta$ не ортогонально $\Phi_i$.
+Пусть $\Phi=\Phi_1+\ldots+\Phi_n$ --- система корней с неприводимыми компонентами ранга не менее $2$, $\widetilde\beta_1 \ldots \widetilde\beta_n$ ---  максимальные корни в неприводимых компонентах, $\sigma$ --- некоторый доминантный вес, такой что каждая разность $\sigma-\widetilde\beta_i$ не ортогональна $\Phi_i$.
 
-Тогда максимальный корень $\beta\coloneqq\widetilde\beta_i$ можно представить в виде суммы двух корней $\gamma$ и $\delta$ одинаковой длины, так любая положительная комбинация корней $\beta$ и $-\gamma$ будет неотрицательна. Если же $\langle\sigma-\beta,\beta\rangle=0$, то выбор можно совершить таким образом, чтобы дополнительно выполнялось $\langle\sigma,\delta-\gamma\rangle>0$.
+Тогда каждый максимальный корень $\widetilde\beta_i$ можно представить в виде суммы двух корней $\gamma$ и $\delta$ одинаковой длины, так что любая положительная комбинация корней $\widetilde\beta_i$ и $-\gamma$ будет неотрицательна. Если же $\langle\sigma-\widetilde\beta_i,\widetilde\beta_i\rangle=0$, то выбор можно совершить таким образом, чтобы дополнительно выполнялось $\langle\sigma,\delta-\gamma\rangle>0$.
 
-Заметим, что угол между $\gamma$ и $\delta$ в результате может оказаться либо $\frac{\pi}{2}$, либо $\frac{2\pi}{3}$. Угол $\frac{\pi}{3}$ (когда $\Phi = \mathrm{G}_2$) невозможен, так как тогда нарушится условие $\N\beta-\N\gamma \nprec 0$.
+Заметим, что угол между $\gamma$ и $\delta$ в результате может оказаться либо $\frac{\pi}{2}$, либо $\frac{2\pi}{3}$. Угол $\frac{\pi}{3}$ (когда $\Phi_i = \mathrm{G}_2$) невозможен, так как тогда нарушится условие $\N\widetilde\beta_i-\N\gamma \nprec 0$.
 \end{lm}
 \begin{proof}
-В $\mathrm{G}_2$ требованиям леммы удовлетворяет выбор $\gamma=\alpha_2$ и $\delta=3\alpha_1+\alpha_2$.
+При $\Phi_i=\mathrm{G}_2$ требованиям леммы удовлетворяет выбор $\gamma=\alpha_2$ и $\delta=3\alpha_1+\alpha_2$.
 
 \begin{center}
 \begin{tikzpicture}[thick, scale=1]
@@ -301,7 +301,7 @@ E(\Phi,I) &\le \left< X_{\widetilde\beta}(I) \right>^{E(\Phi,R)}\\
 \end{tikzpicture}
 \end{center}
 
-Пусть теперь $\Phi\ne\mathrm{G}_2$. Условие $i\beta-j\gamma\nless0\;\forall i,j\in\N$ выполняется автоматически, если угол между $\gamma$ и $\delta$ составляет $\frac{2\pi}{3}$. Если же угол $\frac{\pi}{2}$, то обеспечить выполнения этого условия можно заменой местами $\gamma$ и $\delta$, чтобы $\delta-\gamma>0$.
+Пусть теперь $\Phi_i\ne\mathrm{G}_2$. Условие $k\widetilde\beta_i-l\gamma\nprec 0\;\forall k,l\in\N$ выполняется автоматически, если угол между $\gamma$ и $\delta$ составляет $\frac{2\pi}{3}$. Если же угол $\frac{\pi}{2}$, то обеспечить выполнения этого условия можно заменой местами $\gamma$ и $\delta$, чтобы $\delta-\gamma>0$.
 
 \begin{center}
 \begin{tikzpicture}[thick, scale=1]
@@ -331,14 +331,14 @@ E(\Phi,I) &\le \left< X_{\widetilde\beta}(I) \right>^{E(\Phi,R)}\\
 \end{tikzpicture}
 \end{center}
 
-В случае, когда $\langle\sigma-\beta,\beta\rangle=0$, обеспечить выполнения условия $\langle\sigma,\delta-\gamma\rangle>0$ можно следующим образом. Выберем корень $\delta$, не ортогональный ни $\beta$, ни $\sigma-\beta$ (это можно сделать, так как $\Phi$ неприводима и в $\Phi$ есть корень, не ортогональный $\sigma-\beta$). Не умаляя общности можно считать, что $\langle\delta,\beta\rangle>0$ и $\langle\delta,\sigma-\beta\rangle>0$. Тогда $\langle\delta,\beta\rangle=\frac{1}{2}\langle\beta,\beta\rangle$ и $\gamma\coloneqq\beta-\delta$. При этом
+В случае, когда $\langle\sigma-\widetilde\beta_i,\widetilde\beta_i\rangle=0$, обеспечить выполнения условия $\langle\sigma,\delta-\gamma\rangle>0$ можно следующим образом. Выберем корень $\delta$, не ортогональный ни $\widetilde\beta_i$, ни $\sigma-\widetilde\beta_i$ (это можно сделать, так как $\Phi$ неприводима и в $\Phi$ есть корень, не ортогональный $\sigma-\widetilde\beta_i$). Не умаляя общности можно считать, что $\langle\delta,\widetilde\beta_i\rangle>0$ и $\langle\delta,\sigma-\widetilde\beta_i\rangle>0$. Тогда $\langle\delta,\widetilde\beta_i\rangle=\frac{1}{2}\langle\widetilde\beta_i,\widetilde\beta_i\rangle$ и $\gamma\coloneqq\widetilde\beta_i-\delta$. При этом
 $\langle\sigma,\delta-\gamma\rangle =
-\langle\sigma,2\delta-\beta\rangle =
-2\langle\sigma,\delta\rangle-\langle\sigma,\beta\rangle = 
-2\langle\sigma,\delta\rangle-\langle\beta,\beta\rangle =
-2\langle\delta,\sigma\rangle-2\langle\delta,\beta\rangle =
-2\langle\delta,\sigma-\beta\rangle > 0$.
-Условие $i\beta-j\gamma\nprec\;\forall i,j\in\N$ при этом будет выполнено, так как  $\delta-\gamma$ не может быть отрицательным корнем (если это корень, то положительный).
+\langle\sigma,2\delta-\widetilde\beta_i\rangle =
+2\langle\sigma,\delta\rangle-\langle\sigma,\widetilde\beta_i\rangle = 
+2\langle\sigma,\delta\rangle-\langle\widetilde\beta_i,\widetilde\beta_i\rangle =
+2\langle\delta,\sigma\rangle-2\langle\delta,\widetilde\beta_i\rangle =
+2\langle\delta,\sigma-\widetilde\beta_i\rangle > 0$.
+Условие $k\widetilde\beta_i-l\gamma\nprec 0\;\forall k,l\in\N$ при этом будет выполнено, так как  $\delta-\gamma$ не может быть отрицательным корнем (если это корень, то положительный).
 \end{proof}
 
 \begin{lm}\label{highestweightvariants}
@@ -369,14 +369,14 @@ $$ \sigma - \frac{2 \langle \sigma,\delta\rangle}{\langle \delta , \delta \rangl
 но при этом
 $$ \sigma - \frac{2 \langle \sigma,\gamma\rangle}{\langle \gamma , \gamma \rangle}\gamma-\gamma \;\notin\; \Sigma $$
 $$ \sigma - \frac{2 \langle \sigma,\delta\rangle}{\langle \delta , \delta \rangle}\delta-\delta \;\notin\; \Sigma \; . $$
-Следовательно, условия (1-4) могут выполняться, только если $\langle\sigma,\gamma\rangle=\langle\beta,\gamma\rangle$
-и одновременно $\langle\sigma,\delta\rangle=\langle\beta,\delta\rangle$. Но это значит, что $\langle\sigma-\beta,\beta\rangle=0$,
+Следовательно, условия (1-4) могут выполняться, только если $\langle\sigma,\gamma\rangle=\langle\widetilde\beta_i,\gamma\rangle$
+и одновременно $\langle\sigma,\delta\rangle=\langle\widetilde\beta_i,\delta\rangle$. Но это значит, что $\langle\sigma-\widetilde\beta_i,\widetilde\beta_i\rangle=0$,
 а значит по предыдущей лемме $\langle\sigma,\delta-\gamma\rangle > 0$, то есть выполнено условие (0).
 \end{proof}
 
 \begin{thm}\label{subgroupprojectionmain}
   Снова $G = G(\Phi, R)$ --- редуктивная групповая схема Шевалле-Демазюра
-  с системой корней $\Phi = \Phi_1 + \ldots + \Phi_n$, где каждая $\Phi_i$ --- неприводимая система корней ранга не меньше $2$. $U$ --- неприводимое рациональное представление $G$ (модуль Вейля), такое что его старший вес $\widetilde\sigma$ не ортогонален ни одной из компонент $\Phi_i$. В коммутативном кольце $R$ предполагается обратимость всех структурных констант группы $G$, а также предполагается выполнение свойства \ref{returnfromhighest}.
+  с системой корней $\Phi = \Phi_1 + \ldots + \Phi_n$, где каждая $\Phi_i$ --- неприводимая система корней ранга не меньше $2$. $U$ --- неприводимое рациональное представление $G$ (модуль Вейля) с таким старшим весом $\widetilde\sigma$, что ни для какой неприводимой компоненты $\Phi_i$ с максимальным весом $\widetilde\beta_i$ не оказывается $\widetilde\sigma-\widetilde\beta_i$ ортогональным всей $\Phi_i$. В коммутативном кольце $R$ предполагается обратимость всех структурных констант группы $G$, а также предполагается выполнение свойства \ref{returnfromhighest}.
     
   Пусть имеется подгруппа $H \le G \rightthreetimes U$, нормализуемая группой $E$, то есть $[H,E] \le H$. Тогда образ $H$ при проекции $G \rightthreetimes U \rightarrow G$, обозначаемый как $H_G$, будет обладать следующим свойством: $[H_G,E]\le H$.
 \end{thm}
@@ -477,7 +477,7 @@ x_{\beta-\gamma}(N_{-\gamma,\beta,1,1} \,\xi) \, x_{\beta-2\gamma}(\ldots) \, \v
 \begin{multline*}
 h_{-2\gamma} \coloneqq [x_{-\gamma}(1),h_{-\gamma}] = \\ =
 [x_{-\gamma}(1), x_{\beta-\gamma}(N_{-\gamma,\beta,1,1} \,\xi) \, x_{\beta-2\gamma}(\ldots) \, \varepsilon_{-\gamma}(u) \, u_1] = \\ =
-[x_{-\gamma}(1), x_{\beta-\gamma}(N_{-\gamma,\beta,1,1} \,\xi) \, x_{\beta-2\gamma}(\ldots)] \cdot {}^{x_{\beta-\gamma}(N_{-\gamma,\beta,1,1} \,\xi) \, x_{\beta-2\gamma}(\ldots)} [x_{-\gamma}(1), \varepsilon_{-\gamma}(u) \, u_1] = \\ =
+[x_{-\gamma}(1), x_{\beta-\gamma}(N_{-\gamma,\beta,1,1} \,\xi) \, x_{\beta-2\gamma}(\ldots)] \cdot \\ \cdot {}^{x_{\beta-\gamma}(N_{-\gamma,\beta,1,1} \,\xi) \, x_{\beta-2\gamma}(\ldots)} [x_{-\gamma}(1), \varepsilon_{-\gamma}(u) \, u_1] = \\ =
 x_{\beta-2\gamma}(N_{-\gamma,\beta,1,1} N_{-\gamma,\beta-\gamma,1,1} \, \xi) \; \varepsilon^2_{-\gamma}(u) \, u_2 \; ,
 \end{multline*}
 где $u_2$ раскладывается по подпространствам $U_\sigma$ с $\sigma \in \widetilde\sigma-2\gamma - \N \, \gamma$.
@@ -540,7 +540,8 @@ $ {}^z[g,u] = {}^{zu}[u^{-1},g] $, следовательно, $[u^{-1},g] \in H
 
 
 
+
 \bibliographystyle{plain}
-\bibliography{document}
+\bibliography{references}
 \end{document}
 
