@@ -56,7 +56,14 @@
 }
 \makeatother
 
-\title{Неунимодулярные линейные группы с абелевым унипотентным радикалом}
+\makeatletter
+\newcommand*{\shifttext}[2]{%
+  \settowidth{\@tempdima}{#2}%
+  \makebox[\@tempdima]{\hspace*{#1}#2}%
+}
+\makeatother
+
+\title{Линейные алгебраические группы, сходные с параболическими}
 \author{}
 \date{}
 
@@ -78,6 +85,12 @@
 \renewcommand{\C}{\mathbb{C}}
 \renewcommand{\le}{\leqslant}
 \renewcommand{\ge}{\geqslant}
+
+\def\lacts{\curvearrowright}
+\def\racts{\curvearrowleft}
+
+\newcommand\bigzero[2]{\raisebox{#2ex-2ex}[0pt][0pt]{\shifttext{#2em}{\text{\Huge{#1}}}}}
+
 \begin{document}
 \maketitle
 
@@ -551,6 +564,8 @@ $$ [g, h] = [g,zu] = [g,z] \cdot {}^z[g,u] $$
 $ {}^z[g,u] = {}^{zu}[u^{-1},g] $, следовательно, $[u^{-1},g] \in H$. Выбирая в качестве $g$ корневые элементы $x_\alpha(1)$ с корнями из начала цепочек в лемме \ref{returnfromhighest}, получим, что $u$ также лежит в $H$.
 \end{proof}
 
+\section*{Случай присоединённого представления}
+
 \begin{rem}
 В теореме \ref{subgroupprojectionmain} рассматривался случай, когда все $\widetilde\sigma-\widetilde\beta_i$ не ортогональны $\Phi_i$. Если же для некоторого $\Phi_i$ оказывается $\widetilde\sigma-\widetilde\beta_i$ ортогонально $\Phi_i$, то верно более слабое утверждение.
 \end{rem}
@@ -563,6 +578,102 @@ $ {}^z[g,u] = {}^{zu}[u^{-1},g] $, следовательно, $[u^{-1},g] \in H
 \begin{proof}
 \# Верно ли, если в $\Phi_i$ не содержится $A_2$? Тогда там содержится $B_2$ --- провести вычисления.
 \end{proof}
+
+\section*{Обобщение на неабелев унипотентный радикал}
+
+Частным случаем теоремы \ref{subgroupprojectionmain} группа $G$ является прямым произведением групп $G_1,\ldots ,G_n$, а модуль $U$ раскладывается в прямую сумму $U_1 \oplus \ldots \oplus U_{n-1}$ со следующими действиями групп на них:
+
+\begin{equation*}
+\begin{array}{lcccr}
+G_1 & \lacts & U_1 & \racts & G_2 \\
+\hdotsfor{5}\\
+G_{n-1} & \lacts & U_{n-1} & \racts & G_n
+\end{array}
+\end{equation*}
+
+Тогда действие $G$ на $U$ конструируется из левых и правых действий $G_1\ldots G_n$ следующим образом:
+\begin{equation*}
+(g_1,\ldots , g_n) : u_i \mapsto g_i u_i g_{i+1}^{-1}
+\end{equation*}
+
+
+В результате $G \rightthreetimes U$ можно записать как факторгруппу группы матриц вида
+
+\begin{equation*}
+\begin{pmatrix}
+g_1 & g_1 u_1 &     &     & \bigzero{*}{-2} \\
+    & g_2 & g_2 u_2 & &  \\
+    &    &\ddots&\ddots&    \\
+    &     &     &g_{n-1}& g_{n-1} u_{n-1} \\
+\bigzero{0}{3}& &     &     & g_n \\
+\end{pmatrix}
+\end{equation*}
+
+по подгруппе вида
+
+\begin{equation*}
+\begin{pmatrix}
+1 & 0 &      &      & \bigzero{*}{-2} \\
+  & 1 & 0    &      &   \\
+  &   &\ddots&\ddots&   \\
+  &   &      &1     & 0 \\
+\bigzero{0}{3}&&&   & 1 \\
+\end{pmatrix}
+\end{equation*}
+
+Перейдём теперь к рассмотрению групп, получающихся подобным же образом из представлений, но в которых унипонетный радикал будет не абелев, в класса нильпотентности 2, то есть коммутант унипотентного радикала будет абелевым.
+
+В частном случае они описываются матрицами
+
+\begin{equation*}
+\begin{pmatrix}
+g_1 & g_1 u_1 & g_1 v_1 &      & &  & \bigzero{*}{-1}        \\
+    & g_2     & g_2 u_2 & \ddots &    &  &  \\
+    &         & g_3     & \ddots  & \ddots &  &    \\
+    &         &         & \ddots  & \ddots & \ddots  &    \\
+    &      &  & & g_{n-2}     & g_{n-2} u_{n-2} & g_{n-2} v_{n-2} \\
+    &      &  & &         & g_{n-1}     & g_{n-1} u_{n-1} \\
+\bigzero{0}{3} & &  &  &    &         & g_n     \\
+\end{pmatrix}
+\end{equation*}
+
+где
+
+\begin{equation*}
+\begin{array}{lcccr}
+G_1 & \lacts & U_1 & \racts & G_2 \\
+\hdotsfor{5}\\
+G_{n-1} & \lacts & U_{n-1} & \racts & G_n\\
+\\
+G_1 & \lacts & V_1 & \racts & G_3 \\
+\hdotsfor{5}\\
+G_{n-2} & \lacts & V_{n-2} & \racts & G_n
+\end{array}
+\end{equation*}
+
+\begin{equation*}
+\begin{array}{lcccr}
+\circledast & : & U_1 \times U_2 & \to & V_1 \\
+\hdotsfor{5}\\
+\circledast & : & U_{n-2} \times U_{n-1} & \to & V_{n-2}
+\end{array}
+\end{equation*}
+
+В общем случае конструкция будет выглядеть следующим образом. Пусть $U$ и $V$ --- $G$-модули, и определено отображение $G$-модулей
+$$
+\circledast : U \otimes U \to V
+$$
+
+Тогда результирующая группа будет состоять из троек $(g,u,v)$ со следующим умножением:
+$$
+(g,u,v)\cdot (g',u',v') = (g g', {}^{g'^{-1}} u + u', {}^{g'^{-1}} v + v' + {}^{g'^{-1}} u \circledast u')
+$$
+
+В случае тривиального $V$ эта конструкция представляет собой полупрямое произведение группы $G$ и аддитивной группы модуля $U$.
+
+\begin{thm}
+При некоторых условиях подгруппы в унипотентном радикале, нормализуемые $E$, задаются парой идеалов $I$, $J$, где $I^2 \in J$.
+\end{thm}
 
 
 \bibliographystyle{apalike}
