@@ -20,6 +20,23 @@
 \usetikzlibrary{decorations.pathreplacing}
 \usepackage{xcolor}
 
+\usepackage{tcolorbox}
+
+\theoremstyle{break}
+\newtheorem{remarkinner}{Замечание}
+\newenvironment{remarkbox}[1]{
+  \renewcommand\theremarkinner{#1}
+  \begin{tcolorbox}[colback=white]  
+  \remarkinner
+  \vspace{0.3ex}
+  \normalfont
+}{
+  \vspace{0.2ex}
+  \end{tcolorbox}
+  \endremarkinner
+  \vspace{1ex}
+}
+
 \makeatletter
 \newcounter{aaa}
 \tikzset{
@@ -581,6 +598,8 @@ $ {}^z[g,u] = {}^{zu}[u^{-1},g] $, следовательно, $[u^{-1},g] \in H
 
 \section*{Обобщение на неабелев унипотентный радикал}
 
+\begin{remarkbox}{}
+
 Частным случаем теоремы \ref{subgroupprojectionmain} группа $G$ является прямым произведением групп $G_1,\ldots ,G_n$, а модуль $U$ раскладывается в прямую сумму $U_1 \oplus \ldots \oplus U_{n-1}$ со следующими действиями групп на них:
 
 \begin{equation*}
@@ -659,17 +678,42 @@ G_{n-2} & \lacts & V_{n-2} & \racts & G_n
 \end{array}
 \end{equation*}
 
-В общем случае конструкция будет выглядеть следующим образом. Пусть $U$ и $V$ --- $G$-модули, и определено отображение $G$-модулей
+\end{remarkbox}
+
+В общем случае конструкция будет выглядеть следующим образом. Пусть $U$ и $V$ --- $G$-модули, и определено отображение $R$-модулей
 $$
-\circledast : U \otimes U \to V
+\circledast : U \otimes U \to V,
 $$
+согласованное с действием $G$ следующим образом (не как отображение $R[G]$-модулей, а иначе!):
+$$ {}^g u {}^g v = {}^g (u \circledast v) .$$
 
 Тогда результирующая группа будет состоять из троек $(g,u,v)$ со следующим умножением:
 $$
 (g,u,v)\cdot (g',u',v') = (g g', {}^{g'^{-1}} u + u', {}^{g'^{-1}} v + v' + {}^{g'^{-1}} u \circledast u')
 $$
 
+\begin{remarkbox}{}
+
+В частном случае действие $G$ на $U$ будет выглядеть так:
+$$(g_1,g_2,\ldots,g_n) : (u_1,\ldots,u_{n-1}) \mapsto (g_1 u_1 g_2^{-1}, \ldots, g_{n-1} u_{n-1} g_n^{-1}) $$
+
+Отображение $\circledast$ запишется так:
+$$ (u_1, \ldots, u_{n-1}) \circledast ({u'}_1, \ldots, {u'}_{n-1})
+=
+(u_1 u_2, \ldots, u_{n-2} u_{n-1})
+$$
+\begin{multline*}
+(g_1 u_1 g_2^{-1}, \ldots, g_{n-1} u_{n-1} g_n^{-1}) \circledast (g_1 u'_1 g_2^{-1}, \ldots, g_{n-1} u'_{n-1} g_n^{-1}) 
+= \\ =
+(g_1 u_1 g_2^{-1} g_2 u'_2 g_3^{-1}, \ldots) = 
+(g_1 u_1 u'_2 {g}_3^{-1}, \ldots, g_{n-2} u_{n-2} u'_{n-1} g_n^{-1})
+\end{multline*}
+
+\end{remarkbox}
+
+
 В случае тривиального $V$ эта конструкция представляет собой полупрямое произведение группы $G$ и аддитивной группы модуля $U$.
+
 
 \begin{thm}
 При некоторых условиях подгруппы в унипотентном радикале, нормализуемые $E$, задаются парой идеалов $I$, $J$, где $I^2 \in J$.
