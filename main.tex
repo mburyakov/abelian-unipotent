@@ -15,6 +15,8 @@
 \usepackage{etoolbox}
 \usepackage{tikz}
 \usepackage{tikz-cd}
+\usepackage{subdepth}
+\usepackage{indentfirst}
 \usetikzlibrary{calc}
 \usetikzlibrary{patterns}
 \usetikzlibrary{decorations.pathreplacing}
@@ -596,12 +598,37 @@ $ {}^z[g,u] = {}^{zu}[u^{-1},g] $, следовательно, $[u^{-1},g] \in H
 \# Верно ли, если в $\Phi_i$ не содержится $A_2$? Тогда там содержится $B_2$ --- провести вычисления.
 \end{proof}
 
-\section*{Обобщение на неабелев унипотентный радикал}
+\section*{Обобщение на случай неабелева унипотентного радикала}
 
-\begin{remarkbox}{}
+Группы, рассмотренные выше, являются нередуктивными линейными алгебраическими группами с абелевым унипотентным радикалом.
 
-Частным случаем теоремы \ref{subgroupprojectionmain} группа $G$ является прямым произведением групп $G_1,\ldots ,G_n$, а модуль $U$ раскладывается в прямую сумму $U_1 \oplus \ldots \oplus U_{n-1}$ со следующими действиями групп на них:
+Перейдём теперь к рассмотрению групп, получающихся подобным же образом из представлений, но в которых унипонетный радикал будет уже не абелев, в класса нильпотентности 2, то есть коммутант унипотентного радикала будет абелевым.
 
+\begin{tcolorbox}[colback=white]
+\begin{definition}
+Пусть $U$ --- $G$-модуль, являющийся алгеброй над $R$ с умножением, которое согласовано с действием $G$:
+$$\circledast : U \times U \to U$$
+$$ {}^g u \circledast {}^g v = {}^g (u \circledast v) .$$
+
+При этом, обозначая $V:=U\circledast U$, будем предполагать, что $U$ раскладывается в прямую сумму $U = U/V \oplus V$.
+
+Тогда можно рассмотреть группу $P$, являющуюся расширением $G$ с помощью $U$, элементами которой будут пары $(g,u)$, $g \in G$, $u \in U$ со следующим умножением:
+$$
+(g,u)\cdot (g',u') = (g g', {}^{g'^{-1}} u + u' + {}^{g'^{-1}} u \circledast u')
+$$
+
+Такая группа называется \textit{\textbf{параболически-подобной группой с унипотентным радикалом класса нильпотентности 2}}.
+\end{definition}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white]
+\begin{example}
+Если $V=0$, то есть $u \circledast v$ всегда тривиально, то эта конструкция представляет собой полупрямое произведение группы $G$ и аддитивной группы модуля $U$.
+\end{example}
+\end{tcolorbox}
+
+\begin{example}
+Частным случаем предыдущего примера является пример, когда группа $G$ является прямым произведением групп $G_1,\ldots ,G_n$, а модуль $U$ раскладывается в прямую сумму $U_1 \oplus \ldots \oplus U_{n-1}$ со следующими действиями групп на них:
 \begin{equation*}
 \begin{array}{lcccr}
 G_1 & \lacts & U_1 & \racts & G_2 \\
@@ -616,8 +643,7 @@ G_{n-1} & \lacts & U_{n-1} & \racts & G_n
 \end{equation*}
 
 
-В результате $G \rightthreetimes U$ можно записать как факторгруппу группы матриц вида
-
+В результате $P = G \rightthreetimes U$ можно записать как факторгруппу группы матриц вида
 \begin{equation*}
 \begin{pmatrix}
 g_1 & g_1 u_1 &     &     & \bigzero{*}{-2} \\
@@ -629,7 +655,6 @@ g_1 & g_1 u_1 &     &     & \bigzero{*}{-2} \\
 \end{equation*}
 
 по подгруппе вида
-
 \begin{equation*}
 \begin{pmatrix}
 1 & 0 &      &      & \bigzero{*}{-2} \\
@@ -639,12 +664,13 @@ g_1 & g_1 u_1 &     &     & \bigzero{*}{-2} \\
 \bigzero{0}{3}&&&   & 1 \\
 \end{pmatrix}
 \end{equation*}
+\end{example}
 
-Перейдём теперь к рассмотрению групп, получающихся подобным же образом из представлений, но в которых унипонетный радикал будет не абелев, в класса нильпотентности 2, то есть коммутант унипотентного радикала будет абелевым.
-
-В частном случае они описываются матрицами
-
+\begin{example}
+Обобщая предыдущий пример на случай $V\neq0$, можно рассмотреть факторгруппу матриц вида
 \begin{equation*}
+\resizebox{.9\hsize}{!}{$
+\left.
 \begin{pmatrix}
 g_1 & g_1 u_1 & g_1 v_1 &      & &  & \bigzero{*}{-1}        \\
     & g_2     & g_2 u_2 & \ddots &    &  &  \\
@@ -654,70 +680,69 @@ g_1 & g_1 u_1 & g_1 v_1 &      & &  & \bigzero{*}{-1}        \\
     &      &  & &         & g_{n-1}     & g_{n-1} u_{n-1} \\
 \bigzero{0}{3} & &  &  &    &         & g_n     \\
 \end{pmatrix}
+\right/
+\begin{pmatrix}
+  1 &       0 & 0       &        & \bigzero{*}{-1}  \\
+    & \ddots  & \ddots  & \ddots &                  \\
+    &         & 1       & 0      & 0                \\
+    &         &         & 1      & 0                \\
+\bigzero{0}{3} & &      &        & 1                \\ 
+\end{pmatrix}
+$},
 \end{equation*}
 
 где
-
 \begin{equation*}
+\resizebox{.9\hsize}{!}{$
 \begin{array}{lcccr}
 G_1 & \lacts & U_1 & \racts & G_2 \\
 \hdotsfor{5}\\
 G_{n-1} & \lacts & U_{n-1} & \racts & G_n\\
-\\
+\vspace{3ex}\\
 G_1 & \lacts & V_1 & \racts & G_3 \\
 \hdotsfor{5}\\
 G_{n-2} & \lacts & V_{n-2} & \racts & G_n
 \end{array}
-\end{equation*}
-
-\begin{equation*}
+$
+\qquad
+$
 \begin{array}{lcccr}
 \circledast & : & U_1 \times U_2 & \to & V_1 \\
 \hdotsfor{5}\\
 \circledast & : & U_{n-2} \times U_{n-1} & \to & V_{n-2}
 \end{array}
+$}
 \end{equation*}
 
-\end{remarkbox}
-
-В общем случае конструкция будет выглядеть следующим образом. Пусть $U$ и $V$ --- $G$-модули, и определено отображение $R$-модулей
-$$
-\circledast : U \otimes U \to V,
-$$
-согласованное с действием $G$ следующим образом (не как отображение $R[G]$-модулей, а иначе!):
-$$ {}^g u {}^g v = {}^g (u \circledast v) .$$
-
-Тогда результирующая группа будет состоять из троек $(g,u,v)$ со следующим умножением:
-$$
-(g,u,v)\cdot (g',u',v') = (g g', {}^{g'^{-1}} u + u', {}^{g'^{-1}} v + v' + {}^{g'^{-1}} u \circledast u')
-$$
-
-\begin{remarkbox}{}
-
-В частном случае действие $G$ на $U$ будет выглядеть так:
-$$(g_1,g_2,\ldots,g_n) : (u_1,\ldots,u_{n-1}) \mapsto (g_1 u_1 g_2^{-1}, \ldots, g_{n-1} u_{n-1} g_n^{-1}) $$
-
-Отображение $\circledast$ запишется так:
-$$ (u_1, \ldots, u_{n-1}) \circledast ({u'}_1, \ldots, {u'}_{n-1})
-=
-(u_1 u_2, \ldots, u_{n-2} u_{n-1})
-$$
+При этом согласованность операции $\circledast$ с действиями групп означает, что
 \begin{multline*}
 (g_1 u_1 g_2^{-1}, \ldots, g_{n-1} u_{n-1} g_n^{-1}) \circledast (g_1 u'_1 g_2^{-1}, \ldots, g_{n-1} u'_{n-1} g_n^{-1}) 
 = \\ =
 (g_1 u_1 g_2^{-1} g_2 u'_2 g_3^{-1}, \ldots) = 
-(g_1 u_1 u'_2 {g}_3^{-1}, \ldots, g_{n-2} u_{n-2} u'_{n-1} g_n^{-1})
+(g_1 u_1 u'_2 {g}_3^{-1}, \ldots, g_{n-2} u_{n-2} u'_{n-1} g_n^{-1}).
 \end{multline*}
+\end{example}
 
-\end{remarkbox}
+\begin{tcolorbox}[colback=white]
+\begin{example}
+Чтобы группа $P$ была похожа на параболические подгруппы, нужно дополнительно потребовать, чтобы $U \circledast V = V \circledast U = 0$, то есть чтобы
+$$ \circledast : U/V \times U/V \to V.$$
 
+Тогда результирующая группа будет состоять из троек $(g,u,v)$, $g \in G$, $u \in U/V$, $v \in V$ со следующим умножением:
+$$
+(g,u,v)\cdot (g',u',v') = (g g', {}^{g'^{-1}} u + u', {}^{g'^{-1}} v + v' + {}^{g'^{-1}} u \circledast u').
+$$
+\end{example}
+\end{tcolorbox}
 
-В случае тривиального $V$ эта конструкция представляет собой полупрямое произведение группы $G$ и аддитивной группы модуля $U$.
-
-
+\begin{tcolorbox}[colback=white]
 \begin{thm}
-При некоторых условиях подгруппы в унипотентном радикале, нормализуемые $E$, задаются парой идеалов $I$, $J$, где $I^2 \in J$.
+При некоторых условиях подгруппы унипотентного радикала, нормализуемые $E$, задаются парой идеалов $I$, $J$, где $I^2 \in J$.
 \end{thm}
+\begin{proof}
+Доказывать надо, ничего не поделаешь...
+\end{proof}
+\end{tcolorbox}
 
 
 \bibliographystyle{apalike}
