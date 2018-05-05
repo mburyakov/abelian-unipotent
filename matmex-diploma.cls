@@ -288,7 +288,7 @@
 \setcounter{page}{\value{titlepages}}
 % restore preamble's geometry
 \my@body14pt
-\newgeometry{a4paper,top=20mm,bottom=20mm,left=30mm,right=15mm,nohead,includeheadfoot}
+\newgeometry{top=20mm,bottom=20mm,left=30mm,right=15mm,nohead,includeheadfoot}
 }
 
 %% Каждая глава начинается с новой страницы, введение и заключение не
@@ -311,3 +311,5 @@
 
 \let\savenumberline\numberline
 \def\numberline#1{\savenumberline{#1.}}
+
+\setlength{\footskip}{20mm}
