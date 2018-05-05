@@ -1,42 +1,25 @@
-\documentclass[14pt]{matmex-diploma}
-%\usepackage[a5paper,margin=0.6in]{geometry}
-%\usepackage[utf8]{inputenc}
-%\usepackage[T2A]{fontenc}
+\documentclass[12pt]{matmex-diploma}
 \usepackage[numbers]{natbib}
-%\usepackage{graphicx}
-%\usepackage[english, russian]{babel}
-%\usepackage{hyperref}
+\usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathtools}
-%\usepackage{extarrows}
-%\usepackage{etoolbox}
 \usepackage{tikz}
 \usepackage{tikz-cd}
-%\usepackage{subdepth}
-%\usepackage{indentfirst}
+\usepackage{subdepth}
+\usepackage{indentfirst}
 \usetikzlibrary{calc}
 \usetikzlibrary{patterns}
 \usetikzlibrary{decorations.pathreplacing}
-%\usepackage{xcolor}
 \usepackage{tcolorbox}
-%\usepackage{titletoc}
+\usepackage{layout}
+\usepackage{enumitem}
 
-\theoremstyle{break}
-\newtheorem{remarkinner}{Замечание}
-\newenvironment{remarkbox}[1]{
-  \renewcommand\theremarkinner{#1}
-  \begin{tcolorbox}[colback=white]  
-  \remarkinner
-  \vspace{0.3ex}
-  \normalfont
-}{
-  \vspace{0.2ex}
-  \end{tcolorbox}
-  \endremarkinner
-  \vspace{1ex}
-}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\defaultfontfeatures{Mapping=tex-text}
+\newfontfamily\cyrillicfont{Times New Roman} 
 
 \makeatletter
 \newcounter{aaa}
@@ -81,12 +64,44 @@
 }
 \makeatother
 
-\title{Линейные алгебраические группы, сходные с параболическими}
-\author{}
-\date{}
 
 
-\theoremstyle{remark}
+\filltitle{ru}{
+    chair              = {Математика \# --- \# царица полей},
+    title              = {Линейные алгебраические группы, сходные с параболическими},
+    % Здесь указывается тип работы. Возможные значения:
+    %   coursework - Курсовая работа
+    %   diploma - Диплом специалиста
+    %   master - Диплом магистра
+    %   bachelor - Диплом бакалавра
+    type               = {master},
+    position           = {студента},
+    group              = 666,
+    author             = {Машкин Эдельвейс Захарович},
+    supervisorPosition = {д.\,ф.-м.\,н., профессор},
+    supervisor         = {Выбегалло А.\,А.},
+    reviewerPosition   = {ст. преп.},
+    reviewer           = {Привалов А.\,И.},
+    chairHeadPosition  = {д.\,ф.-м.\,н., профессор},
+    chairHead          = {Хунта К.\,Х.},
+    university         = {Санкт-Петербургский Государственный Университет},
+    faculty            = {Математико-механический факультет},
+%    city               = {Санкт-Петербург},
+%    year               = {2013}
+}
+
+\newtheoremstyle{mystyle}%                % Name
+  {}%                                     % Space above
+  {}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
+  {\bfseries}%                            % Theorem head font
+  {.}%                                    % Punctuation after theorem head
+  { }%                                    % Space after theorem head, ' ', or \newline
+  {}%                                     % Theorem head spec (can be left empty, meaning `normal')
+
+
+\theoremstyle{mystyle}
 \newtheorem{prop}{Утверждение}
 \newtheorem{hyp}{Свойство}
 \newtheorem{thm}{Теорема}
@@ -110,24 +125,27 @@
 \newcommand\bigzero[2]{\raisebox{#2ex-2ex}[0pt][0pt]{\shifttext{#2em}{\text{\Huge{#1}}}}}
 
 \begin{document}
-\maketitle
 
-%\sloppy
+\maketitle
+\tableofcontents
+
 
 \newcommand\placeholder{\textcolor{red}{\textbf{\\\#\\\#\\\#}}}
 
 \section{Введение}
 
+\layout
+
 Линейные алгебраические группы над кольцами изучаются \placeholder
 
 Структурная теория алгебраических групп над кольцами \placeholder
 
-Структурная теория и нормальное строение групп Шевалле и редуктивных групп достаточно хорошо изучена. Строение классических групп\# исключительных групп \#
+Структурная теория и нормальное строение групп Шевалле и редуктивных групп достаточно хорошо изучена и исследуется в таких работах, как \citep{Vavilov2006}, \citep{Stepanov1993}, \citep{Golubchik1975}, \citep{Hazrat2010}, \citep{Stavrova2018}.
 
 Интерес также представляют и нередуктивные группы.
-Нормальное строение параболических поддгрупп в группах Шевалле изучается в работах \#
+Нормальное строение параболических поддгрупп в группах Шевалле изучается в работах \citep{Azad1990}, \citep{Roehrle1990}, \citep{Roehrle1998}, \citep{Stavrova2009}.
 
-Однако аналогичные методы изучения нередуктиынх групп могут быть применены не только к параболичским подгруппам групп Шевалле и редуктивных групп, но и к более широкому классу нередуктивных групп. В данной работе эти методы применяются для описания нормального строения групп, которые строятся на основе линейного представления редуктивной группы, и по своим свойствам сходны с параболическими подгруппами групп Шевалле.
+Однако аналогичные методы изучения нередуктивных групп могут быть применены не только к параболическим подгруппам групп Шевалле и редуктивных групп, но и к более широкому классу нередуктивных групп. В данной работе эти методы применяются для описания нормального строения групп, которые строятся на основе линейного представления редуктивной группы, и по своим свойствам сходны с параболическими подгруппами групп Шевалле.
 
 \section{Постановка задачи}
 
@@ -143,6 +161,8 @@ $$ T_{uv}(a) : w \mapsto w + u \bar{1}^{-1} ((v,w)_q + a(u,v)_q) + v (u,w)_q $$
 Очевидно, если билинейная форма вырожденная (в частности, если она имеет вид $B \oplus 0$), то элементарная группа, определённая таким образом, существенно меньше всей группы.
 
 Такого вида ортогональные группы уже не будут редуктивными над тем кольцом, над которым форма вырождена. Их структура достаточно близка к структуре параболческих подгрупп в группах Шевалле, хотя они в общем случае могут не вкладываются в группы Шевалле в качестве параболических подгрупп. Это сходство послужило отправной точкой для изучения более общего класса нередуктивных групп, включающего оба случая: параболические подгруппы групп Шевалле и вырожденные ортогональные группы. Структурной теории построенного обобщения --- группам, сходным с параболическими --- и посвящена данная работа.
+
+Как известно из работы \citep{Azad1990}, на унипотентном радикале параболической подгруппы можно ввести структуру модуля, так что на некотором его фактормодуле действует подгруппа Леви. Исходной задачей данной работы было обратить данную конструкцию, а именно исследовать структуру групп, сходных с параболическими, конструируемых явным образом из некоторого заданного представления.
 
 \section{Определения}
 
@@ -189,42 +209,37 @@ $X(T)$ --- группа рациональных характеров тора.
 
 $x_\alpha(\xi)$ --- корневые элементы группы $G$.
 
-Их свойства:
+Перечислим их основные свойства:
 
-\begin{prop}
+\begin{itemize}
+\item
 Для экстремальных весов (в частности, для старшего веса $\widetilde\sigma$), весовые пространства $U_\sigma$ одномерны.
-\end{prop}
-
-\begin{prop}
+\item
 Корневые элементы унипотентны (как операторы конечномерного представления $(U,\pi)$):
 $$\exists n : (x_\alpha(\xi)-1)^n = 1$$
-Для базисных представлений (микровесовые представления, представления на коротких корнях и присоединённые представления групп с сисмемами корней с простыми связями, \cite{Plotkin1998}) это верно уже при $n=3$. Для микровесовых представлений это верно уже при $n=2$.
-\end{prop}
-
-\begin{prop}
-Если в базовом кольце числа $2 \ldots n-1$ обратимы, то определён логарифм корневых элементов, который является полиномиальной функцией от корневых элементов:
-$$ \varepsilon_\alpha(\xi) \coloneqq \mathrm{ln} \, x_\alpha(\xi) = \sum_{i=0}^{n-1} {x_\alpha(\xi)^i k_i} $$
-При этом имеется изоморфизм (над базовым кольцом) между корневыми подгруппами $\left<x_\alpha(\xi)\right>$ и циклическими группами, порождёнными $\varepsilon_\alpha(\xi)$.
-\end{prop}
-
-\begin{prop} Аддитивность корневых элементов по параметру:
+Для базисных представлений (микровесовые представления, представления на коротких корнях и присоединённые представления групп с системами корней с простыми связями, \cite{Plotkin1998}) это верно уже при $n=3$. Для микровесовых представлений это верно уже при $n=2$.
+\item
+Корневые элементы аддитивны по параметру:
 $$x_\alpha(\xi) \; x_\alpha(\theta)  = x_\alpha(\xi+\theta)$$
 $$x_\alpha(\xi)^n = x_\alpha(n \, \xi) \; \forall n \in \Z$$
-\end{prop}
+\end{itemize}
 
-\begin{prop}
+На модуле $U$ корневые элементы действуют как операторы. Поэтому, eсли в базовом кольце числа $2 \ldots n-1$ обратимы, то определён логарифм корневых элементов, который является полиномиальной функцией от корневых элементов:
+$$ \varepsilon_\alpha(\xi) \coloneqq \mathrm{ln} \, x_\alpha(\xi) = \sum_{i=0}^{n-1} {x_\alpha(\xi)^i k_i} $$
+При этом имеется изоморфизм (над базовым кольцом) между корневыми подгруппами $\left<x_\alpha(\xi)\right>$ и циклическими группами, порождёнными $\varepsilon_\alpha(\xi)$.
+
+Можно видеть, что умножение параметра на целое число эквивалентно умножению на число самого оператора $\varepsilon_\alpha(\xi)$:
 $$ \varepsilon_\alpha(n \, \xi) = \mathrm{ln} \, x_\alpha(n \, \xi) = \mathrm{ln} \, x_\alpha(\xi)^n = n \; \mathrm{ln} \, x_\alpha(\xi) = n \; \varepsilon_\alpha(\xi) \; \forall n \in \Z
 $$
-\end{prop}
 
-Так как изоморфизм  между циклическими группами $\left<x_\alpha(\xi)\right> \le G$ и $\left<\varepsilon_\alpha(\xi)\right> \le \mathrm{GL}(U)$ определён над базовым кольцом, то так же выносятся не только целые константы:
-\begin{equation} \label{loglinearity}
+Так как изоморфизм  между циклическими группами $\left<x_\alpha(\xi)\right> \le G$ и $\left<\varepsilon_\alpha(\xi)\right> \le \mathrm{GL}(U)$ определён над базовым кольцом, то аналогичным образом выглядит умножение параметра на произвольные константы:
+$$
 \varepsilon_\alpha(\eta \, \xi) = \eta \; \varepsilon_\alpha(\xi) \; \forall \eta \in R
-\end{equation}
+$$
 
-\begin{prop}
+\begin{lm}
 Оператор $\varepsilon_\alpha(\xi)$ переводит элементы из подпространства $U_\sigma$ в подпространство $U_{\sigma+\alpha}$.
-\end{prop}
+\end{lm}
 \begin{proof}
 \begin{multline*}
 ^h(\varepsilon_\alpha(\xi) \, u) =
@@ -240,37 +255,35 @@ $$
 
 Следующее требование, которые мы в дальнейшем будем предполагать выполненным, относится одновременно к модулю $U$ и кольцу $R$. Для базисных представлений без нулевого веса оно выполнено всегда независимо от кольца $R$, но для более сложных случаев оно можно означать обратимость в $R$ некоторых целых чисел.
 
-%\begin{colorbox}
 \begin{hyp}\label{returnfromhighest}
 Если $u$ --- некоторый вектор из $U_\sigma$, и $V={}^{EB}\left<u\right>$ --- минимальный $EB$-инвариантный подмодуль, содержащий $u$, то $u \in {}^E\left<V \cap U_{\widetilde\sigma}\right>$, или, что то же самое, ${}^E\left<V \cap U_{\widetilde\sigma}\right> = {}^E \left<u\right>$.
 
 Иными словами, если $u$ --- некоторый вектор из $U_\sigma$, то его образы в пространстве $U_{\widetilde\sigma}$ старшего веса под действием операторов 
 $\left(\prod_{\alpha_i}\varepsilon_{\alpha_i}(1)\right)$, где $\alpha_i$ пробегает по всем цепочам положительных корней, так что $\sum_i \alpha_i = \widetilde\sigma - \sigma$, не содержатся ни в каком $E$-инвариантном модуле, в котором бы не содержался $u$. Иными словами, все эти образы в совокупности порождают (как $E$-инвариантный подмодуль) тот же самый подмодуль, который порождается (как $E$-инвариантный подмодуль) исходным вектором $u$.
 \end{hyp}
-%\end{colorbox}
 
 Следующие утверждения вытекают из данного свойства:
 
-\begin{prop} \label{extremalweightisomorphism}
+\begin{lm} \label{extremalweightisomorphism}
 Если $\sigma$ и $\sigma+n\alpha$ --- экстремальные корни и $u\in U_\sigma$, то
 если $\varepsilon_\alpha(1)^n \, u $ содержится в некотором $E$-инвариантном подмодуле $V$, то и $u \in V$.
-\end{prop}
+\end{lm}
 \begin{proof}
 Если $\sigma+n\alpha = \widetilde\sigma$ --- максимальный корень, то утверждение является частным случаем \ref{returnfromhighest}. В остальных случаях $\sigma+n\alpha$ переводится в $\widetilde\sigma$ некоторым элементом группы Вейля.
 \end{proof}
 
-\begin{prop}\label{weightprojections}
+\begin{lm}\label{weightprojections}
 Если $V$ --- инвариантный подмодуль $U$, то $V = \bigoplus V_\sigma$, то есть проекции вектора $v \in V$ на корневые подпространства также лежат в $V$.
-\end{prop}
+\end{lm}
 \begin{proof}
 Пусть $v = \sum v_\sigma$. Доказательство проведём индукцией по минимальному (то есть не имеющему меньших) весу $\sigma'$ из присутствующих в сумме. Базой индукции будет сумма из одного слагаемого старшего веса: $v = v_{\widetilde\sigma}$.
 
 Пусть теперь $v = v_{\sigma'} + v'$, где $v'$, если лежит в $V$, то раскладывается в $V$ по весовым простраствам по индукционному предположению. Тогда цепочки положительных корней из свойства \ref{returnfromhighest} будут переводить $v$ в различные $w := \left(\prod_{\alpha}\varepsilon_\alpha(1)\right) \, v \in V \cap U_{\widetilde\sigma}$. Но одновременно каждый такой $w = \left(\prod_{\alpha}\varepsilon_\alpha(1)\right) \, v_{\sigma'}$, поэтому, в силу \ref{returnfromhighest}, $v_{\sigma'}$ также лежит в $V$.
 \end{proof}
 
-\begin{prop}\label{unipotentsubgroups}
+\begin{lm}\label{unipotentsubgroups}
 Над кольцами, для которых выполняется (\ref{returnfromhighest}), инвариантные подмодули $U$ имеют вид $U_I = U \cdot I$, где $I \trianglelefteq R$.
-\end{prop}
+\end{lm}
 \begin{proof}
 Пусть $V$ --- инвариантный подмодуль $U$. Достаточно доказать, что найдётся идеал $I$, такой что любой $V \cap U_\sigma = U_\sigma \, I$.
 
@@ -283,31 +296,28 @@ Cвойство \ref{returnfromhighest} устанавливает набор о
 \section{Элементарная группа}
 
 Аддитивную группу $R[G]$-модуля $U$ можно рассматривать как абелеву группу с действием $G$ на ней, поэтому
-имеет смысл полупрямое произведение $P = G \rightthreetimes U$.
-Это делает логичным использование мультипликативной нотации для обозначения сложения в $U$, а также обозначение действия $G$ на $U$ через $^{g}u = g u g^{-1}$. 
+имеет смысл полупрямое произведение $$P := G \rightthreetimes U.$$
+
+Это делает логичным использование мультипликативной нотации для обозначения сложения в $U$, а также обозначение действия $G$ на $U$ через $$^{g}u = g u g^{-1}.$$ 
 
 Обозначим за $E = E(\Phi,R)$ подгруппу в $G$, порождённую корневыми унипотентами $x_\alpha(\xi)$, где $\alpha \in \Phi$, $\xi \in R$.
 
-Сформулируем несколько простых свойств коммутаторов в $G \rightthreetimes U$.
+Сформулируем несколько простых свойств коммутаторов в $G \rightthreetimes U$:
 
-\begin{prop}
-  $$[[g,u],v] = 1, \quad g \in G, \ u,v \in U $$
-\end{prop}
-
-\begin{prop}
-  $$[g,uv] = [g,u][g,v], \quad g \in G, \ u,v \in U $$
-\end{prop}
-
-\begin{prop}
-  $$[g,hu] = [g,h]\cdot{}^h[g,u], \quad g,h \in G, \ u \in U $$
-\end{prop}
-
-\begin{prop}
-  $$[g,{}^{h}u] = {}^h[\;{}^{h^{-1}}g\,,u], \quad g,h \in G, \ u \in U $$
-\end{prop}
+\begin{itemize}[label={\LARGE\raisebox{-0.5ex}{\textbullet}\quad},leftmargin=4\parindent]
+\item
+$[[g,u],v] = 1, \quad g \in G, \ u,v \in U $
+\linespread{3}
+\item 
+$[g,uv] = [g,u][g,v], \quad g \in G, \ u,v \in U $
+\item
+$[g,hu] = [g,h]\cdot{}^h[g,u], \quad g,h \in G, \ u \in U $
+\item
+$[g,{}^{h}u] = {}^h[\;{}^{h^{-1}}g\,,u], \quad g,h \in G, \ u \in U $
+\end{itemize}
 
 
-\section{Подгруппы, нормализуемые $E$}
+\section{Вспомогательные утверждения}
 
 \begin{lm}(\citep{Stavrova2009}, Theorem 2.3, Corollary 2.4)
   \label{directproduct}
@@ -456,6 +466,10 @@ $$ \sigma - \frac{2 \langle \sigma,\delta\rangle}{\langle \delta , \delta \rangl
 и одновременно $\langle\sigma,\delta\rangle=\langle\widetilde\beta_i,\delta\rangle$. Но это значит, что $\langle\sigma-\widetilde\beta_i,\widetilde\beta_i\rangle=0$,
 а значит по предыдущей лемме $\langle\sigma,\delta-\gamma\rangle > 0$, то есть выполнено условие (0).
 \end{proof}
+
+\section{Основной результат}
+
+Теперь, можно перейти к описанию подгрупп в $P=G\rightthreetimes U$, нормализуемых элементарной группой $E\le G$.
 
 \begin{thm}\label{subgroupprojectionmain}
   Снова $G = G(\Phi, R)$ --- редуктивная групповая схема Шевалле-Демазюра
@@ -607,7 +621,7 @@ h_{-3\gamma} \coloneqq [x_{-\gamma}(1),h_{-2\gamma}] = \\ =
 \end{proof}
 
 \begin{thm}
-В условиях предыдущей теоремы подгруппа $H\le G \rightthreetimes U$ может быть представлена в виде $H = H_G \rightthreetimes (H_U)$, где $[H_G,E] = \prod_{i=1}^n E(\Phi_i, R, I_i)$, а $H_U=U_I$ --- подмодуль $U$, заданный некоторым идеалом кольца.
+В условиях предыдущей теоремы подгруппа $H\le G \rightthreetimes U$ может быть представлена в виде $H = H_G \rightthreetimes H_U$, где $[H_G,E] = \prod_{i=1}^n E(\Phi_i, R, I_i)$, а $H_U=U_I$ --- подмодуль $U$, заданный некоторым идеалом кольца.
 \end{thm}
 \begin{proof}
 Достаточно доказать, что $H_G \le H$, оставшаяся часть формулировки взята из \ref{unipotenttransitivity}.
@@ -621,11 +635,9 @@ $$ [g, h] = [g,zu] = [g,z] \cdot {}^z[g,u] $$
 $ {}^z[g,u] = {}^{zu}[u^{-1},g] $, следовательно, $[u^{-1},g] \in H$. Выбирая в качестве $g$ корневые элементы $x_\alpha(1)$ с корнями из начала цепочек в лемме \ref{returnfromhighest}, получим, что $u$ также лежит в $H$.
 \end{proof}
 
-\section*{Случай присоединённого представления}
+\section{Случай присоединённого представления}
 
-\begin{rem}
-В теореме \ref{subgroupprojectionmain} рассматривался случай, когда все $\widetilde\sigma-\widetilde\beta_i$ не ортогональны $\Phi_i$. Если же для некоторого $\Phi_i$ оказывается $\widetilde\sigma-\widetilde\beta_i$ ортогонально $\Phi_i$, то верно более слабое утверждение.
-\end{rem}
+Описанный выше результат о виде подгрупп, нормализуемых $E$, получен при выполнении предположений теоремы \ref{subgroupprojectionmain}. Среди этих условий выделяется условие о том, что все $\widetilde\sigma-\widetilde\beta_i$ не ортогональны соответствующим $\Phi_i$. Это требование вытекает из леммы \ref{maxrootsum} и отделяет случай, когда для некоторого $\Phi_i$ оказывается $\widetilde\sigma-\widetilde\beta_i$ ортогонально $\Phi_i$. Этот случай является существенным исключением, и для него выполняется более слабый результат.
 
 \begin{prop}
 Пусть выполняются условия теоремы \ref{subgroupprojectionmain} за исключением требования $\widetilde\sigma-\widetilde\beta_i \not\perp \Phi_i \; \forall i$. А именно, пусть для некоторого $i$ выполнено $\widetilde\sigma-\widetilde\beta_i \perp \Phi_i$.
@@ -636,7 +648,7 @@ $ {}^z[g,u] = {}^{zu}[u^{-1},g] $, следовательно, $[u^{-1},g] \in H
 \# Верно ли, если в $\Phi_i$ не содержится $A_2$? Тогда там содержится $B_2$ --- провести вычисления.
 \end{proof}
 
-\section*{Обобщение на случай неабелева унипотентного радикала}
+\section{Обобщение на случай неабелева унипотентного радикала}
 
 Группы, рассмотренные выше, являются нередуктивными линейными алгебраическими группами с абелевым унипотентным радикалом.
 
@@ -648,14 +660,14 @@ $ {}^z[g,u] = {}^{zu}[u^{-1},g] $, следовательно, $[u^{-1},g] \in H
 $$\circledast : U \times U \to U$$
 $$ {}^g u \circledast {}^g v = {}^g (u \circledast v) .$$
 
-При этом, обозначая $V:=U\circledast U$, будем предполагать, что $U$ раскладывается в прямую сумму $U = U/V \oplus V$.
+При этом, обозначив $V:=U\circledast U$, будем предполагать, что $U$ раскладывается в прямую сумму $U = U/V \oplus V$.
 
 Тогда можно рассмотреть группу $P$, являющуюся расширением $G$ с помощью $U$, элементами которой будут пары $(g,u)$, $g \in G$, $u \in U$ со следующим умножением:
 $$
 (g,u)\cdot (g',u') = (g g', {}^{g'^{-1}} u + u' + {}^{g'^{-1}} u \circledast u')
 $$
 
-Такая группа называется \textit{\textbf{параболически-подобной группой с унипотентным радикалом класса нильпотентности 2}}.
+Такая группа называется \textit{\textbf{параболически-сходной группой с унипотентным радикалом класса нильпотентности 2}}.
 \end{definition}
 \end{tcolorbox}
 
@@ -664,6 +676,11 @@ $$
 Если $V=0$, то есть $u \circledast u'$ всегда тривиально, то эта конструкция представляет собой полупрямое произведение группы $G$ и аддитивной группы модуля $U$.
 \end{example}
 \end{tcolorbox}
+
+Если же $u \circledast u'$ нетривиально, то $P$ тоже является полупрямым произведением группы $G$ и группы, состоящей из элементов из $U$ с умножением
+$
+(u,u') \mapsto u + u' + u \circledast u'
+$.
 
 \begin{example}
 Частным случаем предыдущего примера является пример, когда группа $G$ является прямым произведением групп $G_1,\ldots ,G_n$, а модуль $U$ раскладывается в прямую сумму $U_1 \oplus \ldots \oplus U_{n-1}$ со следующими действиями групп на них:
@@ -773,20 +790,31 @@ $$
 \end{example}
 \end{tcolorbox}
 
-\begin{tcolorbox}[colback=white]
 \begin{thm}
-При некоторых условиях подгруппы унипотентного радикала, нормализуемые $E$, задаются парой идеалов $I$, $J$, где $I^2 \subset J$.
+Пусть $P$ --- параболически-сходная группа над $R$ с унипотентным радикалом класса 2, построенная по представлению $U$ группы $G$ со структурой алгебры~${\circledast}$ на представлении, причём  $U=V \oplus U/V$, где $V:=U\circledast U$.
 
-Условия следующие:
-\begin{itemize}
-\item $V$ --- неприводимое рациональное представление $G$ (модуль Вейля), такое, что для него (в совокупности с выбором кольца $R$) выполнено свойство \ref{returnfromhighest};
-\item $U/V$ --- те же требования.
-\end{itemize}
+Тогда если $V$ и $U/V$ --- простые представления группы $G$, для которых с учётом выбора кольца $R$ выполняется свойство \ref{returnfromhighest}, то подгруппы унипотентного радикала, нормализуемые $E$, задаются парой идеалов $I$, $J$, где $I^2 \subset J$.
 \end{thm}
 \begin{proof}
-Подгруппы унипотентного радикала, нормализуемые $E$, являются $E$-инвариантными подмодулями $U$, замкнутыми относительно операции $\circledast$. Так как $U$ разложим в прямую сумму $U = U/V \oplus V$, а $E$-инвариантные подмодули в каждом из слагаемых определяются утверждением \ref{unipotentsubgroups}, то осталось доказать, что $I^2 \subset J$. Но это следует из замкнутости подмодуля относительно $\circledast$.
+Пусть $U'\le U$ --- подгруппа, нормализуемая $E$. Так как $P$ допускает факторизацию по $V$, то в $U/V$ будет подгруппа $U'/V$, так же нормализуемая $E$. Аналогично, в $V$ есть подгруппа $U' \cap V$, нормализуемая $E$. А так как $E$-инвариантные подмодули в $U/V$ и в $V$ определяются утверждением \ref{unipotentsubgroups}, то осталось доказать, что $I^2 \subset J$. Но это следует из замкнутости подмодуля относительно~${\circledast}$.
 \end{proof}
-\end{tcolorbox}
+
+Если $V$ и $U/V$ --- простые представления, то они раскладываются по весовым пространствам. Следующая лемма говорит о том, что операция~${\circledast}$ согласована с весовым разложением.
+
+\begin{lm}
+Если $u,u' \in U/V$ --- векторы весов $\sigma, \sigma'$, то $u \circledast u' \in V$ --- вектор веса $\sigma + \sigma'$.
+\end{lm}
+\begin{proof}
+$$
+{}^h(u \circledast u') = {}^h u  \circledast {}^h u' = \sigma(h) u \; \circledast \; \sigma'(h) u' = \sigma(h)\sigma'(h) \enspace u \circledast u'
+$$
+\end{proof}
+
+Наличие согласованного с действием $G$ весового разложения позволяет предположить, что для параболически-сходных групп с унипотентным радикалом класса нильпотентности~2 может быть получен результат, аналогичный теореме \ref{subgroupprojectionmain}.
+
+\section{Заключение}
+
+\placeholder
 
 \setmonofont[Mapping=tex-text]{CMU Typewriter Text}
 \bibliographystyle{ugost2008ls}
