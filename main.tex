@@ -1,31 +1,27 @@
-\documentclass[10pt]{article}
-\usepackage[a5paper,margin=0.6in]{geometry}
-\usepackage[utf8]{inputenc}
-\usepackage[T2A]{fontenc}
-\usepackage{natbib}
-\usepackage{graphicx}
-\usepackage[english, russian]{babel}
-\usepackage{hyperref}
+\documentclass[14pt]{matmex-diploma}
+%\usepackage[a5paper,margin=0.6in]{geometry}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T2A]{fontenc}
+\usepackage[numbers]{natbib}
+%\usepackage{graphicx}
+%\usepackage[english, russian]{babel}
+%\usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathtools}
-\usepackage{extarrows}
-\usepackage{amssymb}
-\usepackage{etoolbox}
+%\usepackage{extarrows}
+%\usepackage{etoolbox}
 \usepackage{tikz}
 \usepackage{tikz-cd}
-\usepackage{subdepth}
-\usepackage{indentfirst}
+%\usepackage{subdepth}
+%\usepackage{indentfirst}
 \usetikzlibrary{calc}
 \usetikzlibrary{patterns}
 \usetikzlibrary{decorations.pathreplacing}
-\usepackage{xcolor}
+%\usepackage{xcolor}
 \usepackage{tcolorbox}
-\usepackage{titletoc}
-
-\renewcommand\thesection{\arabic{section}.}
-
+%\usepackage{titletoc}
 
 \theoremstyle{break}
 \newtheorem{remarkinner}{Замечание}
@@ -792,8 +788,8 @@ $$
 \end{proof}
 \end{tcolorbox}
 
-
-\bibliographystyle{apalike}
-\bibliography{references}
+\setmonofont[Mapping=tex-text]{CMU Typewriter Text}
+\bibliographystyle{ugost2008ls}
+\bibliography{references.bib}
 \end{document}
 
