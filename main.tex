@@ -15,6 +15,7 @@
 \usepackage{tcolorbox}
 \usepackage{layout}
 \usepackage{enumitem}
+\usepackage{ragged2e}
 
 \usepackage{fontspec}
 \setmainfont{Times New Roman}
@@ -93,10 +94,10 @@
 \newtheoremstyle{mystyle}%                % Name
   {}%                                     % Space above
   {}%                                     % Space below
-  {}%                                     % Body font
+  {\itshape}%                                     % Body font
   {}%                                     % Indent amount
-  {\bfseries}%                            % Theorem head font
-  {.}%                                    % Punctuation after theorem head
+  {\upshape\bfseries}%                            % Theorem head font
+  {. }%                                    % Punctuation after theorem head
   { }%                                    % Space after theorem head, ' ', or \newline
   {}%                                     % Theorem head spec (can be left empty, meaning `normal')
 
@@ -197,11 +198,14 @@ $$ T_{uv}(a) : w \mapsto w + u \bar{1}^{-1} ((v,w)_q + a(u,v)_q) + v (u,w)_q $$
 \begin{equation}\label{representationrank}\mathrm{rk} \; U_\Z \ge 2 \;. \end{equation}
 Тогда $U=U_\Z\otimes R$ будет представлением группы $G=G_\Z(R)$ над кольцом $R$. Так как представление является морфизмом схем, то $U$, как и $U_\Z$, будет являться свободным модулем, и в случае выбора максимального тора $T$ является (\citep{Borel1970}) прямой суммой весовых подпространств
 $$U=\bigoplus_{\sigma \in \Sigma \subset X(T)} {U \cap U_\sigma} ,$$
-где\\
-$U_\sigma = \{x \in U_\C \; | \; ^h x = \sigma(h) x \forall h \in T \}$,\\
-$\Sigma = \{\sigma \in X(T) \
-; | \; U_\sigma \ne \varnothing\}$ --- множество весов представления,\\
-$X(T)$ --- группа рациональных характеров тора.
+где
+\begin{equation*}
+\begin{split}
+& U_\sigma = \{x \in U_\C \; | \; ^h x = \sigma(h) x \forall h \in T \},\\
+& \Sigma = \{\sigma \in X(T) \; | \; U_\sigma \ne \varnothing\} \text{ --- множество весов представления,}\\
+& X(T) \text{ --- группа рациональных характеров тора.}
+\end{split}
+\end{equation*}
 
 \section{Основные сведения о группе $G$ и её рациональном представлении $\pi$}
 
@@ -253,20 +257,21 @@ $$
 \end{multline*}
 \end{proof}
 
-Следующее требование, которые мы в дальнейшем будем предполагать выполненным, относится одновременно к модулю $U$ и кольцу $R$. Для базисных представлений без нулевого веса оно выполнено всегда независимо от кольца $R$, но для более сложных случаев оно можно означать обратимость в $R$ некоторых целых чисел.
+Следующее требование, которые мы в дальнейшем будем предполагать выполненным, относится одновременно к модулю $U$ и кольцу $R$. Для базисных представлений без нулевого веса оно выполнено всегда независимо от кольца $R$, но для более сложных случаев оно может означать обратимость в $R$ некоторых целых чисел.
 
 \begin{hyp}\label{returnfromhighest}
-Если $u$ --- некоторый вектор из $U_\sigma$, и $V={}^{EB}\left<u\right>$ --- минимальный $EB$-инвариантный подмодуль, содержащий $u$, то $u \in {}^E\left<V \cap U_{\widetilde\sigma}\right>$, или, что то же самое, ${}^E\left<V \cap U_{\widetilde\sigma}\right> = {}^E \left<u\right>$.
+Если $u$ --- некоторый вектор из $U_\sigma$, и $V={}^{EB}\left<u\right>$ --- минимальный \linebreak
+$EB$-инвариантный подмодуль, содержащий $u$, то $u \in {}^E\left<V \cap U_{\widetilde\sigma}\right>$, или, что то же самое, ${}^E\left<V \cap U_{\widetilde\sigma}\right> = {}^E \left<u\right>$.
 
 Иными словами, если $u$ --- некоторый вектор из $U_\sigma$, то его образы в пространстве $U_{\widetilde\sigma}$ старшего веса под действием операторов 
-$\left(\prod_{\alpha_i}\varepsilon_{\alpha_i}(1)\right)$, где $\alpha_i$ пробегает по всем цепочам положительных корней, так что $\sum_i \alpha_i = \widetilde\sigma - \sigma$, не содержатся ни в каком $E$-инвариантном модуле, в котором бы не содержался $u$. Иными словами, все эти образы в совокупности порождают (как $E$-инвариантный подмодуль) тот же самый подмодуль, который порождается (как $E$-инвариантный подмодуль) исходным вектором $u$.
+$\left(\prod_{\alpha_i}\varepsilon_{\alpha_i}(1)\right)$, где $\alpha_i$ пробегает по всем цепочкам положительных корней, так что $\sum_i \alpha_i = \widetilde\sigma - \sigma$, не содержатся ни в каком $E$-инвариантном модуле, в котором бы не содержался $u$. Иными словами, все эти образы в совокупности порождают (как $E$-инвариантный подмодуль) тот же самый подмодуль, который порождается (как $E$-инвариантный подмодуль) исходным вектором $u$.
 \end{hyp}
 
 Следующие утверждения вытекают из данного свойства:
-
 \begin{lm} \label{extremalweightisomorphism}
-Если $\sigma$ и $\sigma+n\alpha$ --- экстремальные корни и $u\in U_\sigma$, то
-если $\varepsilon_\alpha(1)^n \, u $ содержится в некотором $E$-инвариантном подмодуле $V$, то и $u \in V$.
+Пусть $\sigma$ и $\sigma+n\alpha$ --- экстремальные корни и при этом $u\in U_\sigma$.\linebreak
+Тогда если~$(\varepsilon_\alpha(1)^n \, u) $~содержится в некотором $E$-инвариантном подмодуле $V$,\linebreak
+то обязательно $u \in V$.
 \end{lm}
 \begin{proof}
 Если $\sigma+n\alpha = \widetilde\sigma$ --- максимальный корень, то утверждение является частным случаем \ref{returnfromhighest}. В остальных случаях $\sigma+n\alpha$ переводится в $\widetilde\sigma$ некоторым элементом группы Вейля.
@@ -282,7 +287,7 @@ $\left(\prod_{\alpha_i}\varepsilon_{\alpha_i}(1)\right)$, где $\alpha_i$ пр
 \end{proof}
 
 \begin{lm}\label{unipotentsubgroups}
-Над кольцами, для которых выполняется (\ref{returnfromhighest}), инвариантные подмодули $U$ имеют вид $U_I = U \cdot I$, где $I \trianglelefteq R$.
+Над кольцами, для которых выполняется (\ref{returnfromhighest}), инвариантные подмодули $U$ имеют вид $U_I = U \cdot I$, где $I \trianglelefteq R.$
 \end{lm}
 \begin{proof}
 Пусть $V$ --- инвариантный подмодуль $U$. Достаточно доказать, что найдётся идеал $I$, такой что любой $V \cap U_\sigma = U_\sigma \, I$.
@@ -290,7 +295,7 @@ $\left(\prod_{\alpha_i}\varepsilon_{\alpha_i}(1)\right)$, где $\alpha_i$ пр
 Cвойство \ref{returnfromhighest} устанавливает набор отображений, однозначно определяющих $V \cap U_{\widetilde\sigma}$ по $V \cap U_\sigma$ и наоборот. В силу одномерности $U_{\widetilde\sigma}$ подмодуль $V \cap U_{\widetilde\sigma}$ имеет вид $U_{\widetilde\sigma} \, I$ для некоторого идеала $I$. Следовательно, подмодули $U_{\sigma} \, I$ совпадают с $V \cap U_\sigma$.
 \end{proof}
 
-Есть предположение, что утверждение \ref{unipotentsubgroups} эквивалентно свойству \ref{returnfromhighest}. Однако доказать это предположение пока не удаётся, так как для этого нужно доказать, что ${}^EB\left<u\right> \cap U_{\widetilde\sigma} = {}^E\left<u\right> \cap U_{\widetilde\sigma}$.
+Есть предположение, что утверждение \ref{unipotentsubgroups} эквивалентно свойству \ref{returnfromhighest}. Однако доказать это предположение пока не удаётся, так как для этого нужно доказать, что $${}^EB\left<u\right> \cap U_{\widetilde\sigma} = {}^E\left<u\right> \cap U_{\widetilde\sigma}.$$
 
 
 \section{Элементарная группа}
@@ -319,7 +324,7 @@ $[g,{}^{h}u] = {}^h[\;{}^{h^{-1}}g\,,u], \quad g,h \in G, \ u \in U $
 
 \section{Вспомогательные утверждения}
 
-\begin{lm}(\citep{Stavrova2009}, Theorem 2.3, Corollary 2.4)
+\begin{lm}[\citep{Stavrova2009}, Theorem 2.3, Corollary 2.4]
   \label{directproduct}
   Пусть $G = G(\Phi, R)$ --- редуктивная групповая схема Шевалле-Демазюра
   с системой корней $\Phi = \Phi_1 + \ldots + \Phi_n$, где каждая неприводимая система корней $\Phi_i$ имеет ранг не меньше $2$. В коммутативном кольце $R$ предполагается обратимость всех необходимых структурных констант.
@@ -329,7 +334,7 @@ $[g,{}^{h}u] = {}^h[\;{}^{h^{-1}}g\,,u], \quad g,h \in G, \ u \in U $
   где $E(\Phi_i,R,I_i) = E(\Phi_i,I_i)^{E(\Phi_i,R)}$, $I_i \trianglelefteq R$
 \end{lm}
 
-\begin{lm}(\citep{Stavrova2009}, Lemma 4.2)
+\begin{lm}[\citep{Stavrova2009}, Lemma 4.2]
   \label{transitivity}
   Для любых двух корней $\alpha, \beta \in \Phi$, таких что их сумма также является корнем, и для любых  $\xi \in R$, $I \trianglelefteq R$ выполнено
   $$ \left< x_\alpha(\xi) \right>^{X_\beta(I)} \ge X_{\alpha + \beta}(\xi I), $$  
@@ -473,7 +478,7 @@ $$ \sigma - \frac{2 \langle \sigma,\delta\rangle}{\langle \delta , \delta \rangl
 
 \begin{thm}\label{subgroupprojectionmain}
   Снова $G = G(\Phi, R)$ --- редуктивная групповая схема Шевалле-Демазюра
-  с системой корней $\Phi = \Phi_1 + \ldots + \Phi_n$, где каждая $\Phi_i$ --- неприводимая система корней ранга не меньше $2$. $U$ --- неприводимое рациональное представление $G$ (модуль Вейля) с таким старшим весом $\widetilde\sigma$, что ни для какой неприводимой компоненты $\Phi_i$ с максимальным весом $\widetilde\beta_i$ не оказывается $\widetilde\sigma-\widetilde\beta_i$ ортогональным всей $\Phi_i$. В коммутативном кольце $R$ предполагается обратимость всех структурных констант группы $G$, а также предполагается выполнение свойства \ref{returnfromhighest}.
+  с системой корней $\Phi = \Phi_1 + \ldots + \Phi_n$, где каждая $\Phi_i$ --- неприводимая система корней ранга не менее~$2$. $U$ --- неприводимое рациональное представление $G$ (модуль Вейля) с таким старшим весом $\widetilde\sigma$, что ни для какой неприводимой компоненты $\Phi_i$ с максимальным весом $\widetilde\beta_i$ не оказывается $\widetilde\sigma-\widetilde\beta_i$ ортогональным всей $\Phi_i$. В коммутативном кольце $R$ предполагается обратимость всех структурных констант группы $G$, а также предполагается выполнение свойства~\ref{returnfromhighest}.
     
   Пусть имеется подгруппа $H \le G \rightthreetimes U$, нормализуемая группой $E$, то есть $[H,E] \le H$. Тогда образ $H$ при проекции $G \rightthreetimes U \rightarrow G$, обозначаемый как $H_G$, будет обладать следующим свойством: $[H_G,E]\le H$.
 \end{thm}
@@ -639,13 +644,41 @@ $ {}^z[g,u] = {}^{zu}[u^{-1},g] $, следовательно, $[u^{-1},g] \in H
 
 Описанный выше результат о виде подгрупп, нормализуемых $E$, получен при выполнении предположений теоремы \ref{subgroupprojectionmain}. Среди этих условий выделяется условие о том, что все $\widetilde\sigma-\widetilde\beta_i$ не ортогональны соответствующим $\Phi_i$. Это требование вытекает из леммы \ref{maxrootsum} и отделяет случай, когда для некоторого $\Phi_i$ оказывается $\widetilde\sigma-\widetilde\beta_i$ ортогонально $\Phi_i$. Этот случай является существенным исключением, и для него выполняется более слабый результат.
 
-\begin{prop}
+\begin{thm}
 Пусть выполняются условия теоремы \ref{subgroupprojectionmain} за исключением требования $\widetilde\sigma-\widetilde\beta_i \not\perp \Phi_i \; \forall i$. А именно, пусть для некоторого $i$ выполнено $\widetilde\sigma-\widetilde\beta_i \perp \Phi_i$.
 
 Тогда если $x_{\widetilde\beta_i}(\xi) \in H_G$, то $x_{\widetilde\beta_i}(\xi^2) \in H$.
-\end{prop}
+\end{thm}
 \begin{proof}
-\# Верно ли, если в $\Phi_i$ не содержится $A_2$? Тогда там содержится $B_2$ --- провести вычисления.
+Как известно, системы корней $A_n$ при $n\ge 2$, $B_n$ и $C_n$ при $n\ge 3$, $D_n$ при $n\ge 3$, а также $E_6$, $E_7$, $E_8$, $F_4$ и $G_2$ содержат в себе систему корней $A_2$, проходящую через максимальный корень. Докажем теорему сначала для этого случая. Пусть $\gamma+\delta=\widetilde\beta_i$, и угол между $\gamma$ и $\delta$ составляет $\frac{2\pi}{3}$.
+
+Тогда
+\begin{equation*}
+\begin{split}
+x_{\gamma+\delta}(\xi^2) = & \\
+& \quad [x_\delta(-1),[x_{\gamma+\delta}(1), \\
+& \quad\qquad \phantom{{}\cdot{}} [x_{-\delta}(1),[x_{-\gamma-\delta}(1),x_{\gamma+\delta}(\xi) \cdot u]] \cdot {} \\
+& \quad\qquad \cdot [x_{-\delta}(-2\xi),x_{\gamma+\delta}(\xi) \cdot u] \cdot {} \\
+& \quad\qquad \cdot [x_{-\gamma-\delta}(-2\xi-1),[x_{-\delta}(1),x_{\gamma+\delta}(\xi) \cdot u]] \\
+& \quad ]] \in H
+\end{split}
+\end{equation*}
+
+Если же система корней $\Phi_i$ не содержит в себе $A_2$, проходящую через максимальный корень, то $\Phi_i \cong C_2$. В этом случае пусть $\gamma+\delta=\widetilde\beta_i$, и угол между $\gamma$ и $\delta$ составляет $\frac{\pi}{2}$.
+Тогда
+\begin{equation*}
+\begin{split}
+x_{\gamma+\delta}(4\xi^2) = & \\
+& \quad [x_\delta(1),[x_\delta(1), \\
+& \quad\qquad \phantom{{}\cdot{}} [x_\gamma(1),\\
+& \quad\qquad\qquad \phantom{{}\cdot{}} [x_{-\delta}(1),[x_{-\gamma-\delta}(1),x_{\gamma+\delta}(\xi ) \cdot u]] \cdot{} \\
+& \quad\qquad\qquad {}\cdot [x_{-\delta}(-2 \xi ),x_{\gamma+\delta}(\xi ) \cdot u]\\
+& \quad\qquad \phantom{{}\cdot{}} ] \cdot{} \\
+& \quad\qquad {}\cdot [x_{-\delta}(2 \xi +1),[x_{-\delta}(1),x_{\gamma+\delta}(\xi ) \cdot u]] \\
+& \quad ]] \in H
+\end{split}
+\end{equation*}
+
 \end{proof}
 
 \section{Обобщение на случай неабелева унипотентного радикала}
