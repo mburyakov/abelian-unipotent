@@ -12,7 +12,7 @@
 \usetikzlibrary{calc}
 \usetikzlibrary{patterns}
 \usetikzlibrary{decorations.pathreplacing}
-\usepackage{tcolorbox}
+\usepackage[most]{tcolorbox}
 \usepackage{enumitem}
 
 \usepackage{fontspec}
@@ -75,30 +75,46 @@
     %   bachelor - Диплом бакалавра
     type               = {master},
     position           = {студента},
-    group              = 666,
-    author             = {Машкин Эдельвейс Захарович},
+%    group              = 123,
+    author             = {Буряков~Михаил~Александрович},
     supervisorPosition = {д.\,ф.-м.\,н., профессор},
-    supervisor         = {Выбегалло А.\,А.},
-    reviewerPosition   = {ст. преп.},
-    reviewer           = {Привалов А.\,И.},
-    chairHeadPosition  = {д.\,ф.-м.\,н., профессор},
-    chairHead          = {Хунта К.\,Х.},
+    supervisor         = {Вавилов~Н.\,А.},
+    reviewerPosition   = {к.\,ф.-м.\,н., доцент},
+    reviewer           = {Певзнер И.\,М.},
+    %chairHeadPosition  = {д.\,ф.-м.\,н., профессор},
+    %chairHead          = {Хунта К.\,Х.},
     university         = {Санкт-Петербургский Государственный Университет},
     faculty            = {Математико-механический факультет},
 %    city               = {Санкт-Петербург},
 %    year               = {2013}
 }
 
-\newtheoremstyle{mystyle}%                % Name
-  {}%                                     % Space above
-  {}%                                     % Space below
-  {\itshape}%                                     % Body font
-  {}%                                     % Indent amount
-  {\upshape\bfseries}%                            % Theorem head font
-  {. }%                                    % Punctuation after theorem head
-  { }%                                    % Space after theorem head, ' ', or \newline
-  {}%                                     % Theorem head spec (can be left empty, meaning `normal')
-
+\newtheoremstyle{mystyle}%       % Name
+  {}%                            % Space above
+  {}%                            % Space below
+  {\itshape}%                    % Body font
+  {}%                            % Indent amount
+  {\upshape\bfseries}%           % Theorem head font
+  {. }%                          % Punctuation after theorem head
+  { }%                           % Space after theorem head, ' ', or \newline
+  {}%                            % Theorem head spec (can be left empty, meaning `normal')
+  
+\newtheoremstyle{mystyleni}%       % Name
+  {}%                            % Space above
+  {}%                            % Space below
+  {}%                            % Body font
+  {}%                            % Indent amount
+  {\upshape\bfseries}%           % Theorem head font
+  {. }%                          % Punctuation after theorem head
+  { }%                           % Space after theorem head, ' ', or \newline
+  {}%                            % Theorem head spec (can be left empty, meaning `normal')
+    
+  
+\newlength{\normalparindent}
+\AtBeginDocument{\setlength{\normalparindent}{\parindent}}
+\tcbset{before upper={\setlength{\parindent}{\normalparindent}}}
+  
+  
 \makeatletter
 \newcommand{\slunlhd}{%
   \mathrel{\mathpalette\sl@unlhd\relax}%
@@ -120,16 +136,24 @@
 }
 \makeatother
 
+\theoremstyle{mystyleni}
+\newtheorem{hyp}{Свойство}
 
 \theoremstyle{mystyle}
-\newtheorem{prop}{Утверждение}
-\newtheorem{hyp}{Свойство}
 \newtheorem{thm}{Теорема}
 \newtheorem{lm}{Лемма}
 \newtheorem{rem}{Замечание}
 \newtheorem{example}{Пример}
 \newtheorem{definition}{Определение}
 
+\newenvironment{framed}
+    {
+\vspace{1.5ex}
+\begin{tcolorbox}[colback=white, grow to left by=1.2em, grow to right by=1.2em, breakable, enhanced]
+    }
+    {
+\end{tcolorbox}
+    }
 
 \linespread{1.3}
 
@@ -175,14 +199,14 @@
 
 \section{Постановка задачи}
 
-Одной из предпосылок к постановке задачи послужила следующая проблема. \placeholder
+Одной из предпосылок к постановке задачи послужила следующая проблема. 
+Рассмотрим \emph{ортогональную группу} $\mathrm{O}(B)$ --- группу автоморфизмов $R$-модуля $V$, сохраняющих билинейную форму $B$:
+$$ \mathrm{O}(B) = \{ g \in \mathrm{GL}(V) \,|\, B(gx,gy) = B(x,y) \; \forall x,y \in V \} $$
 
-Ортогональная группа (аналогично симплектическая, эрмитова) --- подгруппа $GL$, сохраняющая билинейную форму, которая обычно предполагается невырожденной.
-
-Или как в работе \cite{Petrov2005} --- требования невырожденности нет, но элементарная подгруппа определяется через трансвекции Эйхлера-Зигеля-Диксона:
-
-Если $ |u|_q = 0 $, $(u,v)_q = 0$, $|v|_q = (0, a) \dot{+} \mathfrak{L}$, то
-$$ T_{uv}(a) : w \mapsto w + u \bar{1}^{-1} ((v,w)_q + a(u,v)_q) + v (u,w)_q $$
+Во многих работах, изучающих структурную теорию этой группы, предполагается невырожденность формы $B$.
+Но даже в тех работах, где требования невырожденности нет (например, в работе В.~А.~Петрова \cite{Petrov2005}), элементарная подгруппа определяется через трансвекции Эйхлера-Зигеля-Диксона:
+$$ T_{uv}(a) : w \mapsto w + u (B(v,w) + a B(u,v)) + v B(u,w) \;, $$
+где $ B(u,u) = B(u,v) = 0$.
 
 Очевидно, если билинейная форма вырожденная (в частности, если она имеет вид $B \oplus 0$), то элементарная группа, определённая таким образом, существенно меньше всей группы.
 
@@ -230,7 +254,7 @@ $$ [F,H] = \{[f,g] \, | \, f\in F, g \in G  \} .$$
 
 
 
-Пусть $G_\Z$ --- связная редуктивная групповая схема с системой корней $\Phi = \Phi_1 + \dots + \Phi_n$, где $\Phi_i$ --- приведённые неприводимые системы корней, $n \ge 1$.
+Пусть $G_\Z$ --- связная расщепимая редуктивная групповая схема с системой корней $\Phi = \Phi_1 + \dots + \Phi_n$, где $\Phi_i$ --- приведённые неприводимые системы корней, $n \ge 1$.
 
 Далее пусть $\pi:G_\Z \to GL(U_\Z)$ --- представление $G_\Z$ над $\Z$, становящееся неприводимым над алгебраически замкнутым полем характеристики $0$. Тогда $U_\Z$ --- конечномерный свободный модуль старшего веса. Будем в дальнейшем предполагать, что его ранг
 \begin{equation}\label{representationrank}
@@ -251,21 +275,18 @@ $$U=\bigoplus_{\sigma \in \Sigma \subset X(T)} {U \cap U_\sigma} ,$$
 
 \section{Корневые элементы и их действие}
 
-\placeholder
+Известно (\citep{Milne2017}, 19.11), что для каждого корня $\alpha \in \Phi_i$ в $G$ задана \emph{корневая подгруппа} $X_\alpha(R)$, изоморфная аддитивной группе кольца и состоящая из \emph{корневых элементов} $x_\alpha(\xi)$, $xi \in R$. Подгруппу в $G$, порождаемую всеми корневыми элементами $x_\alpha(\xi)$, где $\alpha \in \Phi$, $\xi \in R$, будем обозначать $E = E(\Phi,R)$. 
+Подгруппу в $G$, порождаемую всеми корневыми элементами $x_\alpha(\xi)$, где $\alpha \in \Phi^+$ --- положительные корни, $\xi \in R$, будем обозначать $EB = EB(\Phi,R)$. и называть \emph{элементарной борделевской  подгруппой}.
+Для каждого идеала $I \trianglelefteq R$ также будем обозначать
+$X_\alpha(I) := \left<x_\alpha(\xi) \,|\, \xi \in I\right>$ и $E(\Phi,I) := \left<x_\alpha(\xi) \,|\, \alpha \in \Phi \, \xi \in I\right>$. Нормальное замыкание $E(\Phi,I)$ в $E(\Phi,R)$ будем называть \emph{относительной элементарной подгруппой} и обозначать $E(\Phi,R,I):=E(\Phi,I)^{E(\Phi,R)}$.
 
-Обозначим за $E = E(\Phi,R)$ подгруппу в $G$, порождённую корневыми унипотентами $x_\alpha(\xi)$, где $\alpha \in \Phi$, $\xi \in R$.
-
-
-$x_\alpha(\xi)$ --- корневые элементы группы $G$.
-
-Перечислим их основные свойства:
-
+Перечислим основные свойства корневых элементов $x_\alpha(\xi)$:
 \begin{itemize}[label={\LARGE\raisebox{-0.4ex}{\textbullet}\;},leftmargin=2\parindent]
 \item
 Для экстремальных весов (в частности, для старшего веса $\widetilde\sigma$), весовые пространства $U_\sigma$ одномерны.
 \item
-Корневые элементы унипотентны (как операторы конечномерного представления $(U,\pi_R)$):
-$$\exists n : (x_\alpha(\xi)-1)^n = 1$$
+Операторы, соответствующие в конечномерном представлении $\pi_R$ корневым элементам, унипотентны:
+$$\exists n : (\pi(x_\alpha(\xi))-1)^n = 1$$
 Для базисных представлений (микровесовые представления, представления на коротких корнях и присоединённые представления групп с системами корней с простыми связями, \cite{Plotkin1998}) это верно уже при $n=3$. Для микровесовых представлений это верно уже при $n=2$.
 \item
 Корневые элементы аддитивны по параметру:
@@ -273,12 +294,12 @@ $$x_\alpha(\xi) \; x_\alpha(\theta)  = x_\alpha(\xi+\theta)$$
 $$x_\alpha(\xi)^n = x_\alpha(n \, \xi) \; \forall n \in \Z$$
 \end{itemize}
 
-На модуле $U$ корневые элементы действуют как операторы. Поэтому, eсли в базовом кольце числа $2 \ldots n-1$ обратимы, то определён логарифм корневых элементов, который является полиномиальной функцией от корневых элементов:
-$$ \varepsilon_\alpha(\xi) \coloneqq \mathrm{ln} \, x_\alpha(\xi) = \sum_{i=0}^{n-1} {x_\alpha(\xi)^i k_i} $$
-При этом имеется изоморфизм (над базовым кольцом) между корневыми подгруппами $\left<x_\alpha(\xi)\right>$ и циклическими группами, порождёнными $\varepsilon_\alpha(\xi)$.
+На модуле $U$ корневыем элементам $x_\alpha(\xi)$ соответствуют операторы $\pi(x_\alpha(\xi))$. Поэтому, eсли в базовом кольце числа $2 \ldots n-1$ обратимы, то определён логарифм этих операторов, который является от них полиномиальной функцией:
+$$ \varepsilon_\alpha(\xi) \coloneqq \mathrm{ln} \, \pi(x_\alpha(\xi)) = \sum_{i=0}^{n-1} {\pi(x_\alpha(\xi))^i k_i} $$
+При этом имеется изоморфизм (над базовым кольцом) между корневыми подгруппами $X_\alpha=\left<x_\alpha(\xi)\right>$ и циклическими группами, порождёнными $\varepsilon_\alpha(\xi)$.
 
 Можно видеть, что умножение параметра на целое число эквивалентно умножению на число самого оператора $\varepsilon_\alpha(\xi)$:
-$$ \varepsilon_\alpha(n \, \xi) = \mathrm{ln} \, x_\alpha(n \, \xi) = \mathrm{ln} \, x_\alpha(\xi)^n = n \; \mathrm{ln} \, x_\alpha(\xi) = n \; \varepsilon_\alpha(\xi) \; \forall n \in \Z
+$$ \varepsilon_\alpha(n \, \xi) = \mathrm{ln} \, \pi(x_\alpha(n \, \xi)) = \mathrm{ln} \, \pi(x_\alpha(\xi))^n = n \; \mathrm{ln} \, \pi(x_\alpha(\xi)) = n \; \varepsilon_\alpha(\xi) \; \forall n \in \Z
 $$
 
 Так как изоморфизм  между циклическими группами $\left<x_\alpha(\xi)\right> \le G$ и $\left<\varepsilon_\alpha(\xi)\right> \le \mathrm{GL}(U)$ определён над базовым кольцом, то аналогичным образом выглядит умножение параметра на произвольные константы:
@@ -292,11 +313,11 @@ $$
 \begin{proof}
 \begin{multline*}
 ^h(\varepsilon_\alpha(\xi) \, u) =
-^h\left(\sum_i \, {^{x_\alpha(\xi)^i}u \, k_i}\right) = 
-\sum_i \, {^{h x_\alpha(\xi)^i}u \, k_i} = \\ =
-\sum_i \, {^{(^h x_\alpha(\xi))^i h}u \, k_i} = 
-\sum_i \, {^{(x_\alpha(\alpha(h)\cdot\xi))^i} \left(^h u\right) \, k_i} =\\=
-\sum_i \, {^{(x_\alpha(\alpha(h)\cdot\xi))^i} u \cdot \sigma(h) \, k_i} =
+^h\left(\sum_i \, {^{\pi(x_\alpha(\xi))^i}u \, k_i}\right) = 
+\sum_i \, {^{h \pi(x_\alpha(\xi))^i}u \, k_i} = \\ =
+\sum_i \, {^{(^h \pi(x_\alpha(\xi)))^i h}u \, k_i} = 
+\sum_i \, {^{(\pi(x_\alpha(\alpha(h)\cdot\xi)))^i} \left(^h u\right) \, k_i} =\\=
+\sum_i \, {^{(\pi(x_\alpha(\alpha(h)\cdot\xi)))^i} u \cdot \sigma(h) \, k_i} =
 \varepsilon_\alpha(\alpha(h)\cdot\xi) \, u \cdot \sigma(h) = \\ =
 \varepsilon_\alpha(\xi) \, u \cdot \alpha(h)\sigma(h)
 \end{multline*}
@@ -304,6 +325,8 @@ $$
 
 Следующее требование, которые мы в дальнейшем будем предполагать выполненным, относится одновременно к модулю $U$ и кольцу $R$. Для базисных представлений без нулевого веса оно выполнено всегда независимо от кольца $R$, но для более сложных случаев оно может означать обратимость в $R$ некоторых целых чисел.
 
+\vspace{1ex}
+\begin{tcolorbox}[colback=white, grow to left by=1.2em, grow to right by=1.2em, breakable, enhanced]
 \begin{hyp}\label{returnfromhighest}
 Если $u$ --- некоторый вектор из $U_\sigma$, и $V={}^{EB}\left<u\right>$ --- минимальный \linebreak
 $EB$-инвариантный подмодуль, содержащий $u$, то $u \in {}^E\left<V \cap U_{\widetilde\sigma}\right>$, или, что то же самое, ${}^E\left<V \cap U_{\widetilde\sigma}\right> = {}^E \left<u\right>$.
@@ -311,6 +334,7 @@ $EB$-инвариантный подмодуль, содержащий $u$, то
 Иными словами, если $u$ --- некоторый вектор из $U_\sigma$, то его образы в пространстве $U_{\widetilde\sigma}$ старшего веса под действием операторов 
 $\left(\prod_{\alpha_i}\varepsilon_{\alpha_i}(1)\right)$, где $\alpha_i$ пробегает по всем цепочкам положительных корней, так что $\sum_i \alpha_i = \widetilde\sigma - \sigma$, не содержатся ни в каком $E$-инвариантном модуле, в котором бы не содержался $u$. Иными словами, все эти образы в совокупности порождают (как $E$-инвариантный подмодуль) тот же самый подмодуль, который порождается (как $E$-инвариантный подмодуль) исходным вектором $u$.
 \end{hyp}
+\end{tcolorbox}
 
 Следующие утверждения вытекают из данного свойства:
 \begin{lm} \label{extremalweightisomorphism}
@@ -332,15 +356,13 @@ $\left(\prod_{\alpha_i}\varepsilon_{\alpha_i}(1)\right)$, где $\alpha_i$ пр
 \end{proof}
 
 \begin{lm}\label{unipotentsubgroups}
-Над кольцами, для которых выполняется (\ref{returnfromhighest}), инвариантные подмодули $U$ имеют вид $U_I = U \cdot I$, где $I \trianglelefteq R.$
+Над кольцами, для которых выполняется (\ref{returnfromhighest}), инвариантные подмодули $U$ имеют вид $U_I = U \cdot I$, где $I \trianglelefteq R$ --- некоторый идеал.
 \end{lm}
 \begin{proof}
 Пусть $V$ --- инвариантный подмодуль $U$. Достаточно доказать, что найдётся идеал $I$, такой что любой $V \cap U_\sigma = U_\sigma \, I$.
 
 Cвойство \ref{returnfromhighest} устанавливает набор отображений, однозначно определяющих $V \cap U_{\widetilde\sigma}$ по $V \cap U_\sigma$ и наоборот. В силу одномерности $U_{\widetilde\sigma}$ подмодуль $V \cap U_{\widetilde\sigma}$ имеет вид $U_{\widetilde\sigma} \, I$ для некоторого идеала $I$. Следовательно, подмодули $U_{\sigma} \, I$ совпадают с $V \cap U_\sigma$.
 \end{proof}
-
-Есть предположение, что утверждение \ref{unipotentsubgroups} эквивалентно свойству \ref{returnfromhighest}. Однако доказать это предположение пока не удаётся, так как для этого нужно доказать, что $${}^EB\left<u\right> \cap U_{\widetilde\sigma} = {}^E\left<u\right> \cap U_{\widetilde\sigma}.$$
 
 
 \section{Группы, сходные с параболическими, с абелевым унипотентным радикалом}
@@ -382,6 +404,8 @@ $[g,{}^{h}u] = {}^h[\;{}^{h^{-1}}g\,,u], \quad g,h \in G, \ u \in U $
 
 \section{Вспомогательные утверждения}
 
+Следующие два утверждения о нормальной структуре редуктивных групп приведены в соответствии с работой \citep{Stavrova2009}.
+
 \begin{lm}[\citep{Stavrova2009}, Theorem 2.3, Corollary 2.4]
   \label{directproduct}
   Пусть $G = G(\Phi, R)$ --- редуктивная групповая схема Шевалле-Демазюра
@@ -399,8 +423,10 @@ $[g,{}^{h}u] = {}^h[\;{}^{h^{-1}}g\,,u], \quad g,h \in G, \ u \in U $
   где $X_\alpha(I) = \{x_\alpha(\xi) | \xi \in I\}$ --- относительная корневая подгруппа в $G$. Запись $\left<F\right>^H$ обозначает наименьшую подгруппу, нормализуемую $H$ и содержащую $F$, то есть подгруппу, порождённую всевозможными сопряжениями $^hf$, $f \in F$, $h \in H$.
 \end{lm}
 
+Следующая лемма демонстрирует определяющее значение максимального корня при изучении нормальной структуры.
+
 \begin{lm} \label{maximalgenerates}
-  В группе Шевалле $G=G(\Phi,R)$ с неприводимой системой корней $\Phi$ с рангом $\mathrm{rk}\Phi \le 2$ выполнено
+  В группе $G=G(\Phi,R)$ с неприводимой системой корней $\Phi$ с рангом $\mathrm{rk}\Phi \ge 2$ выполнено
   $$X_{\widetilde\beta}(I)^{E(\Phi,R)} = E(\Phi,R,I),$$
   где $\widetilde\beta$ --- максимальный корень в $\Phi$.
 \end{lm}
@@ -421,14 +447,7 @@ E(\Phi,I) &\le \left< X_{\widetilde\beta}(I) \right>^{E(\Phi,R)}\\
 \end{align*}
 \end{proof}
 
-
-\begin{lm}\label{unipotenttransitivity}
-  Любая подгруппа $H \le U$, нормализуемая $G$, имеет вид $U_I$, где $I$ --- идеал кольца.
-\end{lm}
-\begin{proof}
-  Данное утверждение является мультипликативной записью утверждения \ref{unipotentsubgroups}.
-\end{proof}
-
+Следующие две леммы сопоставляют между собой неприводимую компоненту систему корней $\Phi_i$ и соответствующий ей слой в множестве весов $\Sigma$.
 
 \begin{lm}\label{maxrootsum}
 Пусть $\Phi=\Phi_1+\ldots+\Phi_n$ --- система корней с неприводимыми компонентами ранга не менее $2$, $\widetilde\beta_1 \ldots \widetilde\beta_n$ ---  максимальные корни в неприводимых компонентах, $\sigma$ --- некоторый доминантный вес, такой что каждая разность $\sigma-\widetilde\beta_i$ не ортогональна $\Phi_i$.
@@ -527,7 +546,7 @@ $$ \sigma - \frac{2 \langle \sigma,\gamma\rangle}{\langle \gamma , \gamma \rangl
 $$ \sigma - \frac{2 \langle \sigma,\delta\rangle}{\langle \delta , \delta \rangle}\delta-\delta \;\notin\; \Sigma \; . $$
 Следовательно, условия (1-4) могут выполняться, только если $\langle\sigma,\gamma\rangle=\langle\widetilde\beta_i,\gamma\rangle$
 и одновременно $\langle\sigma,\delta\rangle=\langle\widetilde\beta_i,\delta\rangle$. Но это значит, что $\langle\sigma-\widetilde\beta_i,\widetilde\beta_i\rangle=0$,
-а значит по предыдущей лемме $\langle\sigma,\delta-\gamma\rangle > 0$, то есть выполнено условие (0).
+а значит по условию предыдущей леммы $\langle\sigma,\delta-\gamma\rangle > 0$, то есть выполнено условие (0).
 \end{proof}
 
 \section{Основной результат}
@@ -683,11 +702,18 @@ h_{-3\gamma} \coloneqq [x_{-\gamma}(1),h_{-2\gamma}] = \\ =
 \end{itemize}
 \end{proof}
 
+\begin{lm}\label{unipotenttransitivity}
+  Любая подгруппа $H \le U$, нормализуемая $G$, имеет вид $U_I$, где $I$ --- идеал кольца.
+\end{lm}
+\begin{proof}
+  Данное утверждение является мультипликативной записью утверждения \ref{unipotentsubgroups}.
+\end{proof}
+
 \begin{thm}
 В условиях предыдущей теоремы подгруппа $H\le G \rightthreetimes U$ может быть представлена в виде $H = H_G \rightthreetimes H_U$, где $[H_G,E] = \prod_{i=1}^n E(\Phi_i, R, I_i)$, а $H_U=U_I$ --- подмодуль $U$, заданный некоторым идеалом кольца.
 \end{thm}
 \begin{proof}
-Достаточно доказать, что $H_G \le H$, оставшаяся часть формулировки взята из \ref{unipotenttransitivity}.
+Достаточно доказать, что $H_G \le H$, оставшаяся часть следует из \ref{unipotenttransitivity}.
 
 Разложим элемент $h \in H$ в произведение $h = z u$, где $z \in H_G$, $u \in U$. Докажем, что $z$ и $u$ также лежат в $H$.
 
@@ -745,7 +771,7 @@ x_{\gamma+\delta}(4\xi^2) = & \\
 
 Перейдём теперь к рассмотрению групп, получающихся подобным же образом из представлений, но в которых унипонетный радикал будет уже не абелев, в класса нильпотентности 2, то есть коммутант унипотентного радикала будет абелевым.
 
-\begin{tcolorbox}[colback=white]
+\begin{framed}
 \begin{definition}
 Пусть $U$ --- $G$-модуль, являющийся алгеброй над $R$ с умножением, которое согласовано с действием $G$:
 $$\circledast : U \times U \to U$$
@@ -760,15 +786,13 @@ $$
 
 Назовём такую группу \textit{\textbf{параболически-сходной группой с унипотентным радикалом класса нильпотентности 2}}.
 \end{definition}
-\end{tcolorbox}
+\end{framed}
 
-\begin{tcolorbox}[colback=white]
 \begin{example}
 Если $V=0$, то есть $u \circledast u'$ всегда тривиально, то эта конструкция представляет собой полупрямое произведение группы $G$ и аддитивной группы модуля $U$.
 \end{example}
-\end{tcolorbox}
 
-Если же $u \circledast u'$ нетривиально, то $P$ тоже является полупрямым произведением группы $G$ и группы, состоящей из элементов из $U$ с умножением
+Если же $u \circledast u'$ нетривиально, то $P$ тоже является полупрямым произведением группы $G$, но уже с группой, состоящей из элементов из $U$ с умножением
 $
 (u,u') \mapsto u + u' + u \circledast u'
 $.
@@ -869,7 +893,6 @@ $}
 \end{multline*}
 \end{example}
 
-\begin{tcolorbox}[colback=white]
 \begin{example}
 Чтобы группа $P$ была похожа на параболические подгруппы, нужно дополнительно потребовать, чтобы $U \circledast V = V \circledast U = 0$, то есть чтобы
 $$ \circledast : U/V \times U/V \to V.$$
@@ -879,7 +902,6 @@ $$
 (g,u,v)\cdot (g',u',v') = (g g', {}^{g'^{-1}} u + u', {}^{g'^{-1}} v + v' + {}^{g'^{-1}} u \circledast u').
 $$
 \end{example}
-\end{tcolorbox}
 
 \begin{thm}
 Пусть $P$ --- параболически-сходная группа над $R$ с унипотентным радикалом класса 2, построенная по представлению $U$ группы $G$ со структурой алгебры~${\circledast}$ на представлении, причём  $U=V \oplus U/V$, где $V:=U\circledast U$.
@@ -892,9 +914,9 @@ $$
 
 Если $V$ и $U/V$ --- простые представления, то они раскладываются по весовым пространствам. Следующая лемма говорит о том, что операция~${\circledast}$ согласована с весовым разложением.
 
-\begin{lm}
+\begin{thm}
 Если $u,u' \in U/V$ --- векторы весов $\sigma, \sigma'$, то $u \circledast u' \in V$ --- вектор веса $\sigma + \sigma'$.
-\end{lm}
+\end{thm}
 \begin{proof}
 $$
 {}^h(u \circledast u') = {}^h u  \circledast {}^h u' = \sigma(h) u \; \circledast \; \sigma'(h) u' = \sigma(h)\sigma'(h) \enspace u \circledast u'
