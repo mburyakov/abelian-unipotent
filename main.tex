@@ -149,13 +149,13 @@
 \newenvironment{framed}
     {
 \vspace{1.5ex}
-\begin{tcolorbox}[colback=white, grow to left by=1.2em, grow to right by=1.2em, breakable, enhanced]
+\begin{tcolorbox}[colback=white, grow to left by=1.2em, grow to right by=1.2em, enhanced]
     }
     {
 \end{tcolorbox}
     }
 
-\linespread{1.3}
+\newcommand\refb[1]{\textbf{\ref{#1}}}
 
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
@@ -168,6 +168,9 @@
 \def\racts{\curvearrowleft}
 
 \newcommand\bigzero[2]{\raisebox{#2ex-2ex}[0pt][0pt]{\shifttext{#2em}{\text{\Huge{#1}}}}}
+
+\linespread{1.25}
+\fontdimen2\font=0.35em
 
 \begin{document}
 
@@ -193,7 +196,9 @@
 
 Целью данной работы является описание нормального строения некоторого класса нередуктивных групп, которые строятся на основе линейного представления редуктивной группы, и по своим свойствам сходны с параболическими подгруппами групп Шевалле.
 
-Работа устроена следующим образом: во втором \# разделе представлено решение вопроса о нормальном строении параболически-сходных групп с абелевым унипотентным радикалом. В третьем разделе обсуждается существенное условие, возникающее в доказательствах второй части, и его влияние на расположение подгрупп, нормализуемых элементарной.
+Исследуемая задача имеет весьма высокую научную значимость, о чём свидетельствуют многочисленные публикации с доказательствами различных теорем о нормальном строении линейных групп над коммутативными кольцами.
+
+Работа устроена следующим образом: во втором разделе изложены некоторые предпосылки к формулировке задачи, третий и четвёртый разделы содержат базовые определения и факты, необходимые для формулировки основного результата. В пятом разделе вводится определение параболически-сходных групп с абелевым унипотентным радикалом. Следующие два раздела содержат формулировку и доказательство основного результата работы о нормальном строении параболически-сходных групп с абелевым унипотентным радикалом. В восьмом разделе обсуждается существенное условие, возникающее в доказательстве основного результата, и влияние этого условия на расположение подгрупп, нормализуемых элементарной.
 В последнем разделе работы даются предпосылки для возможного обобщения результатов о нормальном строении параболически-сходных групп на параболически-сходные группы с неабелавым унипотентным радикалом.
 
 
@@ -257,9 +262,9 @@ $$ [F,H] = \{[f,g] \, | \, f\in F, g \in G  \} .$$
 Пусть $G_\Z$ --- связная расщепимая редуктивная групповая схема с системой корней $\Phi = \Phi_1 + \dots + \Phi_n$, где $\Phi_i$ --- приведённые неприводимые системы корней, $n \ge 1$.
 
 Далее пусть $\pi:G_\Z \to GL(U_\Z)$ --- представление $G_\Z$ над $\Z$, становящееся неприводимым над алгебраически замкнутым полем характеристики $0$. Тогда $U_\Z$ --- конечномерный свободный модуль старшего веса. Будем в дальнейшем предполагать, что его ранг
-\begin{equation}\label{representationrank}
+\begin{equation*}
 \mathrm{rk} \; U_\Z \ge 2 \;.
-\end{equation}
+\end{equation*}
 Тогда если $R$ --- произвольное коммутативное кольцо, то $\pi$ индуцирует действие группы $G=G_\Z(R)$ на модуле $U = U_Z \otimes R$,  которое будем обозначать следующим образом:
 $$ \pi_R(g) : u \mapsto {}^g u $$
 Так как $\pi$ является морфизмом схем, то $U$, как и $U_\Z$, будет являться свободным модулем, и в случае выбора максимального тора $T$ является (\citep{Borel1970}) прямой суммой весовых подпространств
@@ -326,7 +331,7 @@ $$
 Следующее требование, которые мы в дальнейшем будем предполагать выполненным, относится одновременно к модулю $U$ и кольцу $R$. Для базисных представлений без нулевого веса оно выполнено всегда независимо от кольца $R$, но для более сложных случаев оно может означать обратимость в $R$ некоторых целых чисел.
 
 \vspace{1ex}
-\begin{tcolorbox}[colback=white, grow to left by=1.2em, grow to right by=1.2em, breakable, enhanced]
+\begin{framed}
 \begin{hyp}\label{returnfromhighest}
 Если $u$ --- некоторый вектор из $U_\sigma$, и $V={}^{EB}\left<u\right>$ --- минимальный \linebreak
 $EB$-инвариантный подмодуль, содержащий $u$, то $u \in {}^E\left<V \cap U_{\widetilde\sigma}\right>$, или, что то же самое, ${}^E\left<V \cap U_{\widetilde\sigma}\right> = {}^E \left<u\right>$.
@@ -334,8 +339,9 @@ $EB$-инвариантный подмодуль, содержащий $u$, то
 Иными словами, если $u$ --- некоторый вектор из $U_\sigma$, то его образы в пространстве $U_{\widetilde\sigma}$ старшего веса под действием операторов 
 $\left(\prod_{\alpha_i}\varepsilon_{\alpha_i}(1)\right)$, где $\alpha_i$ пробегает по всем цепочкам положительных корней, так что $\sum_i \alpha_i = \widetilde\sigma - \sigma$, не содержатся ни в каком $E$-инвариантном модуле, в котором бы не содержался $u$. Иными словами, все эти образы в совокупности порождают (как $E$-инвариантный подмодуль) тот же самый подмодуль, который порождается (как $E$-инвариантный подмодуль) исходным вектором $u$.
 \end{hyp}
-\end{tcolorbox}
+\end{framed}
 
+\pagebreak
 Следующие утверждения вытекают из данного свойства:
 \begin{lm} \label{extremalweightisomorphism}
 Пусть $\sigma$ и $\sigma+n\alpha$ --- экстремальные корни и при этом $u\in U_\sigma$.\linebreak
@@ -343,7 +349,7 @@ $\left(\prod_{\alpha_i}\varepsilon_{\alpha_i}(1)\right)$, где $\alpha_i$ пр
 то обязательно $u \in V$.
 \end{lm}
 \begin{proof}
-Если $\sigma+n\alpha = \widetilde\sigma$ --- максимальный корень, то утверждение является частным случаем \ref{returnfromhighest}. В остальных случаях $\sigma+n\alpha$ переводится в $\widetilde\sigma$ некоторым элементом группы Вейля.
+Если $\sigma+n\alpha = \widetilde\sigma$ --- максимальный корень, то утверждение является частным случаем \refb{returnfromhighest}. В остальных случаях $\sigma+n\alpha$ переводится в $\widetilde\sigma$ некоторым элементом группы Вейля.
 \end{proof}
 
 \begin{lm}\label{weightprojections}
@@ -352,16 +358,16 @@ $\left(\prod_{\alpha_i}\varepsilon_{\alpha_i}(1)\right)$, где $\alpha_i$ пр
 \begin{proof}
 Пусть $v = \sum v_\sigma$. Доказательство проведём индукцией по минимальному (то есть не имеющему меньших) весу $\sigma'$ из присутствующих в сумме. Базой индукции будет сумма из одного слагаемого старшего веса: $v = v_{\widetilde\sigma}$.
 
-Пусть теперь $v = v_{\sigma'} + v'$, где $v'$, если лежит в $V$, то раскладывается в $V$ по весовым простраствам по индукционному предположению. Тогда цепочки положительных корней из свойства \ref{returnfromhighest} будут переводить $v$ в различные $w := \left(\prod_{\alpha}\varepsilon_\alpha(1)\right) \, v \in V \cap U_{\widetilde\sigma}$. Но одновременно каждый такой $w = \left(\prod_{\alpha}\varepsilon_\alpha(1)\right) \, v_{\sigma'}$, поэтому, в силу \ref{returnfromhighest}, $v_{\sigma'}$ также лежит в $V$.
+Пусть теперь $v = v_{\sigma'} + v'$, где $v'$, если лежит в $V$, то раскладывается в $V$ по весовым простраствам по индукционному предположению. Тогда цепочки положительных корней из свойства \refb{returnfromhighest} будут переводить $v$ в различные $w := \left(\prod_{\alpha}\varepsilon_\alpha(1)\right) \, v \in V \cap U_{\widetilde\sigma}$. Но одновременно каждый такой $w = \left(\prod_{\alpha}\varepsilon_\alpha(1)\right) \, v_{\sigma'}$, поэтому, в силу \refb{returnfromhighest}, $v_{\sigma'}$ также лежит в $V$.
 \end{proof}
 
 \begin{lm}\label{unipotentsubgroups}
-Над кольцами, для которых выполняется (\ref{returnfromhighest}), инвариантные подмодули $U$ имеют вид $U_I = U \cdot I$, где $I \trianglelefteq R$ --- некоторый идеал.
+Над кольцами, для которых выполняется (\refb{returnfromhighest}), инвариантные подмодули $U$ имеют вид $U_I = U \cdot I$, где $I \trianglelefteq R$ --- некоторый идеал.
 \end{lm}
 \begin{proof}
 Пусть $V$ --- инвариантный подмодуль $U$. Достаточно доказать, что найдётся идеал $I$, такой что любой $V \cap U_\sigma = U_\sigma \, I$.
 
-Cвойство \ref{returnfromhighest} устанавливает набор отображений, однозначно определяющих $V \cap U_{\widetilde\sigma}$ по $V \cap U_\sigma$ и наоборот. В силу одномерности $U_{\widetilde\sigma}$ подмодуль $V \cap U_{\widetilde\sigma}$ имеет вид $U_{\widetilde\sigma} \, I$ для некоторого идеала $I$. Следовательно, подмодули $U_{\sigma} \, I$ совпадают с $V \cap U_\sigma$.
+Cвойство \refb{returnfromhighest} устанавливает набор отображений, однозначно определяющих $V \cap U_{\widetilde\sigma}$ по $V \cap U_\sigma$ и наоборот. В силу одномерности $U_{\widetilde\sigma}$ подмодуль $V \cap U_{\widetilde\sigma}$ имеет вид $U_{\widetilde\sigma} \, I$ для некоторого идеала $I$. Следовательно, подмодули $U_{\sigma} \, I$ совпадают с $V \cap U_\sigma$.
 \end{proof}
 
 
@@ -370,7 +376,7 @@ Cвойство \ref{returnfromhighest} устанавливает набор о
 Аддитивную группу $R[G]$-модуля $U$ можно рассматривать как абелеву группу с действием $G$ на ней, поэтому
 имеет смысл следующее определение.
 
-\begin{tcolorbox}[colback=white]
+\begin{framed}
 \begin{definition}
 Пусть $\pi:G_\Z \to GL(U_\Z)$ --- представление $G_\Z$ над $\Z$, становящееся неприводимым над алгебраически замкнутым полем характеристики $0$, $R$ --- коммутативное кольцо, $U=U_\Z\otimes R$.
 
@@ -381,7 +387,7 @@ $$
 
 Назовём такую группу \textit{\textbf{параболически-сходной группой с абелевым унипотентным радикалом}}.
 \end{definition}
-\end{tcolorbox}
+\end{framed}
 
 В дальнейшем будем отождествлять элементы из $U$ с их образами в $P$, то есть с парами вида~$(1,u)$.
 Это делает логичным использование мультипликативной нотации для обозначения сложения в $U$, а также обозначение действия $G$ на $U$ через $$^{g}u = g u g^{-1}.$$ 
@@ -409,7 +415,7 @@ $[g,{}^{h}u] = {}^h[\;{}^{h^{-1}}g\,,u], \quad g,h \in G, \ u \in U $
 \begin{lm}[\citep{Stavrova2009}, Theorem 2.3, Corollary 2.4]
   \label{directproduct}
   Пусть $G = G(\Phi, R)$ --- редуктивная групповая схема Шевалле-Демазюра
-  с системой корней $\Phi = \Phi_1 + \ldots + \Phi_n$, где каждая неприводимая система корней $\Phi_i$ имеет ранг не меньше $2$. В коммутативном кольце $R$ предполагается обратимость всех необходимых структурных констант.
+  с системой корней $\Phi = \Phi_1 + \ldots + \Phi_n$, где каждая неприводимая система корней $\Phi_i$ имеет ранг не меньше $2$. В коммутативном кольце $R$ предполагается обратимость структурных констант группы $G$.
   
   Тогда если подгруппа $H \le G$ нормализуется элементарной группой $E = E(\Phi,R)$, то её коммутант с $E$ можно записать в виде прямого произведения
   $$ [H, E] = \prod_{i=1}^n E(\Phi_i,R,I_i), $$
@@ -436,9 +442,9 @@ $[g,{}^{h}u] = {}^h[\;{}^{h^{-1}}g\,,u], \quad g,h \in G, \ u \in U $
   X_{\widetilde\beta}(I) &\le E(\Phi,I) \\
   X_{\widetilde\beta}(I)^{E(\Phi,R)} &\le E(\Phi,I)^{E(\Phi,R)} = E(\Phi,R,I)
 \end{align*}
-  Обратное включение вытекает из леммы \ref{transitivity}.
+  Обратное включение вытекает из леммы \refb{transitivity}.
   
-  Действительно, возьмём в лемме \ref{transitivity} в качестве $\alpha$ максимальный корень $\widetilde{\beta}$, а в качестве идеала $I$ всё кольцо $R$. Тогда
+  Действительно, возьмём в лемме \refb{transitivity} в качестве $\alpha$ максимальный корень $\widetilde{\beta}$, а в качестве идеала $I$ всё кольцо $R$. Тогда
   $$ \left< x_{\widetilde\beta}(\xi) \right>^{X_\beta(R)} \ge X_{\widetilde\beta + \beta}(\xi R). $$
   Но так как любой корень из $\Phi$ может быть получен прибавлением к максимальному корню $\widetilde\beta$ некоторого отрицательного корня $\beta \in \Phi^-$, то группа $E(\Phi,I)$ порождается подгруппами $X_{\widetilde\beta + \beta}(I)$, а следовательно 
 \begin{align*}
@@ -517,18 +523,17 @@ $\langle\sigma,\delta-\gamma\rangle =
 \end{proof}
 
 \begin{lm}\label{highestweightvariants}
-При выборе $\gamma$ и $\delta$ согласно предыдущей лемме выполняется хотя бы одно из следующих условий:
-\begin{itemize}
-\item Если угол между $\gamma$ и $\delta$ составляет $\frac{2\pi}{3}$:
+Пусть $\gamma$ и $\delta$ выбраны в соответствии с предыдущей леммой. Тогда
+\begin{itemize}[label={\LARGE\raisebox{-0.4ex}{\textbullet}\;},leftmargin=2\parindent]
+\item если угол между $\gamma$ и $\delta$ составляет $\frac{2\pi}{3}$, то выполняется хотя бы одно из следующих четырёх условий:
 \begin{enumerate}
 \item $ \sigma - \gamma \notin \Sigma$
 \item $ \sigma - \delta \notin \Sigma$
 \item $ \sigma - 2\gamma \in \Sigma$
 \item $ \sigma - 2\delta \in \Sigma$
 \end{enumerate}
-\item Если угол между $\gamma$ и $\delta$ составляет $\frac{\pi}{2}$:
+\item если угол между $\gamma$ и $\delta$ составляет $\frac{\pi}{2}$, то выполняется хотя бы одно из следующих четырёх условий:
 \begin{enumerate}
-\item[0.] $ \sigma - \delta + \gamma \in \Sigma$
 \item $ \sigma - 2\gamma \notin \Sigma$
 \item $ \sigma - 2\delta \notin \Sigma$
 \item $ \sigma - 3\gamma \in \Sigma$
@@ -536,17 +541,19 @@ $\langle\sigma,\delta-\gamma\rangle =
 \end{enumerate}
 \end{itemize}
 \end{lm}
+\pagebreak
 
-\begin{proof}
-Очевидно что,
+\begin{proof} Докажем, что все четыре условия не могут одновременно нарушаться.
+Так как множество весов инвариантно относительно отражений из группы Вейля, то
 $$ \sigma - \frac{2 \langle \sigma,\gamma\rangle}{\langle \gamma , \gamma \rangle}\gamma \;\in\; \Sigma $$
 $$ \sigma - \frac{2 \langle \sigma,\delta\rangle}{\langle \delta , \delta \rangle}\delta \;\in\; \Sigma \; , $$
-но при этом
+но так как $\sigma$ при этом является старшим весом, то
 $$ \sigma - \frac{2 \langle \sigma,\gamma\rangle}{\langle \gamma , \gamma \rangle}\gamma-\gamma \;\notin\; \Sigma $$
 $$ \sigma - \frac{2 \langle \sigma,\delta\rangle}{\langle \delta , \delta \rangle}\delta-\delta \;\notin\; \Sigma \; . $$
-Следовательно, условия (1-4) могут выполняться, только если $\langle\sigma,\gamma\rangle=\langle\widetilde\beta_i,\gamma\rangle$
+
+Следовательно, как в случае угла $\frac{2\pi}{3}$ между $\gamma$ и $\delta$ так и в случае угла $\frac{\pi}{2}$, все четыре условия могут одновременно нарушаться, только если $\langle\sigma,\gamma\rangle=\langle\widetilde\beta_i,\gamma\rangle$
 и одновременно $\langle\sigma,\delta\rangle=\langle\widetilde\beta_i,\delta\rangle$. Но это значит, что $\langle\sigma-\widetilde\beta_i,\widetilde\beta_i\rangle=0$,
-а значит по условию предыдущей леммы $\langle\sigma,\delta-\gamma\rangle > 0$, то есть выполнено условие (0).
+а следовательно по условию предыдущей леммы $\langle\sigma,\delta-\gamma\rangle > 0$, что невозможно, так как $\langle\sigma,\delta-\gamma\rangle = \langle\widetilde\beta_i,\delta-\gamma\rangle = 0$.
 \end{proof}
 
 \section{Основной результат}
@@ -554,18 +561,19 @@ $$ \sigma - \frac{2 \langle \sigma,\delta\rangle}{\langle \delta , \delta \rangl
 Теперь, можно перейти к описанию подгрупп в $P=G\rightthreetimes U$, нормализуемых элементарной группой $E\le G$.
 
 \begin{thm}\label{subgroupprojectionmain}
-  Снова $G = G(\Phi, R)$ --- редуктивная групповая схема Шевалле-Демазюра
-  с системой корней $\Phi = \Phi_1 + \ldots + \Phi_n$, где каждая $\Phi_i$ --- неприводимая система корней ранга не менее~$2$. $U$ --- неприводимое рациональное представление $G$ (модуль Вейля) с таким старшим весом $\widetilde\sigma$, что ни для какой неприводимой компоненты $\Phi_i$ с максимальным весом $\widetilde\beta_i$ не оказывается $\widetilde\sigma-\widetilde\beta_i$ ортогональным всей $\Phi_i$. В коммутативном кольце $R$ предполагается обратимость всех структурных констант группы $G$, а также предполагается выполнение свойства~\ref{returnfromhighest}.
+  Пусть $G = G(\Phi, R)$ --- редуктивная групповая схема Шевалле-Демазюра
+  с системой корней $\Phi = \Phi_1 + \ldots + \Phi_n$, где каждая $\Phi_i$ --- неприводимая система корней ранга не менее~$2$. $U$ --- неприводимое над замкнутым полем представление $G$ с таким старшим весом $\widetilde\sigma$, что ни для какой неприводимой компоненты $\Phi_i$ с максимальным весом $\widetilde\beta_i$ разность~${\widetilde\sigma-\widetilde\beta_i}$~не оказывается ортогональна всей $\Phi_i$. В коммутативном кольце $R$ предполагается обратимость всех структурных констант группы $G$, а также в модуле $U$ над кольцом $R$ предполагается выполнение свойства~\refb{returnfromhighest}.
     
-  Пусть имеется подгруппа $H \le G \rightthreetimes U$, нормализуемая группой $E$, то есть $[H,E] \le H$. Тогда образ $H$ при проекции $G \rightthreetimes U \rightarrow G$, обозначаемый как $H_G$, будет обладать следующим свойством: $[H_G,E]\le H$.
+  Пусть в параболически-сходной группе $P=G\rightthreetimes U$ имеется подгруппа $H$, нормализуемая группой $E$, то есть $[H,E] \le H$. Тогда образ $H$ при проекции $G \rightthreetimes U \rightarrow G$, обозначаемый как $H_G$, будет обладать следующим свойством: $[H_G,E]\le H$.
 \end{thm}
-\begin{proof}
-  $H$ нормализуется $E$, следовательно $H_G$ также нормализуется $E$. По лемме \ref{directproduct} $[H_G,E] = \prod_{i=1}^n E(\Phi_i,R,I_i)$ при некотором выборе идеалов $I_i$. Требуется доказать, что $[H_G,E] \le H$, то есть в прямом произведении $\prod_{i=1}^n E(\Phi_i,R,I_i)$ каждый множитель $E(\Phi_i,R,I_i)$  лежит в $H$.
+\begin{proof} \quad
+$H$ нормализуется $E$, следовательно $H_G$ также нормализуется $E$.
+\linebreak
+По лемме \refb{directproduct} выполняется $[H_G,E] = \prod_{i=1}^n E(\Phi_i,R,I_i)$ при некотором выборе идеалов $I_i$. Требуется доказать, что $[H_G,E] \le H$, то есть в прямом произведении $\prod_{i=1}^n E(\Phi_i,R,I_i)$ каждый множитель $E(\Phi_i,R,I_i)$  лежит в $H$.
 
-Но по лемме \ref{maximalgenerates} $E(\Phi_i,R,I_i) = X_{\widetilde\beta_i}(I_i)^{E(\Phi_i,R)}$.
-
+Но по лемме \refb{maximalgenerates} одновременно \vspace{0.8ex} $E(\Phi_i,R,I_i) = X_{\widetilde\beta_i}(I_i)^{E(\Phi_i,R)}$.
 Поэтому достаточно доказать, что $X_{\widetilde\beta_i}(I_i)^{E(\Phi_i,R)} \le H$, то есть что
-$x_{\widetilde{\beta_i}}(\xi) \in H \ \forall \xi \in I_i$.
+$x_{\widetilde{\beta_i}}(\xi) \in H \ \forall \xi \in I_i$.\vspace{0.8ex}
 
 По построению известно, что $x_{\widetilde\beta_i}(\xi) \in [H_G,E] \le H_G$.
 Обозначим за $h$ некоторый прообраз $x_{\widetilde\beta_i}(\xi)$ при проекции $G \rightthreetimes U \rightarrow G$.
@@ -593,24 +601,38 @@ x_{\widetilde\beta_i}(\xi)\,u \arrow[Equals]{u} \arrow[maps to]{r}{} & x_{\widet
 \end{tikzcd}
 \end{equation*}
 
-Рассмотрим два случая. Пусть сначала $u \notin U_{\widetilde\sigma}$, то есть $u$ не является вектором максимального веса.
-Разложим $u$ по весовым подпространствам: $$u = \prod_{\sigma \in \Sigma} u_\sigma = u_{\widetilde\sigma} \, \prod_{\sigma \in \Sigma \setminus \{\widetilde\sigma\} } u_\sigma = u_{\widetilde\sigma} \, u'  .$$
-Докажем, что все множители, составляющие $u'$, принадлежат $H$. Будем доказывать это по индукции по аналогии с леммой \ref{weightprojections}.
 
-Пусть $\sigma$ --- минимальный корень из присутствующих в разложении $u'$. Для некоторого положительного корня $\alpha_1 \in \Phi$ (не обязательно из $\Phi_i$) вычислим
+Требуется доказать, что $h$ можно выбрать таким образом, что $u=1$.
+
+\pagebreak
+
+Разложим $u$ по весовым подпространствам:
+\begin{equation}\label{weightdecompmain}
+u = \prod_{\sigma \in \Sigma} u_\sigma
+\end{equation}
+
+Докажем, что все множители, составляющие $u$, принадлежат $H$. Будем доказывать это индукцией по множеству весов, участвующих в произведении.
+
+Пусть $\sigma$ --- минимальный вес из присутствующих в произведении.
+
+Предположим сначала, что $u \notin U_{\widetilde\sigma}$, то есть $u$ не является вектором максимального веса. Докажем переход индукции по аналогии с леммой \refb{weightprojections}.
+
+Для некоторого положительного корня $\alpha_1 \in \Phi$ (не обязательно из $\Phi_i$) вычислим
 \begin{multline*}
 [x_{\alpha_1}(1), h] = [x_{\alpha_1}(1), x_{\widetilde\beta_i}(\xi)u] =
 [x_{\alpha_1}(1), x_{\widetilde\beta_i}(\xi)] \cdot {}^{x_{\widetilde\beta_i}(\xi)}[x_{\alpha_1}(1),u] =\\=
 {}^{x_{\widetilde\beta_i}(\xi)}[x_{\alpha_1}(1),u] \; \in \; U \cap H \; .
 \end{multline*}
 
-Рассмотрим цепочку положительных корней $\alpha_1,\alpha_2 \ldots \alpha_k$, начинающуюся с $\alpha_1$, такую что $\alpha_1+\alpha_2+\ldots+\alpha_k=\widetilde\sigma-\sigma$. Последовательное коммутирование $u_\sigma$ с корневыми элементами этой цепочки приводит к такому же результату, как действие оператора $\varepsilon_{\alpha_k}(1)\ldots\varepsilon_{\alpha_2}(1)\varepsilon_{\alpha_1}(1)$:
+Рассмотрим цепочку положительных корней $\alpha_1,\alpha_2 \ldots \alpha_k$, начинающуюся с $\alpha_1$, такую что $\alpha_1+\alpha_2+\ldots+\alpha_k=\widetilde\sigma-\sigma$. 
+
+Последовательное коммутирование $u_\sigma$ с корневыми элементами этой цепочки приводит к такому же результату, как действие оператора $\varepsilon_{\alpha_k}(1)\ldots\varepsilon_{\alpha_2}(1)\,\varepsilon_{\alpha_1}(1)$:
 $$ [x_{\alpha_k}(1),[\ldots[x_{\alpha_2}(1),[x_{\alpha_1}(1),u_\sigma]]\ldots]] =
 \big(\varepsilon_{\alpha_k}(1)\ldots\varepsilon_{\alpha_2}(1)\varepsilon_{\alpha_1}(1)\big)(u_\sigma) \;.$$
-При этом к тому же результату приводит и аналогичное коммутирование $u$
+При этом к тому же результату приводит и аналогичное коммутирование $u$:
 $$ [x_{\alpha_k}(1),[\ldots[x_{\alpha_2}(1),[x_{\alpha_1}(1),u]]\ldots]] =
 \big(\varepsilon_{\alpha_k}(1)\ldots\varepsilon_{\alpha_2}(1)\varepsilon_{\alpha_1}(1)\big)(u_\sigma) \;,$$
-а также коммутирование $h$:
+и тот же результат получается при аналогичном коммутировании $h$:
 \begin{multline*}
 [x_{\alpha_k}(1),[\ldots[x_{\alpha_2}(1),[x_{\alpha_1}(1),h]]\ldots]] =\\=
 [x_{\alpha_k}(1),[\ldots[x_{\alpha_2}(1),{}^{x_{\widetilde\beta_i}(\xi)}[x_{\alpha_1}(1),u]]\ldots]] =\\=
@@ -619,20 +641,21 @@ $$ [x_{\alpha_k}(1),[\ldots[x_{\alpha_2}(1),[x_{\alpha_1}(1),u]]\ldots]] =
 \big(\varepsilon_{\alpha_k}(1)\ldots\varepsilon_{\alpha_2}(1)\varepsilon_{\alpha_1}(1)\big)(u_\sigma) \;,
 \end{multline*}
 
-В результате по свойству \ref{returnfromhighest}, так как $\big(\varepsilon_{\alpha_k}(1)\ldots\varepsilon_{\alpha_2}(1)\varepsilon_{\alpha_1}(1)\big)(u_\sigma) \; \in \; H$ для всех цепочек положительных корней $\alpha_1\ldots\alpha_k$, то и $u_\sigma \in H$.
+Из этого можно заключить, что $\big(\varepsilon_{\alpha_k}(1)\ldots\varepsilon_{\alpha_2}(1)\varepsilon_{\alpha_1}(1)\big)(u_\sigma) \; \in \; H$ для всех цепочек положительных корней $\alpha_1\ldots\alpha_k$, а следовательно, по свойству \refb{returnfromhighest} $u_\sigma \in H$. Таким образом, доказан переход индукции, то есть число множителей в разложении (\ref{weightdecompmain}) можно уменьшить, выбрав другой прообраз $h$.
 
-Пусть теперь $u \in  U_{\widetilde\sigma}$. 
+Докажем теперь базу индукции, то есть случай, когда $u \in  U_{\widetilde\sigma}$.
+Представим $\beta\coloneqq\widetilde\beta_i$ в виде суммы $\gamma+\delta$ в соответствии с леммой~\refb{maxrootsum}.
 
-Представим $\beta\coloneqq\widetilde\beta_i$ в виде суммы $\gamma+\delta$ в соответствии с леммой \ref{maxrootsum}.
+\pagebreak
 
-Рассмотрим случаи в соответствии с леммой \ref{highestweightvariants}.
-Если $\widetilde\sigma-\delta+\gamma \in \Sigma$ (случай (0)), то
+
+Предварительно выделим и отдельно рассмотрим случай, когда $\widetilde\sigma-\delta+\gamma \in \Sigma$. В этом случае
 \begin{multline*}
 [x_{\gamma-\delta}(1),h] = [x_{\gamma-\delta}(1),x_\beta(\xi)u] = [x_{\gamma-\delta}(1),x_\beta(\xi)] \cdot {}^{x_\beta(\xi)}[x_{\gamma-\delta}(1),u] =\\=
 {}^{x_\beta(\xi)}[x_{\gamma-\delta}(1),u] \;\in\; U\cap H \;.
 \end{multline*}
 Очевидно, $\widetilde\sigma + \N(\gamma-\delta)+\N\beta \notin \Sigma$, поэтому
-$h_{-\gamma} = [x_{-\gamma}(1),u]$. Дальнейшее коммутирование с $x_{\gamma-\delta}(1)$ приводит к элементу $w\coloneqq\varepsilon_{\gamma-\delta}(1)^k(u)$, $k=2\frac{\langle\sigma,\delta-\gamma\rangle}{\langle\delta-\gamma,\delta-\gamma\rangle}$, лежащему в подпространстве экстремального веса $\sigma-2\frac{\langle\sigma,\delta-\gamma\rangle}{\langle\delta-\gamma,\delta-\gamma\rangle}(\delta-\gamma)$. Так как $w\in H$, то по лемме \ref{extremalweightisomorphism} также $u \in H$.
+$h_{-\gamma} = [x_{-\gamma}(1),u]$. Дальнейшее коммутирование с $x_{\gamma-\delta}(1)$ приводит к элементу $w\coloneqq\varepsilon_{\gamma-\delta}(1)^k(u)$, $k=2\frac{\langle\sigma,\delta-\gamma\rangle}{\langle\delta-\gamma,\delta-\gamma\rangle}$, лежащему в подпространстве экстремального веса $\sigma-2\frac{\langle\sigma,\delta-\gamma\rangle}{\langle\delta-\gamma,\delta-\gamma\rangle}(\delta-\gamma)$. Так как $w\in H$, то по лемме \refb{extremalweightisomorphism} также $u \in H$.
 
 Пусть теперь $\widetilde\sigma-\delta+\gamma \notin \Sigma$. В этом случае $\N\beta-\N\delta$, так же как и $\N\beta-\N\gamma$, будут неотрицательны.
 
@@ -682,22 +705,21 @@ h_{-3\gamma} \coloneqq [x_{-\gamma}(1),h_{-2\gamma}] = \\ =
 \end{multline*}
 где $u_3$ раскладывается по подпространствам $U_\sigma$ с $\sigma \in \widetilde\sigma-3\gamma - \N \, \gamma$.
 
-Вернёмся к разбору вариантов леммы \ref{highestweightvariants}.
-\begin{itemize}
+Рассмотрим варианты в соответствии с леммой \refb{highestweightvariants}.
+\begin{itemize}[label={\LARGE\raisebox{-0.4ex}{\textbullet}\;},leftmargin=2\parindent]
 \item Если угол между $\gamma$ и $\delta$ составляет $\frac{2\pi}{3}$:
 \begin{enumerate}
 \item $ \sigma - \gamma \notin \Sigma$, тогда $h_{-\gamma}=x_{\beta-\gamma}(N_{-\gamma,\beta,1,1} \,\xi)\in E\cap H$ и $x_\beta(\xi)\in H$
 \item $ \sigma - \delta \notin \Sigma$, тогда $h_{-\delta}=x_{\beta-\delta}(N_{-\delta,\beta,1,1} \,\xi)\in E\cap H$ и $x_\beta(\xi)\in H$
-\item $ \sigma - 2\gamma \in \Sigma$, тогда $h_{-2\gamma}=\varepsilon_{-\gamma}^2(u)\in U\cap H$ и по \ref{extremalweightisomorphism} $u\in H$
-\item $ \sigma - 2\delta \in \Sigma$, тогда $h_{-2\delta}=\varepsilon_{-\delta}^2(u)\in U\cap H$ и по \ref{extremalweightisomorphism} $u\in H$
+\item $ \sigma - 2\gamma \in \Sigma$, тогда $h_{-2\gamma}=\varepsilon_{-\gamma}^2(u)\in U\cap H$ и по лемме \refb{extremalweightisomorphism} $u\in H$
+\item $ \sigma - 2\delta \in \Sigma$, тогда $h_{-2\delta}=\varepsilon_{-\delta}^2(u)\in U\cap H$ и по лемме \refb{extremalweightisomorphism} $u\in H$
 \end{enumerate}
 \item Если угол между $\gamma$ и $\delta$ составляет $\frac{\pi}{2}$:
 \begin{enumerate}
-\item[0.] $ \sigma - \delta + \gamma \in \Sigma$ --- случай разобран ранее
 \item $ \sigma - 2\gamma \notin \Sigma$, тогда $h_{-2\gamma}=x_{\beta-2\gamma}(N_{-\gamma,\beta,1,1}N_{-\gamma,\beta-\gamma,1,1} \,\xi)\in E\cap H$ и $x_\beta(\xi)\in H$
 \item $ \sigma - 2\delta \notin \Sigma$, тогда $h_{-2\delta}=x_{\beta-2\delta}(N_{-\delta,\beta,1,1}N_{-\delta,\beta-\delta,1,1} \,\xi)\in E\cap H$ и $x_\beta(\xi)\in H$
-\item $ \sigma - 3\gamma \in \Sigma$, тогда $h_{-3\gamma}=\varepsilon_{-\gamma}^3(u)\in U\cap H$ и по \ref{extremalweightisomorphism} $u\in H$
-\item $ \sigma - 3\delta \in \Sigma$, тогда $h_{-3\delta}=\varepsilon_{-\delta}^3(u)\in U\cap H$ и по \ref{extremalweightisomorphism} $u\in H$
+\item $ \sigma - 3\gamma \in \Sigma$, тогда $h_{-3\gamma}=\varepsilon_{-\gamma}^3(u)\in U\cap H$ и по лемме \refb{extremalweightisomorphism} $u\in H$
+\item $ \sigma - 3\delta \in \Sigma$, тогда $h_{-3\delta}=\varepsilon_{-\delta}^3(u)\in U\cap H$ и по лемме \refb{extremalweightisomorphism} $u\in H$
 \end{enumerate}
 \end{itemize}
 \end{proof}
@@ -706,30 +728,29 @@ h_{-3\gamma} \coloneqq [x_{-\gamma}(1),h_{-2\gamma}] = \\ =
   Любая подгруппа $H \le U$, нормализуемая $G$, имеет вид $U_I$, где $I$ --- идеал кольца.
 \end{lm}
 \begin{proof}
-  Данное утверждение является мультипликативной записью утверждения \ref{unipotentsubgroups}.
+  Данное утверждение является мультипликативной записью утверждения \refb{unipotentsubgroups}.
 \end{proof}
-
 \begin{thm}
 В условиях предыдущей теоремы подгруппа $H\le G \rightthreetimes U$ может быть представлена в виде $H = H_G \rightthreetimes H_U$, где $[H_G,E] = \prod_{i=1}^n E(\Phi_i, R, I_i)$, а $H_U=U_I$ --- подмодуль $U$, заданный некоторым идеалом кольца.
 \end{thm}
 \begin{proof}
-Достаточно доказать, что $H_G \le H$, оставшаяся часть следует из \ref{unipotenttransitivity}.
+Достаточно доказать, что $H_G \le H$, оставшаяся часть следует из \refb{unipotenttransitivity}.
 
 Разложим элемент $h \in H$ в произведение $h = z u$, где $z \in H_G$, $u \in U$. Докажем, что $z$ и $u$ также лежат в $H$.
 
 Прокоммутируем $h$ с некоторым $g$ из $E$:
 $$ [g, h] = [g,zu] = [g,z] \cdot {}^z[g,u] $$
 
-По теореме \ref{subgroupprojectionmain} $[g,z]\in H$, следовательно, ${}^z[g,u]$ так же лежит в $H$. Но
-$ {}^z[g,u] = {}^{zu}[u^{-1},g] $, следовательно, $[u^{-1},g] \in H$. Выбирая в качестве $g$ корневые элементы $x_\alpha(1)$ с корнями из начала цепочек в лемме \ref{returnfromhighest}, получим, что $u$ также лежит в $H$.
+По теореме \refb{subgroupprojectionmain} $[g,z]\in H$, следовательно, ${}^z[g,u]$ так же лежит в $H$. Но
+$ {}^z[g,u] = {}^{zu}[u^{-1},g] $, следовательно, $[u^{-1},g] \in H$. Выбирая в качестве $g$ корневые элементы $x_\alpha(1)$ с корнями из начала цепочек в лемме \refb{returnfromhighest}, получим, что $u$ также лежит в $H$.
 \end{proof}
 
 \section{Случай присоединённого представления}
 
-Описанный выше результат о виде подгрупп, нормализуемых $E$, получен при выполнении предположений теоремы \ref{subgroupprojectionmain}. Среди этих условий выделяется условие о том, что все $\widetilde\sigma-\widetilde\beta_i$ не ортогональны соответствующим $\Phi_i$. Это требование вытекает из леммы \ref{maxrootsum} и отделяет случай, когда для некоторого $\Phi_i$ оказывается $\widetilde\sigma-\widetilde\beta_i$ ортогонально $\Phi_i$. Этот случай является существенным исключением, и для него выполняется более слабый результат.
+Описанный выше результат о виде подгрупп, нормализуемых $E$, получен при выполнении предположений теоремы \refb{subgroupprojectionmain}. Среди этих условий выделяется условие о том, что все $\widetilde\sigma-\widetilde\beta_i$ не ортогональны соответствующим $\Phi_i$. Это требование вытекает из леммы \refb{maxrootsum} и отделяет случай, когда для некоторого $\Phi_i$ оказывается $\widetilde\sigma-\widetilde\beta_i$ ортогонально $\Phi_i$. Этот случай является существенным исключением, и для него выполняется более слабый результат.
 
 \begin{thm}
-Пусть выполняются условия теоремы \ref{subgroupprojectionmain} за исключением требования $\widetilde\sigma-\widetilde\beta_i \not\perp \Phi_i \; \forall i$. А именно, пусть для некоторого $i$ выполнено $\widetilde\sigma-\widetilde\beta_i \perp \Phi_i$.
+Пусть выполняются условия теоремы \refb{subgroupprojectionmain} за исключением требования $\widetilde\sigma-\widetilde\beta_i \not\perp \Phi_i \; \forall i$. А именно, пусть для некоторого $i$ выполнено $\widetilde\sigma-\widetilde\beta_i \perp \Phi_i$.
 
 Тогда если $x_{\widetilde\beta_i}(\xi) \in H_G$, то $x_{\widetilde\beta_i}(\xi^2) \in H$.
 \end{thm}
@@ -762,7 +783,6 @@ x_{\gamma+\delta}(4\xi^2) = & \\
 & \quad ]] \in H
 \end{split}
 \end{equation*}
-
 \end{proof}
 
 \section{Обобщение на случай неабелева унипотентного радикала}
@@ -906,10 +926,10 @@ $$
 \begin{thm}
 Пусть $P$ --- параболически-сходная группа над $R$ с унипотентным радикалом класса 2, построенная по представлению $U$ группы $G$ со структурой алгебры~${\circledast}$ на представлении, причём  $U=V \oplus U/V$, где $V:=U\circledast U$.
 
-Тогда если $V$ и $U/V$ --- простые представления группы $G$, для которых с учётом выбора кольца $R$ выполняется свойство \ref{returnfromhighest}, то подгруппы унипотентного радикала, нормализуемые $E$, задаются парой идеалов $I$, $J$, где $I^2 \subset J$.
+Тогда если $V$ и $U/V$ --- простые представления группы $G$, для которых с учётом выбора кольца $R$ выполняется свойство \refb{returnfromhighest}, то подгруппы унипотентного радикала, нормализуемые $E$, задаются парой идеалов $I$, $J$, где $I^2 \subset J$.
 \end{thm}
 \begin{proof}
-Пусть $U'\le U$ --- подгруппа, нормализуемая $E$. Так как $P$ допускает факторизацию по $V$, то в $U/V$ будет подгруппа $U'/V$, так же нормализуемая $E$. Аналогично, в $V$ есть подгруппа $U' \cap V$, нормализуемая $E$. А так как $E$-инвариантные подмодули в $U/V$ и в $V$ определяются утверждением \ref{unipotentsubgroups}, то осталось доказать, что $I^2 \subset J$. Но это следует из замкнутости подмодуля относительно~${\circledast}$.
+Пусть $U'\le U$ --- подгруппа, нормализуемая $E$. Так как $P$ допускает факторизацию по $V$, то в $U/V$ будет подгруппа $U'/V$, так же нормализуемая $E$. Аналогично, в $V$ есть подгруппа $U' \cap V$, нормализуемая $E$. А так как $E$-инвариантные подмодули в $U/V$ и в $V$ определяются утверждением \refb{unipotentsubgroups}, то осталось доказать, что $I^2 \subset J$. Но это следует из замкнутости подмодуля относительно~${\circledast}$.
 \end{proof}
 
 Если $V$ и $U/V$ --- простые представления, то они раскладываются по весовым пространствам. Следующая лемма говорит о том, что операция~${\circledast}$ согласована с весовым разложением.
@@ -923,11 +943,11 @@ $$
 $$
 \end{proof}
 
-Наличие согласованного с действием $G$ весового разложения позволяет предположить, что для параболически-сходных групп с унипотентным радикалом класса нильпотентности~2 может быть получен результат, аналогичный теореме \ref{subgroupprojectionmain}.
+Наличие согласованного с действием $G$ весового разложения позволяет предположить, что для параболически-сходных групп с унипотентным радикалом класса нильпотентности~2 может быть получен результат, аналогичный теореме \refb{subgroupprojectionmain}.
 
 \section{Заключение}
 
-\placeholder
+В настоящей работе получено доказательство теоремы о нормальном строении линейных алгебраических групп, сходных с параболическими, с абелевым унипотентным радикалом. Также сформулировано обобщающее понятие линейных алгебраических групп, сходных с параболическими, с унипотентным радикалом класса нильпотентности не более~2. Описание нормального строения для данного класса групп является предметом дальнейших исследований.
 
 \setmonofont[Mapping=tex-text]{CMU Typewriter Text}
 \bibliographystyle{ugost2008ls}
