@@ -181,9 +181,9 @@
     {\ifthenelse{\equal{\my@title@type@ru}{diploma}}
     {Дипломная работа}
     {\ifthenelse{\equal{\my@title@type@ru}{master}}
-    {Магистерская диссертация}
+    {Квалификационная работа магистра}
     {\ifthenelse{\equal{\my@title@type@ru}{bachelor}}
-    {Бакалаврская работа}
+    {Квалификационная работа бакалавра}
     }}}
     \\}
     \vskip 2em
