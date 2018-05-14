@@ -64,7 +64,7 @@
 %% Отступ в первом абзаце
 \usepackage{indentfirst}
 %% Гиперссылки
-\usepackage[colorlinks=true,urlcolor=black,linkcolor=black,filecolor=black,citecolor=black]{hyperref}
+\usepackage{hyperref}
 
 %% Включение графических файлов
 %% we don't need to load graphicx since it will be loaded by xunicode (which is loaded by fontspec) 
@@ -300,7 +300,7 @@
            {}%
            {\addcontentsline{toc}{section}{#1}}%
 }
-\def\@@section#1{\newpage\old@section{#1}}
+\def\@@section#1{\old@section{#1}}
 
 %% Полуторный интервал
 \usepackage[nodisplayskipstretch]{setspace}
