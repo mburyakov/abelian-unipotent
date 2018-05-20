@@ -15,6 +15,7 @@
 \usepackage[most]{tcolorbox}
 \usepackage{enumitem}
 \usepackage{cancel}
+\usepackage{mdframed}
 
 \usepackage{fontspec}
 \setmainfont{Times New Roman}
@@ -67,7 +68,7 @@
 
 
 \filltitle{ru}{
-    chair              = {\hspace{8em} 01.04.01 Математика \tiny ---  царица \xcancel{полей} ${}^{\text{\textit{коммутативных колец}}}$},
+    chair              = {\hspace{8em} 01.04.01 Математика \textcolor{white}{\tiny ---  царица \xcancel{полей} ${}^{\text{\textit{коммутативных колец}}}$}},
     title              = {Линейные алгебраические группы,\\ сходные с параболическими},
     % Здесь указывается тип работы. Возможные значения:
     %   coursework - Курсовая работа
@@ -137,6 +138,19 @@
 }
 \makeatother
 
+\newmdenv[
+  nobreak=true,
+  topline=false,
+  skipabove=-0.3em,
+  innertopmargin=-0.7em,
+  innerbottommargin=0.2em,
+  bottomline=false,
+  rightline=false,
+  linewidth=2pt,
+  %leftmargin=-10pt,
+  linecolor=lightgray
+]{framed}
+
 \theoremstyle{mystyleni}
 \newtheorem{hyp}{Свойство}
 
@@ -147,7 +161,7 @@
 \newtheorem{example}{Пример}
 \newtheorem{definition}{Определение}
 
-\newenvironment{framed}
+\newenvironment{framedold}
     {
 \vspace{1.5ex}
 \begin{tcolorbox}[colback=white, grow to left by=1.2em, grow to right by=1.2em, enhanced]
