@@ -246,7 +246,7 @@ $$ T_{uv}(\xi) : w \mapsto w + u (B(v,w) + \xi B(u,w)) + v B(u,w) \;, $$
 Если $H$ --- нормальная подгруппа в $G$, то это записывается как $H \trianglelefteq G$. В случае, если $H \le G$, запись $\left<X\right>^H$ означает наименьшую подгруппу в $G$, которая содержит $X$ и которая нормализуется $H$.
 Полупрямое произведение двух групп $G$ и $F$ обозначается через $G\rightthreetimes F$, где $F$ --- нормальный сомножитель.
 Запись $[F,H]$ для двух подгрупп $F,H \le G$ обозначает их взаимный коммутант:
-$$ [F,H] = \{[f,g] \, | \, f\in F, g \in G  \} .$$
+$$ [F,H] = \left<[f,g] \, | \, f\in F, g \in G \right> .$$
 
 
 Известно, что всякой приведённой неприводимой системе корней $\Phi$ единственным образом соответствует односвязная аффинная групповая схема $G(\Phi,-)$ над $\Z$, называемая групповой схемой Шевалле-Демазюра (\cite{Plotkin1998}, \cite{Steinberg2016}, \cite{Chevalley1960-1961}).
@@ -260,7 +260,7 @@ $$ [F,H] = \{[f,g] \, | \, f\in F, g \in G  \} .$$
 
 Пусть $G_\Z$ --- связная расщепимая редуктивная групповая схема с системой корней $\Phi = \Phi_1 + \dots + \Phi_n$, где $\Phi_i$ --- приведённые неприводимые системы корней, $n \ge 1$.
 \linebreak
-Далее пусть $\pi:G_\Z \to GL(U_\Z)$ --- представление $G_\Z$ над $\Z$, становящееся неприводимым над алгебраически замкнутым полем характеристики $0$. Тогда $U_\Z$ --- конечномерный свободный модуль старшего веса (\cite{Conrad11reductivegroup}). Будем в дальнейшем предполагать, что его ранг
+Далее пусть $\pi:G_\Z \to GL(U_\Z)$ --- представление $G_\Z$ над $\Z$, становящееся неприводимым над алгебраически замкнутым полем характеристики $0$. Тогда $U_\Z$ --- конечномерный свободный модуль старшего веса (\cite{Conrad11reductivegroup}). Будем в дальнейшем предполагать, что его ранг больше единицы:
 \begin{equation*}
 \mathrm{rk} \; U_\Z \ge 2 \;.
 \end{equation*}
@@ -418,20 +418,20 @@ $[g,{}^{h}u] = {}^h[\;{}^{h^{-1}}g\,,u], \quad g,h \in G, \ u \in U $
   
   Тогда если подгруппа $H \le G$ нормализуется элементарной группой $E = E(\Phi,R)$, то её коммутант с $E$ можно записать в виде прямого произведения
   $$ [H, E] = \prod_{i=1}^n E(\Phi_i,R,I_i), $$
-  где $E(\Phi_i,R,I_i) = E(\Phi_i,I_i)^{E(\Phi_i,R)}$, $I_i \trianglelefteq R$
+  где $E(\Phi_i,R,I_i) = E(\Phi_i,I_i)^{E(\Phi_i,R)}$ для некоторого набора идеалов $I_i \trianglelefteq R$.
 \end{lm}
 
-\begin{lm}[\citep{Stavrova2009}, Lemma 4.2]
+\begin{lm}[\citep{Stavrova2009}, Lemma 4.1, а также\cite{Vavilov1978}, лемма 1]
   \label{transitivity}
   Для любых двух корней $\alpha, \beta \in \Phi$, таких что их сумма также является корнем, и для любых  $\xi \in R$, $I \trianglelefteq R$ выполнено
   $$ \left< x_\alpha(\xi) \right>^{X_\beta(I)} \ge X_{\alpha + \beta}(\xi I), $$  
-  где $X_\alpha(I) = \{x_\alpha(\xi) | \xi \in I\}$ --- относительная корневая подгруппа в $G$. Запись $\left<F\right>^H$ обозначает наименьшую подгруппу, нормализуемую $H$ и содержащую $F$, то есть подгруппу, порождённую всевозможными сопряжениями $^hf$, $f \in F$, $h \in H$.
+  где $X_\alpha(I) = \{x_\alpha(\xi) | \xi \in I\}$ --- относительная корневая подгруппа в $G$.
 \end{lm}
 
 Следующая лемма демонстрирует определяющее значение максимального корня при изучении нормальной структуры.
 
 \begin{lm} \label{maximalgenerates}
-  В группе $G=G(\Phi,R)$ с неприводимой системой корней $\Phi$ с рангом $\mathrm{rk}\Phi \ge 2$ выполнено
+  В группе $G=G(\Phi,R)$ с неприводимой системой корней, для которой $\mathrm{rk}\,\Phi \ge 2$, выполнено
   $$X_{\widetilde\beta}(I)^{E(\Phi,R)} = E(\Phi,R,I),$$
   где $\widetilde\beta$ --- максимальный корень в $\Phi$.
 \end{lm}
@@ -442,10 +442,14 @@ $[g,{}^{h}u] = {}^h[\;{}^{h^{-1}}g\,,u], \quad g,h \in G, \ u \in U $
   X_{\widetilde\beta}(I)^{E(\Phi,R)} &\le E(\Phi,I)^{E(\Phi,R)} = E(\Phi,R,I)
 \end{align*}
   Обратное включение вытекает из леммы \refb{transitivity}.
-  
+
   Действительно, возьмём в лемме \refb{transitivity} в качестве $\alpha$ максимальный корень $\widetilde{\beta}$, а в качестве идеала $I$ всё кольцо $R$. Тогда
   $$ \left< x_{\widetilde\beta}(\xi) \right>^{X_\beta(R)} \ge X_{\widetilde\beta + \beta}(\xi R). $$
-  Но так как любой корень из $\Phi$ может быть получен прибавлением к максимальному корню $\widetilde\beta$ некоторого отрицательного корня $\beta \in \Phi^-$, то группа $E(\Phi,I)$ порождается подгруппами $X_{\widetilde\beta + \beta}(I)$, а следовательно 
+  Следовательно, для любого корня $\gamma \in \Phi$, который может быть получен прибавлением к максимальному корню $\widetilde\beta$ некоторого отрицательного корня $\beta \in \Phi^-$, выполнено
+  $$ X_\gamma(\xi R) \le \left< x_{\widetilde\beta}(\xi)\right>^{E(\Phi,R)} .$$
+  Многократно применяя лемму \refb{transitivity}, получим, что это включение выполнено для всех корней из $\Phi$, так как любой корень может быть получен из максимального последовательным вычитанием отрицательных корней.
+  
+  Группа $E(\Phi,I)$ порождается подгруппами $X_\gamma(I)$, $\gamma \in \Phi$, а следовательно 
 \begin{align*}
 E(\Phi,I) &\le \left< X_{\widetilde\beta}(I) \right>^{E(\Phi,R)}\\
   E(\Phi,R,I) = E(\Phi,I)^{E(\Phi,R)} &\le \left< X_{\widetilde\beta}(I) \right>^{E(\Phi,R)}
@@ -457,7 +461,7 @@ E(\Phi,I) &\le \left< X_{\widetilde\beta}(I) \right>^{E(\Phi,R)}\\
 \begin{lm}\label{maxrootsum}
 Пусть $\Phi=\Phi_1+\ldots+\Phi_n$ --- система корней с неприводимыми компонентами ранга не менее $2$, $\widetilde\beta_1 \ldots \widetilde\beta_n$ ---  максимальные корни в неприводимых компонентах, $\sigma$ --- некоторый доминантный вес, такой что каждая разность $\sigma-\widetilde\beta_i$ не ортогональна $\Phi_i$.
 
-Тогда каждый максимальный корень $\widetilde\beta_i$ можно представить в виде суммы двух корней $\gamma$ и $\delta$ одинаковой длины, так что любая положительная комбинация корней $\widetilde\beta_i$ и $-\gamma$ будет неотрицательна. Если же $\langle\sigma-\widetilde\beta_i,\widetilde\beta_i\rangle=0$, то выбор можно совершить таким образом, чтобы дополнительно выполнялось $\langle\sigma,\delta-\gamma\rangle>0$.
+Тогда каждый максимальный корень $\widetilde\beta_i$ можно представить в виде суммы двух корней $\gamma$ и $\delta$ одинаковой длины, так что любая положительная комбинация корней $\widetilde\beta_i$ и $-\gamma$ не будет меньше нулевого веса относительно частичного порядка на решётке весов. Если же $\langle\sigma-\widetilde\beta_i,\widetilde\beta_i\rangle=0$, то выбор можно совершить таким образом, чтобы дополнительно выполнялось $\langle\sigma,\delta-\gamma\rangle>0$.
 
 Заметим, что угол между $\gamma$ и $\delta$ в результате может оказаться либо $\frac{\pi}{2}$, либо $\frac{2\pi}{3}$. Угол $\frac{\pi}{3}$ (когда $\Phi_i = \mathrm{G}_2$) невозможен, так как тогда нарушится условие $\N\widetilde\beta_i-\N\gamma \nprec 0$.
 \end{lm}
@@ -655,7 +659,7 @@ $$ [x_{\alpha_k}(1),[\ldots[x_{\alpha_2}(1),[x_{\alpha_1}(1),u]]\ldots]] =
 {}^{x_\beta(\xi)}[x_{\gamma-\delta}(1),u] \;\in\; U\cap H \;.
 \end{multline*}
 Очевидно, $\widetilde\sigma + \N(\gamma-\delta)+\N\beta \notin \Sigma$, поэтому
-$h_{-\gamma} = [x_{-\gamma}(1),u]$. Дальнейшее коммутирование с $x_{\gamma-\delta}(1)$ приводит к элементу $w\coloneqq\varepsilon_{\gamma-\delta}(1)^k(u)$, $k=2\frac{\langle\sigma,\delta-\gamma\rangle}{\langle\delta-\gamma,\delta-\gamma\rangle}$, лежащему в подпространстве экстремального веса $\sigma-2\frac{\langle\sigma,\delta-\gamma\rangle}{\langle\delta-\gamma,\delta-\gamma\rangle}(\delta-\gamma)$. Так как $w\in H$, то по лемме \refb{extremalweightisomorphism} также $u \in H$.
+$[x_{\gamma-\delta}(1),h] = [x_{-\gamma}(1),u]$. Дальнейшее коммутирование с $x_{\gamma-\delta}(1)$ приводит к элементу $w\coloneqq\varepsilon_{\gamma-\delta}(1)^k(u)$, $k=2\frac{\langle\sigma,\delta-\gamma\rangle}{\langle\delta-\gamma,\delta-\gamma\rangle}$, лежащему в подпространстве экстремального веса $\sigma-2\frac{\langle\sigma,\delta-\gamma\rangle}{\langle\delta-\gamma,\delta-\gamma\rangle}(\delta-\gamma)$. Так как $w\in H$, то по лемме \refb{extremalweightisomorphism} также $u \in H$.
 
 Пусть теперь $\widetilde\sigma-\delta+\gamma \notin \Sigma$. В этом случае $\N\beta-\N\delta$, так же как и $\N\beta-\N\gamma$, будут неотрицательны.
 
@@ -740,7 +744,7 @@ h_{-3\gamma} \coloneqq [x_{-\gamma}(1),h_{-2\gamma}] = \\ =
 В условиях предыдущей теоремы подгруппа $H\le G \rightthreetimes U$ может быть представлена в виде $H = H_G \rightthreetimes H_U$, где $[H_G,E] = \prod_{i=1}^n E(\Phi_i, R, I_i)$, а $H_U=U_I$ --- подмодуль $U$, заданный некоторым идеалом кольца.
 \end{thm}
 \begin{proof}
-Достаточно доказать, что $H_G \le H$, оставшаяся часть следует из леммы~\refb{unipotenttransitivity}. \#
+Достаточно доказать, что $H_G \le H$, оставшаяся часть следует из леммы~\refb{unipotenttransitivity}.
 
 Разложим элемент $h \in H$ в произведение $h = z u$, где $z \in H_G$, $u \in U$. Докажем, что $z$ и $u$ также лежат в $H$.
 
