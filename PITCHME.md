@@ -144,7 +144,7 @@ $H\_U = U\_I$ — подмодуль $U$, заданный некоторым и
 
 ---
 
-Условия:
+## Условия:
 
 - $rk \; Φ_i \ge 2$
 <br><br>
@@ -161,7 +161,7 @@ $H\_U = U\_I$ — подмодуль $U$, заданный некоторым и
 
 ---
 
-Условия:
+## Условия:
 
 - ${\vphantom{\bigg\langle}}^E \bigg\langle {}^{EB}\langle u \rangle \cap U\_{\widetilde\sigma} \bigg\rangle = {\vphantom{\big\langle}}^E \big\langle u \big\rangle$
 для любого весового вектора $u$.
@@ -184,50 +184,49 @@ Note:
 
 Для каждого конкретного представления это условие легко проверяется, то есть можно понять, какие кольца удовлетворяют этому условию при фиксированном представлении.
 
-Например, присоединённое представление $A_2$ и произвольный вектор нулевого веса.
+Например, присоединённое представление $A\_2$ и произвольный вектор нулевого веса.
 
 ---
 
-Условия:
+## Условия:
 
-- Ни для какой неприводимой компоненты $Φ_i$ с максимальным весом $\widetilde{β}_i$ разность $\widetilde{σ} - \widetilde{β}_i$  не оказывается ортогональна всей $Φ_i$.
+- Ни для какой неприводимой компоненты $Φ\_i$ с максимальным весом $\widetilde{β}\_i$ разность $\widetilde{σ} - \widetilde{β}\_i$  не ортогональна всей $Φ\_i$.
 
 <center>
-<!--- <img class="notupmath" src="https://tex.s2cms.ru/svg/%0A%5Ctdplotsetmaincoords%7B75%7D%7B70%7D%0A%5Cbegin%7Btikzpicture%7D%5Bthick%2C%20scale%3D2%2Ctdplot_main_coords%5D%0A%5Cforeach%5Cang%20in%20%7B0%2C60%2C120%7D%7B%0A%20%20%5Cdraw%5Bblue%2C-%7B%3E%5Blength%3D10%2Cwidth%3D5%5D%7D%5D%20(0%2C0)%20--%20%2B%2B(%5Cang%2B30%3A3)%3B%0A%20%20%5Cdraw%5Bolive%2C-%7B%3E%5Blength%3D10%2Cwidth%3D5%5D%7D%5D%20(0%2C0)%20--%20%2B%2B(%5Cang%2B180%2B30%3A3)%3B%0A%7D%0A%5Cpath%20(0%2C0)%20%2B%2B(30%3A3)%20node%20%5Blabel%3Dbelow%20left%3A%24%5Calpha_1%24%5D%20%7B%7D%3B%0A%5Cpath%20(0%2C0)%20%2B%2B(150%3A3)%20node%20%5Blabel%3Dright%3A%7B%24%5Calpha_2%24%7D%5D%20%7B%7D%3B%0A%5Cpath%20(0%2C0)%20%2B%2B(90%3A3)%20node%20%5Blabel%3Dright%3A%24%5Cwidetilde%5Cbeta%24%5D%20%7B%7D%3B%0A%5Cdraw%5Bred%2Cdashed%2Cthick%5D%20(0%2C3%2C-3)%20--%20(0%2C3%2C2.7)%20%7B%7D%3B%0A%5Cdraw%5Bdotted%5D%20(0%2C-3%2C-2)%20--%20(0%2C-3%2C2)%20%7B%7D%3B%0A%25%5Cdraw%5Bdotted%5D%20(0%2C0%2C-2)%20--%20(0%2C0%2C2)%20%7B%7D%3B%0A%5Cdraw%5Bdotted%5D%20(2.5980%2C1.5%2C-2)%20--%20(2.5980%2C1.5%2C2)%20%7B%7D%3B%0A%5Cdraw%5Bdotted%5D%20(-2.5980%2C-1.5%2C-2)%20--%20(-2.5980%2C-1.5%2C2)%20%7B%7D%3B%0A%5Cdraw%5Bdotted%5D%20(-2.5980%2C1.5%2C-2)%20--%20(-2.5980%2C1.5%2C2)%20%7B%7D%3B%0A%5Cdraw%5Bdotted%5D%20(2.5980%2C-1.5%2C-2)%20--%20(2.5980%2C-1.5%2C2)%20%7B%7D%3B%0A%25%5Cdraw%5Bdotted%5D%20(2.5980%2C-1.5%2C2)%20--%20(-2.5980%2C1.5%2C2)%20%7B%7D%3B%0A%5Cdraw%5Bdotted%5D%20(2.5980%2C-1.5%2C2)%20--%20(2.5980%2C1.5%2C2)%20%7B%7D%3B%0A%5Cdraw%5Bdotted%5D%20(2.5980%2C1.5%2C2)%20--%20(0%2C3%2C2)%20%7B%7D%3B%0A%5Cdraw%5Bdotted%5D%20(0%2C3%2C2)%20--%20(-2.5980%2C1.5%2C2)%20%7B%7D%3B%0A%5Cdraw%5Bdotted%5D%20(-2.5980%2C1.5%2C2)%20--%20(-2.5980%2C-1.5%2C2)%20%7B%7D%3B%0A%5Cdraw%5Bdotted%5D%20(-2.5980%2C-1.5%2C2)%20--%20(0%2C-3%2C2)%20%7B%7D%3B%0A%5Cdraw%5Bdotted%5D%20(0%2C-3%2C2)%20--%20(2.5980%2C-1.5%2C2)%20%7B%7D%3B%0A%5Cdraw%5Bdotted%5D%20(2.5980%2C-1.5%2C-2)%20--%20(2.5980%2C1.5%2C-2)%20%7B%7D%3B%0A%5Cdraw%5Bdotted%5D%20(2.5980%2C1.5%2C-2)%20--%20(0%2C3%2C-2)%20%7B%7D%3B%0A%5Cdraw%5Bdotted%5D%20(0%2C3%2C-2)%20--%20(-2.5980%2C1.5%2C-2)%20%7B%7D%3B%0A%5Cdraw%5Bdotted%5D%20(-2.5980%2C1.5%2C-2)%20--%20(-2.5980%2C-1.5%2C-2)%20%7B%7D%3B%0A%5Cdraw%5Bdotted%5D%20(-2.5980%2C-1.5%2C-2)%20--%20(0%2C-3%2C-2)%20%7B%7D%3B%0A%5Cdraw%5Bdotted%5D%20(0%2C-3%2C-2)%20--%20(2.5980%2C-1.5%2C-2)%20%7B%7D%3B%0A%5Cnode%5Bblue%5D%20at%20(120%3A3)%20%7B%24%5CPhi%5E%2B%24%7D%3B%0A%5Cnode%5Bolive%5D%20at%20(180%2B120%3A2.5)%20%7B%24%5CPhi%5E-%24%7D%3B%0A%5Cend%7Btikzpicture%7D%0A" alt="
+<div>
+<img src="https://rawgit.com/mburyakov/abelian-unipotent/slides/PITCHME/formula5.svg" alt="
 \tdplotsetmaincoords{75}{70}
-\begin{tikzpicture}[thick, scale=2,tdplot_main_coords]
+\begin{tikzpicture}[scale=1.5,tdplot_main_coords]
 \foreach\ang in {0,60,120}{
-  \draw[blue,-{&gt;[length=10,width=5]}] (0,0) -- ++(\ang+30:3);
-  \draw[olive,-{&gt;[length=10,width=5]}] (0,0) -- ++(\ang+180+30:3);
+  \draw[ultra thick,blue,-{>[length=10,width=5]}] (0,0) -- ++(\ang+30:3);
+  \draw[ultra thick,olive,-{>[length=10,width=5]}] (0,0) -- ++(\ang+180+30:3);
 }
-\path (0,0) ++(30:3) node [label=below left:$\alpha_1$] {};
-\path (0,0) ++(150:3) node [label=right:{$\alpha_2$}] {};
-\path (0,0) ++(90:3) node [label=right:$\widetilde\beta$] {};
-\draw[red,dashed,thick] (0,3,-3) -- (0,3,2.7) {};
-\draw[dotted] (0,-3,-2) -- (0,-3,2) {};
-%\draw[dotted] (0,0,-2) -- (0,0,2) {};
-\draw[dotted] (2.5980,1.5,-2) -- (2.5980,1.5,2) {};
-\draw[dotted] (-2.5980,-1.5,-2) -- (-2.5980,-1.5,2) {};
-\draw[dotted] (-2.5980,1.5,-2) -- (-2.5980,1.5,2) {};
-\draw[dotted] (2.5980,-1.5,-2) -- (2.5980,-1.5,2) {};
-%\draw[dotted] (2.5980,-1.5,2) -- (-2.5980,1.5,2) {};
-\draw[dotted] (2.5980,-1.5,2) -- (2.5980,1.5,2) {};
-\draw[dotted] (2.5980,1.5,2) -- (0,3,2) {};
-\draw[dotted] (0,3,2) -- (-2.5980,1.5,2) {};
-\draw[dotted] (-2.5980,1.5,2) -- (-2.5980,-1.5,2) {};
-\draw[dotted] (-2.5980,-1.5,2) -- (0,-3,2) {};
-\draw[dotted] (0,-3,2) -- (2.5980,-1.5,2) {};
-\draw[dotted] (2.5980,-1.5,-2) -- (2.5980,1.5,-2) {};
-\draw[dotted] (2.5980,1.5,-2) -- (0,3,-2) {};
-\draw[dotted] (0,3,-2) -- (-2.5980,1.5,-2) {};
-\draw[dotted] (-2.5980,1.5,-2) -- (-2.5980,-1.5,-2) {};
-\draw[dotted] (-2.5980,-1.5,-2) -- (0,-3,-2) {};
-\draw[dotted] (0,-3,-2) -- (2.5980,-1.5,-2) {};
-\node[blue] at (120:3) {$\Phi^+$};
-\node[olive] at (180+120:2.5) {$\Phi^-$};
+\path (0,0) ++(30:3) node [label=below left:{\huge $\alpha_1$}] {};
+\path (0,0) ++(150:3) node [label=right:{\huge $\alpha_2$}] {};
+\path (0,0) ++(90:3) node [label=right:{\huge $\widetilde\beta$}] {};
+\draw[ultra thick,red,dashed] (0,3,-3) -- (0,3,2.7) {};
+\draw[very thick,dotted] (0,-3,-2) -- (0,-3,2) {};
+\draw[very thick,dotted] (2.5980,1.5,-2) -- (2.5980,1.5,2) {};
+\draw[very thick,dotted] (-2.5980,-1.5,-2) -- (-2.5980,-1.5,2) {};
+\draw[very thick,dotted] (-2.5980,1.5,-2) -- (-2.5980,1.5,2) {};
+\draw[very thick,dotted] (2.5980,-1.5,-2) -- (2.5980,-1.5,2) {};
+\draw[very thick,dotted] (2.5980,-1.5,2) -- (2.5980,1.5,2) {};
+\draw[very thick,dotted] (2.5980,1.5,2) -- (0,3,2) {};
+\draw[very thick,dotted] (0,3,2) -- (-2.5980,1.5,2) {};
+\draw[very thick,dotted] (-2.5980,1.5,2) -- (-2.5980,-1.5,2) {};
+\draw[very thick,dotted] (-2.5980,-1.5,2) -- (0,-3,2) {};
+\draw[very thick,dotted] (0,-3,2) -- (2.5980,-1.5,2) {};
+\draw[very thick,dotted] (2.5980,-1.5,-2) -- (2.5980,1.5,-2) {};
+\draw[very thick,dotted] (2.5980,1.5,-2) -- (0,3,-2) {};
+\draw[very thick,dotted] (0,3,-2) -- (-2.5980,1.5,-2) {};
+\draw[very thick,dotted] (-2.5980,1.5,-2) -- (-2.5980,-1.5,-2) {};
+\draw[very thick,dotted] (-2.5980,-1.5,-2) -- (0,-3,-2) {};
+\draw[very thick,dotted] (0,-3,-2) -- (2.5980,-1.5,-2) {};
+\node[very thick,blue] at (120:3) {\huge $\Phi^+$};
+\node[very thick,olive] at (180+120:2.5) {\huge $\Phi^-$};
 \end{tikzpicture}
-"> -->
-<img class="notupmath" src="https://rawgit.com/mburyakov/abelian-unipotent/slides/PITCHME/formula5.svg" alt="">
+">
+</div>
 </center>
 
 ---
