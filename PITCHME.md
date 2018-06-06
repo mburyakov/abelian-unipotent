@@ -1,7 +1,7 @@
 <center>
 <div style="width:7%">
 <!--- ![](https://upload.wikimedia.org/wikipedia/commons/a/a8/SPBGU_logo.png) -->
-![](https://rawgit.com/mburyakov/abelian-unipotent/slides/PITCHME/SPBGU_logo.png)
+![](https://rawgit.com/mburyakov/abelian-unipotent/master/PITCHME/SPBGU_logo.png)
 </div>
 <div style="color:DarkSlateGray; font-size:0.7em; height:3em;">
 Санкт-Петербургский Государственный Университет<br>
@@ -88,12 +88,12 @@ Note:
 - Группа матриц, сохраняющих вырожденную билинейную форму вида
 <center><div style="width:30%">
 <!--- ![](https://tex.s2cms.ru/svg/%0A%5Ctextrm%7B%5Chuge%20%24B%24%7D%3D%5Cbegin%7Bpmatrix%7D%0A%20%20%20%20%26%20%20%26%20%20%20%20%26%20%20%5Cmulticolumn%7B1%7D%7B%7Cc%7D%7B%7D%20%26%20%20%20%20%20%20%20%20%20%20%20%5C%5C%0A%20%20%20%20%26%20%5Ctextrm%7B%5Chuge%20%24B_%7B%5Ctext%7B%D0%BD%D0%B5%D0%B2%D1%8B%D1%80%7D.%7D%24%7D%20%26%20%20%20%20%26%20%20%5Cmulticolumn%7B1%7D%7B%7Cc%7D%7B%7D%20%26%20%5Ctextrm%7B%5Chuge%200%7D%20%5C%5C%0A%20%20%20%20%26%20%20%26%20%20%20%20%26%20%20%5Cmulticolumn%7B1%7D%7B%7Cc%7D%7B%7D%20%26%20%20%20%20%20%20%20%20%26%20%20%20%20%5C%5C%0A%5Cmulticolumn%7B3%7D%7Bc%7D%7B%24%5Cupbracefill%24%7D%26%5Cmulticolumn%7B1%7D%7B%7Cc%7D%7B%7D%5C%5C%0A%5Cmulticolumn%7B3%7D%7Bc%7D%7B%5Cscriptstyle%20m%7D%26%5Cmulticolumn%7B1%7D%7B%7Cc%7D%7B%7D%5C%5C%0A%5Ccline%7B2-5%7D%0A%20%20%20%20%20%20%20%26%20%20%20%20%20%20%20%20%26%20%20%20%20%20%26%20%20%5Cmulticolumn%7B1%7D%7B%7Cc%7D%7B%7D%20%26%20%20%20%20%20%20%20%20%5C%5C%0A%20%20%20%20%20%20%20%26%20%20%20%5Ctextrm%7B%5Chuge%200%7D%20%20%20%20%20%26%20%20%20%20%20%26%20%20%5Cmulticolumn%7B1%7D%7B%7Cc%7D%7B%7D%20%26%20%5Ctextrm%7B%5Chuge%200%7D%20%5C%5C%0A%5Cmulticolumn%7B6%7D%7Bc%7D%7B%24%5Cupbracefill%24%7D%5C%5C%0A%5Cmulticolumn%7B6%7D%7Bc%7D%7B%5Cscriptstyle%20n%7D%5C%5C%0A%5Cnoalign%7B%5Cvspace%7B-2%5Cnormalbaselineskip%7D%7D%0A%5Cend%7Bpmatrix%7D%20%0A) -->
-![](https://rawgit.com/mburyakov/abelian-unipotent/slides/PITCHME/formula1.svg)
+![](https://rawgit.com/mburyakov/abelian-unipotent/master/PITCHME/formula1.svg)
 </div></center>
 будет состоять из матриц вида
 <center><div style="width:30%">
 <!--- ![](https://tex.s2cms.ru/svg/%0A%5Cbegin%7Bpmatrix%7D%0A%20%20%20%20%26%20%20%26%20%20%26%20%20%20%20%5Cmulticolumn%7B1%7D%7B%7Cc%7D%7B%5Cphantom%7B*%7D%7D%20%20%20%20%26%20%7B*%7D%20%26%20%7B*%7D%20%20%20%20%20%20%20%20%20%20%20%5C%5C%0A%20%20%20%20%26%20%5Ctextrm%7B%5Chuge%20%24O%28B_%7B%5Ctext%7B%D0%BD%D0%B5%D0%B2%D1%8B%D1%80%7D%2E%7D%29%24%7D%20%26%20%20%20%26%20%5Cmulticolumn%7B1%7D%7B%7Cc%7D%7B%7D%20%20%26%20%7B*%7D%20%26%20%7B*%7D%20%20%5C%5C%0A%20%20%20%20%26%20%20%26%20%20%20%20%26%20%5Cmulticolumn%7B1%7D%7B%7Cc%7D%7B%7D%20%20%26%20%20%20%20%20%7B*%7D%20%26%20%7B*%7D%20%20%26%20%20%20%20%5C%5C%0A%5Cmulticolumn%7B3%7D%7Bc%7D%7B%24%5Cupbracefill%24%7D%26%5Cmulticolumn%7B1%7D%7B%7Cc%7D%7B%7D%20%26%20%7B*%7D%20%26%20%7B*%7D%5C%5C%0A%5Cmulticolumn%7B3%7D%7Bc%7D%7B%5Cscriptstyle%20m%7D%26%5Cmulticolumn%7B1%7D%7B%7Cc%7D%7B%7D%5C%5C%0A%5Ccline%7B2-6%7D%0A%20%20%20%20%20%20%20%26%20%20%20%20%20%20%20%20%26%20%20%20%20%20%26%20%5Cmulticolumn%7B1%7D%7B%7Cc%7D%7B%7D%20%20%26%20%20%20%20%20%20%20%20%5C%5C%0A%20%20%20%20%20%20%20%26%20%20%20%5Ctextrm%7B%5Chuge%200%7D%20%20%20%20%20%20%20%26%20%26%20%5Cmulticolumn%7B3%7D%7B%7Cc%7D%7B%5Ctextrm%7B%5Chuge%20%24GL_%7Bn-m%7D%24%7D%20%26%20%20%20%20%5C%5C%0A%5Cmulticolumn%7B6%7D%7Bc%7D%7B%24%5Cupbracefill%24%7D%5C%5C%0A%5Cmulticolumn%7B6%7D%7Bc%7D%7B%5Cscriptstyle%20n%7D%5C%5C%0A%5Cnoalign%7B%5Cvspace%7B-2%5Cnormalbaselineskip%7D%7D%0A%5Cend%7Bpmatrix%7D%20%0A) -->
-![](https://rawgit.com/mburyakov/abelian-unipotent/slides/PITCHME/formula2.svg)
+![](https://rawgit.com/mburyakov/abelian-unipotent/master/PITCHME/formula2.svg)
 </div></center>
 
 ---
@@ -134,7 +134,7 @@ $U$ — свободный модуль, раскладывающийся в п�
 весовых подпространств
 <center>
 <!--- <img class="upmath" src="https://tex.s2cms.ru/svg/U%3D%5Cbigoplus_%7B%5Csigma%20%5Cin%20%5CSigma%20%5Csubseteq%20X(T)%7D%20%7BU_%5Csigma%7D" alt="U=\bigoplus_{\sigma \in \Sigma \subseteq X(T)} {U_\sigma}" /> -->
-<img class="upmath" src="https://rawgit.com/mburyakov/abelian-unipotent/slides/PITCHME/formula3.svg" alt="U\;=\;\bigoplus_{\sigma \in \Sigma}\;{U_\sigma}" />
+<img class="upmath" src="https://rawgit.com/mburyakov/abelian-unipotent/master/PITCHME/formula3.svg" alt="U\;=\;\bigoplus_{\sigma \in \Sigma}\;{U_\sigma}" />
 </center>
 
 
@@ -150,7 +150,7 @@ $$ E = \langle x\_\alpha(\xi) \;\|\; \alpha \in \Phi, \xi \in R \rangle $$
 
 <center>
 <!--- <img class="upmath" src="https://tex.s2cms.ru/svg/%5Cmathrm%7Bln%7D%5C%3Bx_%5Calpha(%5Cxi)%20%3D%20(x_%5Calpha(%5Cxi)-1)%20-%20%5Cfrac%7B(x_%5Calpha(%5Cxi)-1)%5E2%7D%7B2%7D%20%2B%20%5Cfrac%7B(x_%5Calpha(%5Cxi)-1)%5E3%7D%7B3%7D%20-%20%5Cldots" alt="\mathrm{ln}\;x_\alpha(\xi) = (x_\alpha(\xi)-1) - \frac{(x_\alpha(\xi)-1)^2}{2} + \frac{(x_\alpha(\xi)-1)^3}{3} - \ldots" /> -->
-<img class="upmath" src="https://rawgit.com/mburyakov/abelian-unipotent/slides/PITCHME/formula4.svg" alt="\mathrm{ln}\;x_\alpha(\xi) = (x_\alpha(\xi)-1) - \frac{(x_\alpha(\xi)-1)^2}{2} + \frac{(x_\alpha(\xi)-1)^3}{3} - \ldots" />
+<img class="upmath" src="https://rawgit.com/mburyakov/abelian-unipotent/master/PITCHME/formula4.svg" alt="\mathrm{ln}\;x_\alpha(\xi) = (x_\alpha(\xi)-1) - \frac{(x_\alpha(\xi)-1)^2}{2} + \frac{(x_\alpha(\xi)-1)^3}{3} - \ldots" />
 </center>
 
 Note:
@@ -238,7 +238,7 @@ Note:
 
 <center>
 <div>
-<img width="60%" src="https://rawgit.com/mburyakov/abelian-unipotent/slides/PITCHME/formula5.svg" alt="
+<img width="60%" src="https://rawgit.com/mburyakov/abelian-unipotent/master/PITCHME/formula5.svg" alt="
 \tdplotsetmaincoords{75}{70}
 \begin{tikzpicture}[scale=1.5,tdplot_main_coords]
 \foreach\ang in {0,60,120}{
