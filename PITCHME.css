@@ -9,7 +9,8 @@
 .reveal h4,
 .reveal h5,
 .reveal h6 {
-  text-transform: none; }
+  text-transform: none;
+  letter-spacing: 0px;  }
 
 .reveal .slides section {
     font-size: 0.7em; }
@@ -18,14 +19,20 @@
     margin-left: 5%;
     margin-right: 5%; }
 
+.reveal .slide-number {
+    font-size: 0.7em !important;
+    color: gray !important;
+    background-color: inherit !important;
+}
+
 .reveal h1 {
   font-size: 1.5em; }
 .reveal h2 {
-  font-size: 1.0em; }
+  font-size: 1.2em; }
 .reveal h3 {
-  font-size: 0.7em; }
+  font-size: 1.0em; }
 .reveal h4 {
-  font-size: 0.5em; }
+  font-size: 0.7em; }
 
 .reveal {
   font-family: "Source Sans Pro", Helvetica, sans-serif;
@@ -71,5 +78,21 @@
   max-height: 400px;
   word-wrap: normal; }
 
+.reveal ol {
+  counter-reset: list;
+  margin: 0; }
 
+.reveal ol > li {
+  list-style: none;
+  position: relative; }
 
+.reveal ol > li:before {
+  counter-increment: list;
+  content: counter(list, lower-alpha) ") ";
+  position: absolute;
+  left: -1.4em; }
+
+.reveal ol > li,
+.reveal ul > li{
+  text-indent: 0.6em;
+  padding-left: 0em; }
